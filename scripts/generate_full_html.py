@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
-"""Generate full 단답비급 HTML (001-389) from PDF text."""
+"""Generate full 단답비급 HTML (001-389) with contextual explanations."""
 import re
 import html
+import json
+import glob
 import fitz
 from pathlib import Path
 
 PDF = Path("/home/ubuntu/.cursor/projects/workspace/uploads/_________________5d19.pdf")
 OUT = Path("/workspace/private_study_notes.html")
+SCRIPTS = Path("/workspace/scripts")
 
 DAY_MAP = {
     1: "DAY 1 — 가공/지중/송전/배전선로",
@@ -26,32 +29,16 @@ DAY_MAP = {
     15: "부록 — 감리",
 }
 
-# Extra explanations for key topics (설비불평형 etc.)
-EXTRA = {
-    50: "30% 설비불평형률과 다릅니다. 저압 단상3선식에서 중성선(N)과 전압측 전선 사이 불평형 부하 한도는 40%입니다.",
-    51: "3상 3선·4선식 기본 한도 30%. 예외: 저전·고단·차백·역V 4가지. 암기: 「저전 고단 차백 역V」",
-    52: "30% 지키기 어려울 때 전기사업자 협의. 1개→2차역V(300↓), 2개→스코트, 3개↑→평형 접속.",
-    27: "유도성 부하(모터 등)는 지상 무효전력을 먹습니다. 콘덴서로 진상 무효를 공급해 역률을 올립니다.",
-    32: "콘덴서-계통 직렬 공진으로 제5고조파(5×60=300Hz) 증폭 방지. 용량의 약 6% 직렬리액터.",
-    33: "이론 4% 이상, 실제 5~6% 사용. 조건: 5ωL > 1/(5ωC)",
-    34: "제3고조파(180Hz) 억제. 11% + 여유 2% = 13%",
-    12: "승압하면 전류↓ → 전압강하·손실 모두 감소. V²에 반비례하는 항이 많아 손실률은 1/4.",
-    122: "병렬운전 4조건: 극성, 권수비, %Z, 내부저항·누설리액턴스비. 하나라도 틀리면 순환전류·가열.",
-    171: "차단기(CB) = 부하전류 개폐 + 고장전류 차단. DS는 무부하만.",
-    298: "UPS = 무정전 전원 공급 장치. 정전 시 축전지→인버터 경로로 전환.",
-    318: "접지 목적: 감전방지, 전위상승 억제, 계전기 신속동작.",
-}
+EXPLANATIONS: dict[int, str] = {}
 
-TIP_PATTERNS = [
-    (r"장점|단점", "장단점 문제 — 개수를 문제에서 정확히 확인하세요. 빠짐없이 나열."),
-    (r"몇 \[|몇 \[%", "수치 암기 문제 — 단위(m, %, kVA, V, A)까지 답안에 쓰세요."),
-    (r"명칭|약호|기호", "명칭·약호 문제 — 한글명과 영문 약호를 함께 외우면 실기에서 유리합니다."),
-    (r"설명하시오|설명하고", "서술형 — 핵심 키워드 2~3개 + 한 문장으로 정리."),
-    (r"\(\s*\)", "빈칸 채우기 — 숫자·용어를 정확히. 틀린 글자 하나면 오답."),
-    (r"쓰시오\.?$", "나열형 — ①②③ 순서로 개수 맞춰 작성."),
-    (r"비교", "비교 문제 — A의 장점 vs B의 장점 형태로 대칭 정리."),
-    (r"계산|구하시오", "계산 문제 — 식 → 대입 → 단위 순서로 풀이."),
-]
+
+def load_explanations() -> dict[int, str]:
+    merged: dict[int, str] = {}
+    for path in sorted(SCRIPTS.glob("explanations_*.json")):
+        data = json.loads(path.read_text(encoding="utf-8"))
+        for key, text in data.items():
+            merged[int(key)] = text.strip()
+    return merged
 
 
 def extract_text() -> str:
@@ -176,22 +163,7 @@ def parse_questions(text: str) -> list[dict]:
 
 def make_tip(item: dict) -> str:
     n = item["num"]
-    if n in EXTRA:
-        return EXTRA[n]
-    q, a = item["question"], item["answer"]
-    bullets = re.findall(r"^[①②③④⑤⑥⑦⑧⑨⑩]\s*(.+)$", a, re.M)
-    if bullets:
-        keys = " · ".join(b.split("(")[0].strip()[:18] for b in bullets[:4])
-        tail = f" 외 {len(bullets)-4}개" if len(bullets) > 4 else ""
-        return f"총 {len(bullets)}개 암기. 핵심: {keys}{tail}. 개수 틀리면 감점."
-    one_line = a.replace("\n", " ").strip()
-    if len(one_line) < 120:
-        return f"한 줄 암기: 「{one_line}」— 키워드 그대로 답안에 쓰세요."
-    combined = q + " " + a
-    for pat, tip in TIP_PATTERNS:
-        if re.search(pat, combined, re.I):
-            return tip
-    return "답안 첫 문장의 핵심 용어를 괄호·단위까지 정확히 암기하세요."
+    return EXPLANATIONS.get(n, "이 항목의 설명을 준비 중입니다.")
 
 
 def esc(s: str) -> str:
@@ -221,7 +193,7 @@ def generate_html(items: list[dict]) -> str:
           </div>
           <div class="q-body"><strong>문제</strong><p>{esc(it['question'])}</p></div>
           <div class="q-ans"><strong>답</strong><p>{esc(it['answer'])}</p></div>
-          <div class="q-extra"><strong>📌 덧붙인 설명</strong><p>{html.escape(tip)}</p></div>
+          <div class="q-extra"><strong>💡 왜 이 답인가요?</strong><p>{html.escape(tip)}</p></div>
         </article>"""
 
         sections += f"""
@@ -295,7 +267,7 @@ def generate_html(items: list[dict]) -> str:
   <main class="content">
     <header class="hero">
       <h1>⚡ 전기기사 실기 단답비급 전체</h1>
-      <p class="meta">001번 ~ 389번 · 문제 + 답 + 덧붙인 설명 · 총 {len(items)}문항</p>
+      <p class="meta">001번 ~ 389번 · 문제 + 답 + 맥락 설명 · 총 {len(items)}문항</p>
     </header>
     <input class="search" type="search" placeholder="번호 또는 키워드 검색 (예: 050, 피뢰기, 변압기)" id="search">
     {"<div class='warn'>⚠️ 파싱 누락 번호: " + ", ".join(f'{n:03d}' for n in missing) + "</div>" if missing else ""}
@@ -324,6 +296,8 @@ document.getElementById('search').addEventListener('input', function(e) {{
 
 
 def main():
+    global EXPLANATIONS
+    EXPLANATIONS = load_explanations()
     text = extract_text()
     Path("/workspace/scripts/extracted.txt").write_text(text, encoding="utf-8")
     items = parse_questions(text)
