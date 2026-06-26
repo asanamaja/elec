@@ -3,814 +3,530 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>전기기사 암기·정리 노트</title>
+  <title>전기기사 암기·정리 노트 — 설비불평형률 (상세판)</title>
   <style>
     :root {
-      --bg: #f4f6f9;
-      --surface: #ffffff;
-      --text: #1a2332;
-      --muted: #5c6b7f;
-      --border: #e2e8f0;
-      --accent: #2563eb;
-      --accent-soft: #eff6ff;
-      --step0: #8b5cf6;
-      --step1: #2563eb;
-      --step2: #059669;
-      --step3: #d97706;
-      --step4: #dc2626;
-      --radius: 12px;
-      --shadow: 0 1px 3px rgba(15, 23, 42, 0.08), 0 4px 16px rgba(15, 23, 42, 0.04);
+      --bg: #f0f4f8; --surface: #fff; --text: #1a2332; --muted: #5c6b7f;
+      --border: #dde4ed; --accent: #2563eb; --accent-soft: #eff6ff;
+      --step0: #7c3aed; --step1: #2563eb; --step2: #059669;
+      --step3: #d97706; --step4: #dc2626; --exam: #0d9488;
+      --radius: 12px; --shadow: 0 2px 8px rgba(15,23,42,.06);
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.75;
-      font-size: 16px;
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: 260px 1fr;
-      min-height: 100vh;
-      max-width: 1280px;
-      margin: 0 auto;
-    }
-
-    .sidebar {
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      overflow-y: auto;
-      padding: 2rem 1.25rem;
-      background: var(--surface);
-      border-right: 1px solid var(--border);
-    }
-
-    .sidebar h2 {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      margin-bottom: 1rem;
-    }
-
-    .sidebar nav a {
-      display: block;
-      padding: 0.45rem 0.75rem;
-      margin-bottom: 0.2rem;
-      border-radius: 8px;
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: background 0.15s, color 0.15s;
-    }
-
-    .sidebar nav a:hover,
-    .sidebar nav a.active {
-      background: var(--accent-soft);
-      color: var(--accent);
-    }
-
-    .content {
-      padding: 2.5rem 3rem 4rem;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
-      color: #fff;
-      border-radius: var(--radius);
-      padding: 2.5rem 2rem;
-      margin-bottom: 2rem;
-      box-shadow: var(--shadow);
-    }
-
-    .hero h1 {
-      font-size: 2rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.75rem;
-    }
-
-    .hero .subtitle {
-      opacity: 0.9;
-      font-size: 1rem;
-      border-left: 3px solid rgba(255,255,255,0.5);
-      padding-left: 1rem;
-    }
-
-    .reading-order {
-      background: var(--accent-soft);
-      border: 1px solid #bfdbfe;
-      border-radius: var(--radius);
-      padding: 1rem 1.25rem;
-      margin-bottom: 2.5rem;
-      font-size: 0.95rem;
-    }
-
-    .reading-order strong { color: var(--accent); }
-
-    section {
-      background: var(--surface);
-      border-radius: var(--radius);
-      padding: 2rem;
-      margin-bottom: 1.75rem;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
-    }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 1.5rem;
-      padding-bottom: 1rem;
-      border-bottom: 2px solid var(--border);
-    }
-
-    .step-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 2.5rem;
-      height: 2.5rem;
-      border-radius: 10px;
-      color: #fff;
-      font-weight: 800;
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-
+    body { font-family: "Pretendard","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.8; font-size: 16px; }
+    .layout { display: grid; grid-template-columns: 270px 1fr; max-width: 1320px; margin: 0 auto; min-height: 100vh; }
+    .sidebar { position: sticky; top: 0; height: 100vh; overflow-y: auto; padding: 1.5rem 1rem;
+      background: var(--surface); border-right: 1px solid var(--border); }
+    .sidebar h2 { font-size: .7rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: .75rem; }
+    .sidebar a { display: block; padding: .4rem .7rem; margin-bottom: .15rem; border-radius: 8px;
+      color: var(--muted); text-decoration: none; font-size: .88rem; }
+    .sidebar a:hover { background: var(--accent-soft); color: var(--accent); }
+    .content { padding: 2rem 2.5rem 4rem; }
+    .hero { background: linear-gradient(135deg,#1e3a5f,#2563eb); color: #fff; border-radius: var(--radius);
+      padding: 2rem; margin-bottom: 1.5rem; box-shadow: var(--shadow); }
+    .hero h1 { font-size: 1.75rem; font-weight: 800; margin-bottom: .5rem; }
+    .hero p { opacity: .92; font-size: .95rem; }
+    .reading-order { background: var(--accent-soft); border: 1px solid #bfdbfe; border-radius: var(--radius);
+      padding: 1rem 1.25rem; margin-bottom: 2rem; font-size: .93rem; }
+    section { background: var(--surface); border-radius: var(--radius); padding: 1.75rem;
+      margin-bottom: 1.5rem; box-shadow: var(--shadow); border: 1px solid var(--border); }
+    .section-header { display: flex; align-items: center; gap: .75rem; margin-bottom: 1.25rem;
+      padding-bottom: .85rem; border-bottom: 2px solid var(--border); }
+    .step-badge { min-width: 2.4rem; height: 2.4rem; border-radius: 10px; color: #fff;
+      font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .step-0 .step-badge { background: var(--step0); }
     .step-1 .step-badge { background: var(--step1); }
     .step-2 .step-badge { background: var(--step2); }
     .step-3 .step-badge { background: var(--step3); }
     .step-4 .step-badge { background: var(--step4); }
-
-    h2.section-title {
-      font-size: 1.35rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-    }
-
-    h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin: 1.75rem 0 0.75rem;
-      color: var(--text);
-    }
-
+    .exam .step-badge { background: var(--exam); }
+    h2.section-title { font-size: 1.25rem; font-weight: 700; }
+    h3 { font-size: 1.05rem; font-weight: 700; margin: 1.5rem 0 .65rem; }
     h3:first-of-type { margin-top: 0; }
-
-    h4 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin: 1.5rem 0 0.6rem;
-      color: #334155;
-    }
-
-    p { margin-bottom: 0.85rem; }
-
-    .card {
-      background: #f8fafc;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.25rem;
-      margin: 1rem 0;
-    }
-
-    .card.exception {
-      border-left: 4px solid var(--step2);
-    }
-
-    .card-label {
-      display: inline-block;
-      font-size: 0.8rem;
-      font-weight: 700;
-      padding: 0.2rem 0.6rem;
-      border-radius: 6px;
-      margin-bottom: 0.6rem;
-    }
-
+    h4 { font-size: .98rem; font-weight: 600; margin: 1.2rem 0 .5rem; color: #334155; }
+    p { margin-bottom: .75rem; }
+    .extra { background: #f0fdf4; border-left: 4px solid #22c55e; border-radius: 0 10px 10px 0;
+      padding: 1rem 1.15rem; margin: 1rem 0; font-size: .93rem; }
+    .extra strong { color: #15803d; display: block; margin-bottom: .35rem; }
+    .exam-box { background: #f0fdfa; border: 1px solid #99f6e4; border-radius: 10px; padding: 1.15rem; margin: 1rem 0; }
+    .exam-box .q-num { font-weight: 800; color: var(--exam); font-size: .85rem; margin-bottom: .4rem; }
+    .card { background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 1.15rem; margin: 1rem 0; }
+    .card.exception { border-left: 4px solid var(--step2); }
+    .label { display: inline-block; font-size: .78rem; font-weight: 700; padding: .15rem .55rem;
+      border-radius: 6px; margin: .5rem .25rem .35rem 0; }
     .label-law { background: #dbeafe; color: #1d4ed8; }
     .label-kid { background: #fef3c7; color: #b45309; }
     .label-why { background: #d1fae5; color: #047857; }
     .label-check { background: #ede9fe; color: #6d28d9; }
     .label-warn { background: #fee2e2; color: #b91c1c; }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1rem 0;
-      font-size: 0.92rem;
-    }
-
-    th, td {
-      border: 1px solid var(--border);
-      padding: 0.65rem 0.85rem;
-      text-align: left;
-      vertical-align: top;
-    }
-
-    th {
-      background: #f1f5f9;
-      font-weight: 600;
-      color: #334155;
-    }
-
+    .label-extra { background: #ecfdf5; color: #047857; }
+    table { width: 100%; border-collapse: collapse; margin: .85rem 0; font-size: .9rem; }
+    th, td { border: 1px solid var(--border); padding: .55rem .75rem; text-align: left; vertical-align: top; }
+    th { background: #f1f5f9; font-weight: 600; }
     tr:nth-child(even) td { background: #fafbfc; }
-
-    pre, .diagram {
-      background: #0f172a;
-      color: #e2e8f0;
-      border-radius: 10px;
-      padding: 1.1rem 1.25rem;
-      overflow-x: auto;
-      font-family: "JetBrains Mono", "D2Coding", "Consolas", monospace;
-      font-size: 0.85rem;
-      line-height: 1.6;
-      margin: 1rem 0;
-      white-space: pre;
-    }
-
-    ul, ol {
-      margin: 0.5rem 0 1rem 1.5rem;
-    }
-
-    li { margin-bottom: 0.35rem; }
-
-    .highlight-box {
-      background: linear-gradient(135deg, #fef3c7, #fff7ed);
-      border: 1px solid #fcd34d;
-      border-radius: 10px;
-      padding: 1.25rem;
-      margin: 1.25rem 0;
-      text-align: center;
-    }
-
-    .mnemonic {
-      font-size: 1.5rem;
-      font-weight: 800;
-      letter-spacing: 0.15em;
-      color: #b45309;
-    }
-
-    .rhyme {
-      font-size: 1.05rem;
-      font-weight: 600;
-      line-height: 2;
-      color: #334155;
-    }
-
-    .compare-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin: 1rem 0;
-    }
-
-    .compare-card {
-      background: #f8fafc;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1rem;
-    }
-
-    .compare-card h5 {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-bottom: 0.5rem;
-    }
-
-    .exception-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 0.75rem;
-      margin: 1.25rem 0;
-    }
-
-    .exception-card {
-      background: #f0fdf4;
-      border: 1px solid #bbf7d0;
-      border-radius: 10px;
-      padding: 1rem;
-      font-size: 0.92rem;
-    }
-
-    .exception-card .num {
-      font-size: 1.25rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .checklist {
-      list-style: none;
-      margin-left: 0;
-    }
-
-    .checklist li {
-      padding: 0.6rem 0.85rem;
-      margin-bottom: 0.4rem;
-      background: #f8fafc;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: flex-start;
-      gap: 0.6rem;
-    }
-
-    .checklist li::before {
-      content: "☐";
-      color: var(--accent);
-      font-size: 1.1rem;
-      flex-shrink: 0;
-    }
-
-    .overview-table th:first-child { width: 3rem; text-align: center; }
-
-    .tag {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 0.15rem 0.5rem;
-      border-radius: 4px;
-      background: #e2e8f0;
-      color: #475569;
-    }
-
+    pre, .diagram { background: #0f172a; color: #e2e8f0; border-radius: 10px; padding: 1rem 1.15rem;
+      overflow-x: auto; font-family: "JetBrains Mono","D2Coding",monospace; font-size: .82rem;
+      line-height: 1.55; margin: .85rem 0; white-space: pre; }
+    ul, ol { margin: .4rem 0 .85rem 1.4rem; }
+    li { margin-bottom: .3rem; }
+    .highlight { background: linear-gradient(135deg,#fef3c7,#fff7ed); border: 1px solid #fcd34d;
+      border-radius: 10px; padding: 1.15rem; margin: 1rem 0; text-align: center; }
+    .mnemonic { font-size: 1.4rem; font-weight: 800; letter-spacing: .12em; color: #b45309; }
+    .exception-cards { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: .65rem; margin: 1rem 0; }
+    .exception-card { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: .9rem; font-size: .9rem; }
+    .checklist { list-style: none; margin-left: 0; }
+    .checklist li { padding: .55rem .8rem; margin-bottom: .35rem; background: #f8fafc;
+      border-radius: 8px; border: 1px solid var(--border); display: flex; gap: .5rem; }
+    .checklist li::before { content: "☐"; color: var(--accent); }
+    .tag { font-size: .72rem; font-weight: 600; padding: .12rem .45rem; border-radius: 4px; }
     .tag.ok { background: #d1fae5; color: #047857; }
     .tag.no { background: #fee2e2; color: #b91c1c; }
-
-    .footer {
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.85rem;
-      margin-top: 2rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
-    }
-
-    hr {
-      border: none;
-      border-top: 1px dashed var(--border);
-      margin: 1.5rem 0;
-    }
-
+    .footer { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+    hr { border: none; border-top: 1px dashed var(--border); margin: 1.25rem 0; }
     @media (max-width: 900px) {
       .layout { grid-template-columns: 1fr; }
-      .sidebar {
-        position: static;
-        height: auto;
-        border-right: none;
-        border-bottom: 1px solid var(--border);
-      }
-      .content { padding: 1.5rem 1.25rem 3rem; }
-      .compare-grid { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 1.5rem; }
-    }
-
-    @media print {
-      body { background: #fff; }
-      .sidebar { display: none; }
-      .layout { display: block; max-width: 100%; }
-      section { box-shadow: none; break-inside: avoid; }
+      .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--border); }
+      .content { padding: 1.25rem 1rem 3rem; }
     }
   </style>
 </head>
 <body>
-  <div class="layout">
-    <aside class="sidebar">
-      <h2>목차</h2>
-      <nav>
-        <a href="#intro">소개</a>
-        <a href="#step0">0단계 — 기초</a>
-        <a href="#step1">1단계 — 기본 규칙</a>
-        <a href="#step2">2단계 — 예외 4가지</a>
-        <a href="#step3">3단계 — 암기법</a>
-        <a href="#step4">4단계 — 계산 예시</a>
-        <a href="#checklist">시험 체크리스트</a>
-      </nav>
-    </aside>
+<div class="layout">
+  <aside class="sidebar">
+    <h2>목차</h2>
+    <nav>
+      <a href="#exam">기출문제 050~052</a>
+      <a href="#step0">0단계 — 기초</a>
+      <a href="#step1">1단계 — 기본 규칙</a>
+      <a href="#step2">2단계 — 예외 4가지</a>
+      <a href="#step3">3단계 — 암기법</a>
+      <a href="#step4">4단계 — 계산</a>
+      <a href="#q052">052 협의 시설</a>
+      <a href="#checklist">체크리스트</a>
+    </nav>
+  </aside>
 
-    <main class="content">
-      <header class="hero" id="intro">
-        <h1>⚡ 전기기사 암기·정리 노트</h1>
-        <p class="subtitle">이 파일에 앞으로 정리하는 내용을 모두 누적합니다.</p>
-      </header>
+  <main class="content">
+    <header class="hero">
+      <h1>⚡ 전기기사 암기·정리 노트</h1>
+      <p>설비불평형률 — 항목별 상세 설명 + 기출 단답 정리 (상세판)</p>
+    </header>
 
-      <div class="reading-order">
-        <strong>읽는 순서:</strong>
-        0단계(기초) → 1단계(규칙) → 2단계(예외 4개) → 3단계(암기법) → 4단계(계산)
+    <div class="reading-order">
+      <strong>읽는 순서:</strong> 기출문제 확인 → 0단계(기초) → 1단계(규칙) → 2단계(예외 4개) → 3단계(암기) → 4단계(계산) → 052 협의규정
+    </div>
+
+    <!-- 기출문제 -->
+    <section class="exam" id="exam">
+      <div class="section-header">
+        <span class="step-badge">기출</span>
+        <h2 class="section-title">단답비급 DAY2 — 설비불평형 (050~052)</h2>
       </div>
 
-      <!-- STEP 0 -->
-      <section class="step-0" id="step0">
-        <div class="section-header">
-          <span class="step-badge">0</span>
-          <h2 class="section-title">전기를 모르는 사람도 이해하기 (초등학생 버전)</h2>
+      <div class="exam-box">
+        <div class="q-num">문제 050</div>
+        <p><strong>저압 수전의 단상 3선식에서 중성선과 각 전압측 전선 간의 부하는 불평형 부하를 제한할 때 몇 [%]를 초과하지 않아야 하는가?</strong></p>
+        <p><strong>답: 40[%]</strong></p>
+        <div class="extra">
+          <strong>📌 덧붙인 설명</strong>
+          이 40%는 <em>설비불평형률 30%</em>와 다른 규정입니다.<br>
+          • <strong>30%</strong> = 3상 3선·4선식 전체의 설비불평형률 한도<br>
+          • <strong>40%</strong> = 저압 단상 3선식에서 <strong>중성선(N)과 한 상(전압측) 사이</strong>에 걸린 불평형 부하 한도<br>
+          시험에서 숫자만 헷갈리면 틀립니다. "3상 전체 30%" vs "단상3선 N-상간 40%"로 구분하세요.
         </div>
+      </div>
 
-        <h3>전기는 왜 3줄(3상)로 오나?</h3>
-        <p>집이나 공장에 오는 큰 전기는 보통 <strong>전선 3개</strong>로 들어옵니다. 이걸 <strong>3상 전기</strong>라고 부릅니다.</p>
-        <p>쉽게 비유하면:</p>
-        <pre>        A선  ───────  친구 A가 들고 가는 가방
+      <div class="exam-box">
+        <div class="q-num">문제 051-1</div>
+        <p><strong>저압·고압·특고압 수전의 3상 3선식 또는 3상 4선식에서 설비불평형률 한도는?</strong></p>
+        <p><strong>답: 30[%] 이하 (원칙)</strong></p>
+        <div class="extra">
+          <strong>📌 덧붙인 설명</strong>
+          단상 접속 부하 기준으로 각 상(A,B,C)에 걸린 부하를 계산한 뒤, (최대−최소)÷평균×100으로 구합니다.
+          30%를 넘으면 원칙적으로 불합격이지만, 아래 4가지 예외에 해당하면 30%를 넘어도 됩니다.
+        </div>
+      </div>
+
+      <div class="exam-box">
+        <div class="q-num">문제 051-2 — 예외 4가지 (필수 암기)</div>
+        <table>
+          <thead><tr><th>#</th><th>예외 조건 (시험 답안 그대로)</th></tr></thead>
+          <tbody>
+            <tr><td>①</td><td>저압 수전에서 <strong>전용 변압기</strong> 등으로 수전하는 경우</td></tr>
+            <tr><td>②</td><td>고압·특고압 수전에서 <strong>100 kVA(kW) 이하</strong>의 단상 부하인 경우</td></tr>
+            <tr><td>③</td><td>고압·특고압 수전에서 단상부하 용량의 <strong>최대와 최소의 차가 100 kVA(kW) 이하</strong>인 경우</td></tr>
+            <tr><td>④</td><td><strong>특고압</strong> 수전에서 <strong>100 kVA(kW) 이하</strong> 단상 변압기 <strong>2대</strong>로 <strong>역 V결선</strong>하는 경우</td></tr>
+          </tbody>
+        </table>
+        <div class="extra">
+          <strong>📌 덧붙인 설명 — 암기문장</strong>
+          「<strong>저전 고단 차백 역V</strong>」<br>
+          저압+전용 / 고압·특고압+단상100↓ / 차이100↓ / 특고압+역V2대
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 0 -->
+    <section class="step-0" id="step0">
+      <div class="section-header">
+        <span class="step-badge">0</span>
+        <h2 class="section-title">전기를 모르는 사람도 이해하기</h2>
+      </div>
+
+      <h3>① 전기는 왜 3줄(3상)로 오나?</h3>
+      <p>집·공장에 오는 큰 전기는 보통 <strong>전선 3개</strong>(A, B, C). 이걸 <strong>3상 전기</strong>라고 합니다.</p>
+      <pre>        A선  ───────  친구 A가 들고 가는 가방
         B선  ───────  친구 B가 들고 가는 가방
         C선  ───────  친구 C가 들고 가는 가방</pre>
-        <p>세 친구가 <strong>같은 무게</strong>를 나눠 들면 편합니다. 한 친구만 무겁게 들면 그 친구만 힘들어지죠. 전기도 똑같습니다. <strong>세 줄이 고르게</strong> 쓰이면 안전하고 효율적입니다.</p>
+      <div class="extra">
+        <strong>📌 덧붙인 설명</strong>
+        3상은 전력을 효율적으로 보내기 위한 방식입니다. 모터·대형 설비는 3상으로 돌아가고,
+        가정·조명·콘센트 같은 <strong>단상부하</strong>는 A, B, C 중 <strong>한 상에만</strong> 붙는 경우가 많습니다.
+        그래서 "한쪽 상만 무겁게 쓰는" 불평형이 생기고, 이를 제한하는 게 설비불평형률입니다.
+      </div>
 
-        <hr>
+      <hr>
 
-        <h3>「불평형」이란? = 한쪽만 너무 무거운 것</h3>
+      <h3>② 「불평형」이란?</h3>
+      <table>
+        <thead><tr><th>상태</th><th>비유</th><th>전기에서는</th></tr></thead>
+        <tbody>
+          <tr><td><strong>평형</strong></td><td>A,B,C 비슷한 무게</td><td>세 상이 비슷하게 사용</td></tr>
+          <tr><td><strong>불평형</strong></td><td>A만 10kg, B·C는 2kg</td><td>한 상만 과다 사용</td></tr>
+        </tbody>
+      </table>
+      <div class="extra">
+        <strong>📌 덧붙인 설명 — 왜 규제하나?</strong>
+        한 상에만 부하가 몰리면 → 그 상의 전선·변압기 <strong>과열</strong> → 화재·고장 위험.<br>
+        중성선(N) 전류도 커져서 3상 4선식에서는 <strong>중성선 과열</strong>도 발생합니다.
+        그래서 "30% 이하로 맞춰라"는 국가 규정이 있습니다.
+      </div>
+
+      <hr>
+
+      <h3>③ kVA가 뭐야?</h3>
+      <ul>
+        <li><strong>k</strong> = 1,000 &nbsp; <strong>V</strong> = 볼트 &nbsp; <strong>A</strong> = 암페어</li>
+        <li><strong>kVA</strong> = 전기 설비의 <strong>용량(크기)</strong> 단위. 시험에서는 숫자만 비교하면 됨.</li>
+      </ul>
+      <pre>100 kVA 이하  =  작은 부하
+100 kVA보다 큼 =  큰 부하</pre>
+      <div class="extra">
+        <strong>📌 덧붙인 설명</strong>
+        예외 ②③④에 나오는 <strong>100</strong>은 모두 kVA(kW) 단위입니다.
+        "100이하", "차이 100이하", "변압기 1대당 100이하" — 숫자 100이 세 번 등장합니다.
+        ① 예외에는 100이 <strong>없습니다</strong>. 이것도 시험 함정!
+      </div>
+
+      <hr>
+
+      <h3>④ 저압 · 고압 · 특고압</h3>
+      <table>
+        <thead><tr><th>이름</th><th>비유</th><th>설명</th></tr></thead>
+        <tbody>
+          <tr><td><strong>저압</strong></td><td>동네 작은 길</td><td>가정·일반 건물 (약 220/380V)</td></tr>
+          <tr><td><strong>고압</strong></td><td>시내 큰 도로</td><td>중형 공장·건물 (수 kV~수십 kV)</td></tr>
+          <tr><td><strong>특고압</strong></td><td>고속도로</td><td>대형 산업단지 (22.9kV, 66kV 등)</td></tr>
+        </tbody>
+      </table>
+      <div class="extra">
+        <strong>📌 덧붙인 설명 — 예외와 전압 관계</strong>
+        ① 저압만 해당 / ②③ 고압·특고압 / ④ <strong>특고압만</strong> (고압에 ④ 쓰면 틀림!)
+      </div>
+
+      <hr>
+
+      <h3>⑤ 단상부하 vs 3상부하</h3>
+      <table>
+        <thead><tr><th>종류</th><th>비유</th><th>예시</th></tr></thead>
+        <tbody>
+          <tr><td><strong>단상부하</strong></td><td>한 친구만 가방</td><td>히터, 조명, 일반 콘센트</td></tr>
+          <tr><td><strong>3상부하</strong></td><td>세 친구가 나눠 듦</td><td>3상 모터, 대형 설비</td></tr>
+        </tbody>
+      </table>
+      <div class="extra">
+        <strong>📌 덧붙인 설명</strong>
+        설비불평형률은 <strong>단상부하가 A,B,C 중 어디에 얼마나 치우쳤는지</strong>를 봅니다.
+        3상 모터는 세 상에 고르게 걸리므로 불평형 계산에서 상대적으로 영향이 다릅니다.
+      </div>
+    </section>
+
+    <!-- STEP 1 -->
+    <section class="step-1" id="step1">
+      <div class="section-header">
+        <span class="step-badge">1</span>
+        <h2 class="section-title">기본 규칙 — 30% 이하</h2>
+      </div>
+
+      <table>
+        <thead><tr><th>항목</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr><td>적용 대상</td><td>3상 3선식 · 3상 4선식</td></tr>
+          <tr><td>기준 한도</td><td><strong>30% 이하</strong></td></tr>
+          <tr><td>계산 기준</td><td>단상 접속 부하로 각 상 계산</td></tr>
+        </tbody>
+      </table>
+
+      <h3>불평형률 공식</h3>
+      <pre>불평형률 [%] = (가장 큰 상 − 가장 작은 상) ÷ 평균 × 100</pre>
+      <ol>
+        <li>A, B, C 각 상의 단상부하 합산</li>
+        <li>최대값, 최소값 찾기</li>
+        <li>차이 = 최대 − 최소</li>
+        <li>평균 = (A+B+C) ÷ 3</li>
+        <li>차이 ÷ 평균 × 100 = %</li>
+      </ol>
+
+      <h4>계산 예 (초등 비유)</h4>
+      <pre>A상 8kg, B상 5kg, C상 4kg
+차이 = 8−4 = 4
+평균 = (8+5+4)÷3 = 5.67
+불평형률 = 4÷5.67×100 ≈ 70%  →  30% 초과 → 원칙 위반</pre>
+
+      <div class="extra">
+        <strong>📌 덧붙인 설명 — 왜 30%인가?</strong>
+        30%는 전력 계통에서 변압기·선로가 안전하게 운전할 수 있는 불평형 허용치입니다.
+        넘으면 전기사업자가 수전을 거부하거나 시설 변경을 요구할 수 있습니다.
+        단, 예외 4가지에 해당하면 30%를 넘어도 합격입니다.
+      </div>
+    </section>
+
+    <!-- STEP 2 -->
+    <section class="step-2" id="step2">
+      <div class="section-header">
+        <span class="step-badge">2</span>
+        <h2 class="section-title">30% 규정 예외 4가지 (상세)</h2>
+      </div>
+
+      <table class="overview-table">
+        <thead><tr><th>#</th><th>전압</th><th>조건</th><th>암기 한 줄</th></tr></thead>
+        <tbody>
+          <tr><td>①</td><td>저압</td><td>전용 변압기 수전</td><td>저전 — 숫자 없음</td></tr>
+          <tr><td>②</td><td>고압·특고압</td><td>단상부하 ≤100</td><td>고단 — 전체가 작다</td></tr>
+          <tr><td>③</td><td>고압·특고압</td><td>최대−최소 ≤100</td><td>차백 — 차이가 작다</td></tr>
+          <tr><td>④</td><td>특고압만</td><td>100↓ 변압기 2대 역V</td><td>역V — 2대 특수결선</td></tr>
+        </tbody>
+      </table>
+
+      <!-- Exception 1 -->
+      <div class="card exception">
+        <h3>① 저압 + 전용 변압기</h3>
+        <span class="label label-law">법 조문</span>
+        <p>저압 수전에서 <strong>전용 변압기</strong>로 수전하면 설비불평형률 30% 규정 <strong>미적용</strong>.</p>
+        <span class="label label-kid">비유</span>
+        <pre>[공용] 옆집과 변압기 공유 → 내 불평형이 옆집에 영향
+[전용] 우리 건물만 변압기 → 밖에 영향 적음 → 규제 완화</pre>
+        <span class="label label-why">왜 예외?</span>
+        <p>전기를 건물 안에서 먼저 받아 쓰므로, 불평형이 외부 계통에 미치는 영향이 작습니다.</p>
+        <span class="label label-check">체크</span>
+        <ul><li>저압 ✓ &nbsp; 전용 변압기 ✓ → 예외 ①</li><li>저압만으로는 ❌ &nbsp; 100 숫자 무관</li></ul>
+        <div class="extra"><strong>📌 덧붙인 설명</strong>
+        "전용"이 핵심입니다. 아파트 공용 변압기로 저압 수전하면 예외 아님.
+        공장·건물 전용 변압기가 따로 있을 때만 해당.</div>
+      </div>
+
+      <!-- Exception 2 -->
+      <div class="card exception">
+        <h3>② 고압·특고압 + 단상부하 100 kVA 이하</h3>
+        <span class="label label-law">법 조문</span>
+        <p>단상부하 <strong>전체</strong>가 100 kVA 이하면 30% 넘어도 OK.</p>
+        <span class="label label-kid">비유</span>
+        <p>고속도로에 자전거 한 대 — 전체 교통에 영향 거의 없음.</p>
         <table>
-          <thead>
-            <tr><th>상태</th><th>비유</th><th>전기에서는</th></tr>
-          </thead>
+          <thead><tr><th>단상부하</th><th>② 예외?</th></tr></thead>
           <tbody>
-            <tr><td><strong>평형</strong></td><td>A, B, C가 비슷한 무게</td><td>세 상이 비슷하게 전기 사용</td></tr>
-            <tr><td><strong>불평형</strong></td><td>A만 10kg, B·C는 2kg</td><td>한 상만 전기를 너무 많이 씀</td></tr>
+            <tr><td>50 kVA</td><td><span class="tag ok">✅</span></td></tr>
+            <tr><td>100 kVA</td><td><span class="tag ok">✅ 이하 포함</span></td></tr>
+            <tr><td>101 kVA</td><td><span class="tag no">❌</span></td></tr>
           </tbody>
         </table>
-        <p>불평형이 크면:</p>
-        <ul>
-          <li>전선·변압기가 <strong>한쪽만 과열됨</strong></li>
-          <li>다른 집·공장 전기에도 <strong>영향</strong>을 줄 수 있음</li>
-        </ul>
-        <p>→ 그래서 나라에서 <strong>"너무 한쪽으로 치우치지 마!"</strong> 라고 규칙을 만든 것이 <strong>설비불평형률</strong>입니다.</p>
+        <div class="extra"><strong>📌 덧붙인 설명 — ② vs ③</strong>
+        ②는 <strong>"단상부하 총량"</strong>이 100 이하인지 묻습니다.
+        A상 80 + B상 15 = 총 95 → ② 예외 가능. 각 상이 커도 총량만 작으면 OK.</div>
+      </div>
 
-        <hr>
-
-        <h3>kVA가 뭐야? (아주 간단히)</h3>
-        <ul>
-          <li><strong>k</strong> = 1000 (킬로)</li>
-          <li><strong>V</strong> = 볼트 (전압)</li>
-          <li><strong>A</strong> = 암페어 (전류)</li>
-        </ul>
-        <p><strong>kVA</strong>는 "전기를 <strong>얼마나 많이 쓰는지</strong>"를 나타내는 <strong>용량 단위</strong>입니다. 시험에서는 <strong>숫자만 비교</strong>하면 됩니다.</p>
-        <pre>100 kVA 이하  =  작은 전기 사용
-100 kVA보다 큼 =  큰 전기 사용</pre>
-
-        <hr>
-
-        <h3>저압 · 고압 · 특고압 — 전기가 오는 "길"의 크기</h3>
+      <!-- Exception 3 -->
+      <div class="card exception">
+        <h3>③ 고압·특고압 + (최대−최소) ≤ 100</h3>
+        <span class="label label-law">법 조문</span>
+        <p>A,B,C 상 중 <strong>가장 큰 상 − 가장 작은 상 ≤ 100 kVA</strong>이면 예외.</p>
+        <pre>[②] "가방 전체가 작아?"  → 총량 ≤100
+[③] "친구들 차이가 작아?" → 최대−최소 ≤100</pre>
         <table>
-          <thead>
-            <tr><th>이름</th><th>아주 쉬운 비유</th><th>한 줄 설명</th></tr>
-          </thead>
+          <thead><tr><th>A</th><th>B</th><th>C</th><th>차이</th><th>③?</th></tr></thead>
           <tbody>
-            <tr><td><strong>저압</strong></td><td>동네 작은 길</td><td>일반 건물·가정에 많이 씀 (전압 낮음)</td></tr>
-            <tr><td><strong>고압</strong></td><td>시내 큰 도로</td><td>공장·중형 건물 (전압 더 높음)</td></tr>
-            <tr><td><strong>특고압</strong></td><td>고속도로</td><td>대형 공장·산업단지 (전압 가장 높음)</td></tr>
+            <tr><td>200</td><td>180</td><td>150</td><td>50</td><td><span class="tag ok">✅</span></td></tr>
+            <tr><td>300</td><td>250</td><td>100</td><td>200</td><td><span class="tag no">❌</span></td></tr>
+            <tr><td>80</td><td>70</td><td>60</td><td>20</td><td><span class="tag ok">✅ (②도 ✅)</span></td></tr>
           </tbody>
         </table>
-        <p>전압이 높을수록 <strong>많은 전기를 멀리 보낼 수 있지만</strong>, 불평형이 생기면 <strong>더 큰 문제</strong>가 될 수 있어서 규칙이 더 세밀합니다.</p>
+        <div class="extra"><strong>📌 덧붙인 설명</strong>
+        ③은 각 상이 200, 300처럼 <strong>커도</strong> 상호 차이만 100 이하면 됩니다.
+        "큰 집이지만 고르게 쓰는 경우" — ②는 "아예 작은 집".</div>
+      </div>
 
-        <hr>
-
-        <h3>단상부하 vs 3상부하</h3>
+      <!-- Exception 4 -->
+      <div class="card exception">
+        <h3>④ 특고압 + 100↓ 변압기 2대 역 V결선</h3>
+        <span class="label label-law">법 조문</span>
+        <p><strong>특고압</strong>에서 <strong>100 kVA 이하</strong> 단상변압기 <strong>2대</strong>를 <strong>역 V결선(오픈 델타)</strong>으로 연결.</p>
+        <pre>정상: [Tr A][Tr B][Tr C]  → 3대, 균형 좋음
+역V:  [Tr 1][Tr 2]         → 2대로 3상 억지 생성 → 원래 불균형 쉬움</pre>
         <table>
-          <thead>
-            <tr><th>종류</th><th>비유</th><th>예시</th></tr>
-          </thead>
+          <thead><tr><th>조건</th><th>필요?</th></tr></thead>
           <tbody>
-            <tr><td><strong>단상부하</strong></td><td>가방을 <strong>한 친구한테만</strong> 실어 줌</td><td>히터, 조명, 콘센트(일반)</td></tr>
-            <tr><td><strong>3상부하</strong></td><td>가방을 <strong>세 친구가 나눠</strong> 듦</td><td>큰 모터, 3상 전동기</td></tr>
+            <tr><td>특고압 (고압만 ❌)</td><td><span class="tag ok">✅</span></td></tr>
+            <tr><td>변압기 2대</td><td><span class="tag ok">✅</span></td></tr>
+            <tr><td>역 V결선</td><td><span class="tag ok">✅</span></td></tr>
+            <tr><td>각 100 kVA 이하</td><td><span class="tag ok">✅</span></td></tr>
           </tbody>
         </table>
-        <p><strong>설비불평형률</strong>은 주로 <strong>단상부하가 얼마나 한쪽으로 치우쳤는지</strong>를 봅니다.</p>
-      </section>
+        <div class="extra"><strong>📌 덧붙인 설명</strong>
+        역V(오픈 델타)는 값이 싸서 소규모 공장에 많지만 구조상 불평형이 생기기 쉽습니다.
+        그래서 "특고압 + 작은 용량(100↓) + 2대"일 때만 예외로 인정합니다.
+        고압에서 역V 쓴다고 ④ 적용하면 <strong>오답</strong>.</div>
+      </div>
+    </section>
 
-      <!-- STEP 1 -->
-      <section class="step-1" id="step1">
-        <div class="section-header">
-          <span class="step-badge">1</span>
-          <h2 class="section-title">기본 규칙 (문제 1)</h2>
-        </div>
+    <!-- STEP 3 -->
+    <section class="step-3" id="step3">
+      <div class="section-header">
+        <span class="step-badge">3</span>
+        <h2 class="section-title">암기법</h2>
+      </div>
 
-        <table>
-          <thead>
-            <tr><th>항목</th><th>내용</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>적용 대상</td><td>3상 3선식 · 3상 4선식</td></tr>
-            <tr><td>기준 한도</td><td><strong>30% 이하</strong></td></tr>
-          </tbody>
-        </table>
-        <p><strong>한 줄 요약:</strong> 3상 전기 쓰는 곳은 <strong>불평형이 30%를 넘으면 안 된다</strong> (단, 아래 4가지 예외 제외).</p>
+      <div class="highlight">
+        <p style="color:#92400e;margin-bottom:.4rem">🎯 메인 암기문장</p>
+        <p class="mnemonic">「저전 고단 차백 역V」</p>
+      </div>
 
-        <h3>불평형률 공식 — 단계별로 풀기</h3>
-        <pre>불평형률 [%] = (가장 무거운 상 − 가장 가벼운 상) ÷ 평균 × 100</pre>
-        <ol>
-          <li>A, B, C 각 상에 얼마나 전기가 걸렸는지 구한다.</li>
-          <li>그중 <strong>제일 큰 값</strong>과 <strong>제일 작은 값</strong>을 찾는다.</li>
-          <li>(큰 값 − 작은 값)을 구한다.</li>
-          <li>세 상의 <strong>평균</strong>으로 나눈다.</li>
-          <li>100을 곱하면 <strong>%</strong>가 나온다.</li>
-        </ol>
+      <table>
+        <thead><tr><th>글자</th><th>풀어쓰기</th><th>예외</th><th>한 줄</th></tr></thead>
+        <tbody>
+          <tr><td>저전</td><td>저압+전용변압기</td><td>①</td><td>숫자 없음!</td></tr>
+          <tr><td>고단</td><td>고압·특고압+단상100↓</td><td>②</td><td>전체 작음</td></tr>
+          <tr><td>차백</td><td>차이 100↓</td><td>③</td><td>격차 작음</td></tr>
+          <tr><td>역V</td><td>특고압+역V 2대</td><td>④</td><td>특고압만</td></tr>
+        </tbody>
+      </table>
 
-        <h4>초등 비유로 계산</h4>
-        <pre>A상: 8kg,  B상: 5kg,  C상: 4kg
+      <h3>리듬 암기</h3>
+      <pre>저압은 전용,
+고압은 단상 백,
+차이도 백,
+특고는 역V!</pre>
 
-차이 = 8 − 4 = 4kg
-평균 = (8 + 5 + 4) ÷ 3 = 5.67kg
+      <h3>숫자 정리</h3>
+      <pre>30%  = 기본 한도 (3상 3선·4선)
+40%  = 저압 단상3선 N-상간 불평형 (별도 규정!)
+100  = ②③④에만 (①엔 없음)</pre>
 
-불평형률 = 4 ÷ 5.67 × 100 ≈ 70%</pre>
-        <p>→ 30%보다 훨씬 크니까 <strong>규칙 위반</strong> (예외에 해당하지 않으면).</p>
-      </section>
+      <h3>② vs ③</h3>
+      <p style="text-align:center;font-weight:700;color:#b45309">"②는 작은 집, ③은 고른 집"</p>
 
-      <!-- STEP 2 -->
-      <section class="step-2" id="step2">
-        <div class="section-header">
-          <span class="step-badge">2</span>
-          <h2 class="section-title">30% 규정을 <strong>안 지켜도 되는</strong> 4가지 예외 (문제 2)</h2>
-        </div>
+      <div class="exception-cards">
+        <div class="exception-card">🏠 ① 저전<br>우리 집 전용 변압기</div>
+        <div class="exception-card">📦 ② 고단<br>단상부하 100↓</div>
+        <div class="exception-card">⚖️ ③ 차백<br>상 차이 100↓</div>
+        <div class="exception-card">🔧 ④ 역V<br>특고압 역V 2대</div>
+      </div>
+    </section>
 
-        <div class="card">
-          <p><strong>핵심:</strong> 대부분은 30%를 지켜야 하지만, <strong>아래 4가지 상황</strong>은 "괜찮아, 이 정도는 예외로 봐줄게" 하는 <strong>면제 카드</strong> 4장입니다.</p>
-        </div>
+    <!-- STEP 4 -->
+    <section class="step-4" id="step4">
+      <div class="section-header">
+        <span class="step-badge">4</span>
+        <h2 class="section-title">계산 예시 (문제 3 유형)</h2>
+      </div>
 
-        <h3>한눈에 보기</h3>
-        <table class="overview-table">
-          <thead>
-            <tr><th>#</th><th>전압</th><th>핵심 조건</th><th>초등 비유</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>①</td><td><strong>저압</strong></td><td>전용 변압기로 수전</td><td>우리 집만 쓰는 <strong>개인 화장실</strong></td></tr>
-            <tr><td>②</td><td><strong>고압·특고압</strong></td><td>단상부하 <strong>100 kVA 이하</strong></td><td><strong>작은 가방</strong> 하나뿐</td></tr>
-            <tr><td>③</td><td><strong>고압·특고압</strong></td><td>최대−최소 <strong>≤ 100 kVA</strong></td><td>가방 무게 <strong>차이가 작음</strong></td></tr>
-            <tr><td>④</td><td><strong>특고압</strong></td><td>100 kVA 이하 변압기 2대 <strong>역V결선</strong></td><td><strong>특별한 2개 도구</strong> 결선</td></tr>
-          </tbody>
-        </table>
-
-        <!-- Exception 1 -->
-        <div class="card exception">
-          <h3>① 저압 수전에서 전용 변압기 등으로 수전하는 경우</h3>
-
-          <span class="card-label label-law">📖 법 조문 뜻 (시험 답)</span>
-          <p>저압으로 전기를 받을 때, <strong>그 건물·공장만 쓰는 전용 변압기</strong>로 수전하면 설비불평형률 30% 규정을 <strong>적용하지 않아도 된다</strong>.</p>
-
-          <span class="card-label label-kid">🧒 초등학생 비유</span>
-          <p>아파트에 전기가 오는 방법이 두 가지라고 생각해 보세요.</p>
-          <pre>[방법 A] 옆집과 전기를 같이 쓰는 큰 변압기
-         → 내가 전기를 많이 쓰면 옆집에도 영향
-
-[방법 B] 우리 집 전용 변압기 (전용 = 우리만 씀)
-         → 우리 집 안에서만 조절, 밖에 덜 피해</pre>
-          <p><strong>전용 변압기</strong> = <strong>"우리 공장·건물만을 위한 전기 변환기"</strong></p>
-
-          <span class="card-label label-why">🔍 왜 예외인가?</span>
-          <ol>
-            <li>전기를 <strong>우리 건물 안에서</strong> 먼저 받아서 씀</li>
-            <li>불평형이 생겨도 <strong>다른 사람 전기선에 바로 안 닿음</strong></li>
-            <li>그래서 국가도 "저압 + 전용변압기면 30% 규칙 안 봐도 됨"이라고 함</li>
-          </ol>
-
-          <span class="card-label label-check">✅ 시험에서 체크할 것</span>
-          <ul>
-            <li><strong>저압</strong>인가? ✓</li>
-            <li><strong>전용</strong> 변압기인가? ✓</li>
-            <li>둘 다 맞으면 → <strong>예외 ①</strong></li>
-          </ul>
-
-          <span class="card-label label-warn">❌ 헷갈리지 말 것</span>
-          <ul>
-            <li>그냥 저압만으로는 예외 <strong>아님</strong> → <strong>전용 변압기</strong>가 꼭 있어야 함</li>
-            <li>100 kVA 숫자와 <strong>무관</strong> (①에는 100이 없음!)</li>
-          </ul>
-        </div>
-
-        <!-- Exception 2 -->
-        <div class="card exception">
-          <h3>② 고압 및 특고압 수전에서 100 kVA 이하의 단상 부하인 경우</h3>
-
-          <span class="card-label label-law">📖 법 조문 뜻</span>
-          <p>고압·특고압으로 전기를 받는데, <strong>단상부하 전체가 100 kVA 이하</strong>이면 불평형률 30%를 넘어도 <strong>괜찮다</strong>.</p>
-
-          <span class="card-label label-kid">🧒 초등학생 비유</span>
-          <p>고속도로(고압·특고압)에 작은 자전거(단상부하) 한 대만 다니는 것과 같아요.</p>
-          <pre>고속도로 = 전기가 크게 흐르는 길
-자전거   = 100 kVA 이하의 작은 단상부하
-
-→ 자전거 하나 정도는 고속도로에 큰 방해가 안 됨</pre>
-
-          <span class="card-label label-why">🔍 왜 예외인가?</span>
-          <p><strong>절대적으로 작은</strong> 단상부하는 아무리 불평형이 있어도 <strong>전체 전기 계통에 영향이 거의 없음</strong> — "애초에 너무 작아서 신경 안 써도 됨"</p>
-
-          <span class="card-label label-check">✅ 시험에서 체크할 것</span>
-          <ul>
-            <li><strong>고압 또는 특고압</strong>인가? ✓</li>
-            <li><strong>단상부하</strong>인가? ✓</li>
-            <li>단상부하 용량이 <strong>100 kVA 이하</strong>인가? ✓</li>
-          </ul>
-
-          <h4>📊 숫자 예시</h4>
-          <table>
-            <thead><tr><th>단상부하</th><th>② 예외?</th></tr></thead>
-            <tbody>
-              <tr><td>50 kVA</td><td><span class="tag ok">✅ 예외</span></td></tr>
-              <tr><td>100 kVA</td><td><span class="tag ok">✅ 예외 (이하 포함)</span></td></tr>
-              <tr><td>101 kVA</td><td><span class="tag no">❌ 예외 아님</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- Exception 3 -->
-        <div class="card exception">
-          <h3>③ 특고압 및 고압 수전에서 단상부하 용량의 최대와 최소의 차가 100 kVA 이하인 경우</h3>
-
-          <span class="card-label label-law">📖 법 조문 뜻</span>
-          <p>고압·특고압 수전에서, A·B·C 상 중 <strong>가장 큰 상 − 가장 작은 상 ≤ 100 kVA</strong>이면 예외.</p>
-
-          <span class="card-label label-kid">🧒 초등학생 비유 — ②와 가장 헷갈리는 부분!</span>
-          <pre>[②의 질문]  "가방 전체가 작아?"  →  가방 자체가 100 이하
-[③의 질문]  "친구들 차이가 작아?" →  제일 무거운 − 제일 가벼운 ≤ 100</pre>
-          <p><strong>②</strong> = <strong>총량</strong>이 작다 &nbsp;|&nbsp; <strong>③</strong> = <strong>격차</strong>가 작다 (각각은 커도 됨!)</p>
-
-          <h4>🍎 사과로 이해하기</h4>
-          <table>
-            <thead><tr><th>A상</th><th>B상</th><th>C상</th><th>최대−최소</th><th>③ 예외?</th><th>설명</th></tr></thead>
-            <tbody>
-              <tr><td>200</td><td>180</td><td>150</td><td>50</td><td><span class="tag ok">✅</span></td><td>차이 50 → 100 이하</td></tr>
-              <tr><td>300</td><td>280</td><td>220</td><td>80</td><td><span class="tag ok">✅</span></td><td>차이 80 → OK</td></tr>
-              <tr><td>300</td><td>250</td><td>100</td><td>200</td><td><span class="tag no">❌</span></td><td>차이 200 → 너무 큼</td></tr>
-              <tr><td>80</td><td>70</td><td>60</td><td>20</td><td><span class="tag ok">✅ (③)</span></td><td>②도 ✅ (전체 작음)</td></tr>
-            </tbody>
-          </table>
-
-          <span class="card-label label-why">🔍 왜 예외인가?</span>
-          <p>각 상이 200, 300처럼 <strong>커도</strong> 상호 간 <strong>차이만 100 이하면</strong> "어느 정도 균형"이라고 봄. ②는 "아예 작은 집", ③은 "큰 집이지만 <strong>고르게</strong> 쓰는 집"</p>
-        </div>
-
-        <!-- Exception 4 -->
-        <div class="card exception">
-          <h3>④ 특고압 수전에서는 100 kVA 이하의 단상 변압기 2대로 역 V결선하는 경우</h3>
-
-          <span class="card-label label-law">📖 법 조문 뜻</span>
-          <p><strong>특고압</strong> 수전에서 <strong>100 kVA 이하 단상변압기 2대</strong>를 <strong>역 V결선(오픈 델타)</strong> 으로 연결하면 예외.</p>
-
-          <span class="card-label label-kid">🧒 초등학생 비유</span>
-          <pre>정상(3대):  [변압기A] [변압기B] [변압기C]  →  고르고 좋음
-
-역V(2대):  [변압기1] [변압기2]  →  3상을 억지로 만듦
-                                    →  원래 불균형하기 쉬움</pre>
-          <p><strong>역 V결선</strong> = 변압기 <strong>2개만</strong>으로 3상 전기를 만드는 <strong>특수한 꼼수 결선</strong></p>
-
-          <span class="card-label label-warn">⚠️ ④만의 특별 조건 (시험 함정)</span>
-          <table>
-            <thead><tr><th>조건</th><th>④에 필요?</th></tr></thead>
-            <tbody>
-              <tr><td><strong>특고압</strong></td><td><span class="tag ok">✅ 필수 (고압만으론 ❌)</span></td></tr>
-              <tr><td>변압기 <strong>2대</strong></td><td><span class="tag ok">✅</span></td></tr>
-              <tr><td><strong>역 V결선</strong></td><td><span class="tag ok">✅</span></td></tr>
-              <tr><td>각 변압기 <strong>100 kVA 이하</strong></td><td><span class="tag ok">✅</span></td></tr>
-            </tbody>
-          </table>
-
-          <h4>🖼️ 역 V결선 그림 (개념)</h4>
-          <pre>        고압 전원 (3상)
-           │ │ │
-           ▼ ▼
-      ┌────┴─┴────┐
-      │  변압기 1  │
-      │  변압기 2  │  ← 2대만 연결 (3번째는 없음)
-      └─────┬─────┘
-            ▼
-        저압 3상 출력</pre>
-        </div>
-      </section>
-
-      <!-- STEP 3 -->
-      <section class="step-3" id="step3">
-        <div class="section-header">
-          <span class="step-badge">3</span>
-          <h2 class="section-title">암기법</h2>
-        </div>
-
-        <div class="highlight-box">
-          <p style="margin-bottom:0.5rem; color:#92400e;">🎯 메인 암기문장</p>
-          <p class="mnemonic">「저전 고단 차백 역V」</p>
-          <p style="margin-top:0.5rem; color:#78716c; font-size:0.9rem;">입으로 크게: <strong>저-전 / 고-단 / 차-백 / 역-V</strong></p>
-        </div>
-
-        <table>
-          <thead><tr><th>글자</th><th>풀어쓰기</th><th>해당</th><th>초등 한 줄</th></tr></thead>
-          <tbody>
-            <tr><td><strong>저</strong>전</td><td><strong>저</strong>압 + <strong>전</strong>용 변압기</td><td>①</td><td>우리만 쓰는 변압기</td></tr>
-            <tr><td><strong>고</strong>단</td><td><strong>고</strong>압·특고압 + <strong>단</strong>상 100↓</td><td>②</td><td>작은 단상부하</td></tr>
-            <tr><td><strong>차</strong>백</td><td><strong>차</strong>이 <strong>백</strong>(100) 이하</td><td>③</td><td>상 간 차이 100↓</td></tr>
-            <tr><td><strong>역</strong>V</td><td><strong>역</strong> V결선 (특고압, 2대)</td><td>④</td><td>2개 변압기 특수결선</td></tr>
-          </tbody>
-        </table>
-
-        <h3>🎵 리듬 암기 (외우기 쉬운 말)</h3>
-        <div class="card" style="text-align:center;">
-          <p class="rhyme">
-            저압은 전용,<br>
-            고압은 단상 백,<br>
-            차이도 백,<br>
-            특고는 역V!
-          </p>
-        </div>
-
-        <h3>🔢 숫자 암기: 100은 세 번</h3>
-        <pre>②  단상부하     ≤ 100
-③  최대 − 최소  ≤ 100
-④  변압기 1대당  ≤ 100  (2대 역V)</pre>
-        <p><strong>①만 100이 없다</strong> → "저전"은 숫자 없이 <strong>전용</strong>만 기억!</p>
-
-        <h3>🗺️ 전압 지도</h3>
-        <pre>저압     ──── ① 전용변압기
-  │
-고압     ──── ②③
-  │
-특고압   ──── ②③④  ← ④는 여기만!</pre>
-        <p><strong>시험 함정:</strong> ④를 고압에 쓰면? → <strong>틀림!</strong> 특고압만!</p>
-
-        <h3>⚔️ ② vs ③ — 반드시 구분</h3>
-        <div class="compare-grid">
-          <div class="compare-card">
-            <h5>②</h5>
-            <p><strong>묻는 것:</strong> 전체가 작나?</p>
-            <p><strong>비유:</strong> 가방이 작다</p>
-            <p><strong>조건:</strong> 단상 ≤ 100</p>
-          </div>
-          <div class="compare-card">
-            <h5>③</h5>
-            <p><strong>묻는 것:</strong> 차이가 작나?</p>
-            <p><strong>비유:</strong> 무게 차이가 작다</p>
-            <p><strong>조건:</strong> 최대−최소 ≤ 100</p>
-          </div>
-        </div>
-        <p style="text-align:center; font-weight:600; color:#b45309;">"②는 작은 집, ③은 고른 집"</p>
-
-        <h3>🃏 4장의 면제 카드 — 스토리로 한 번에</h3>
-        <div class="exception-cards">
-          <div class="exception-card"><div class="num">🏠 ① 저전</div>"우리 집 전용 변압기 있어요" → 면제!</div>
-          <div class="exception-card"><div class="num">📦 ② 고단</div>"단상부하가 작아요 (100↓)" → 면제!</div>
-          <div class="exception-card"><div class="num">⚖️ ③ 차백</div>"상 차이가 100 이하여요" → 면제!</div>
-          <div class="exception-card"><div class="num">🔧 ④ 역V</div>"특고압에서 작은 역V 2대예요" → 면제!</div>
-        </div>
-        <p>4장 중 <strong>하나라도</strong> 해당되면 30% 규칙 <strong>안 봐도 됨</strong>.</p>
-      </section>
-
-      <!-- STEP 4 -->
-      <section class="step-4" id="step4">
-        <div class="section-header">
-          <span class="step-badge">4</span>
-          <h2 class="section-title">계산 예시 (문제 3)</h2>
-        </div>
-
-        <h3>회로 그림 (글로 표현)</h3>
-        <pre>        A ───────── B
+      <pre>        A ───────── B
        /│\         /│\
-      / │ \       / │ \
-     H  H  H     H  H  H  ... (히터들)
-      \ │ /       \ │ /
+     히터들       히터들
        \│/         \│/
-        C ───────── (모터 M: 3상)</pre>
+        C ─── (모터 M: 3상)</pre>
 
-        <table>
-          <thead><tr><th>선간</th><th>부하</th></tr></thead>
-          <tbody>
-            <tr><td>A−B</td><td>히터 2.5 + 2.5 kVA</td></tr>
-            <tr><td>B−C</td><td>히터 2 + 1.5 + 5.5 + 1.7 kVA</td></tr>
-            <tr><td>A−C</td><td>히터 3.5 kVA</td></tr>
-            <tr><td>3상</td><td>모터 5.7 kVA</td></tr>
-          </tbody>
-        </table>
+      <table>
+        <thead><tr><th>구분</th><th>부하 [kVA]</th></tr></thead>
+        <tbody>
+          <tr><td>A−B 선간 히터</td><td>2.5 + 2.5 = 5.0</td></tr>
+          <tr><td>B−C 선간 히터</td><td>2 + 1.5 + 5.5 + 1.7 = 10.7</td></tr>
+          <tr><td>A−C 선간 히터</td><td>3.5</td></tr>
+          <tr><td>3상 모터</td><td>5.7 (3상부하)</td></tr>
+        </tbody>
+      </table>
 
-        <h3>계산 (모범답안 따라가기)</h3>
-        <pre>분자 (차이) = (2.5+2.5+3.5) − (2+1.5+1.7) = 8.5 − 5.2 = 3.3
+      <h3>계산 과정</h3>
+      <pre>① 각 상에 걸린 단상부하 합산 (선간 히터를 상별로 배분)
+② 최대 상 = 8.5,  최소 상 = 5.2  (모범답안 기준)
+③ 분자(차이) = 8.5 − 5.2 = 3.3
+④ 분모(평균) = ⅓ × (8.5 + 5.2 + 5.5 + 5.7) = ...
+⑤ 불평형률 ≈ 39.76%</pre>
 
-분모 (평균) = 1/3 × (8.5 + 5.2 + 5.5 + 5.7) = ...
+      <div class="extra">
+        <strong>📌 덧붙인 설명 — 판정 순서</strong>
+        1. 불평형률 계산 → 39.76% > 30% → <strong>기본 규칙 위반</strong><br>
+        2. 예외 ①②③④ 해당 여부 확인<br>
+        3. 하나도 해당 안 되면 → <strong>불합격(기준 초과)</strong><br>
+        4. 하나라도 해당되면 → 30% 넘어도 <strong>합격</strong>
+      </div>
+    </section>
 
-불평형률 ≈ 39.76%</pre>
-        <p><strong>39.76% &gt; 30%</strong> → 기본 규칙으로는 <strong>안 됨</strong><br>
-        → ①②③④ 예외에 해당하는지 확인<br>
-        → 해당 없으면 <strong>기준 초과 (불합격)</strong></p>
-      </section>
+    <!-- Q052 -->
+    <section class="exam" id="q052">
+      <div class="section-header">
+        <span class="step-badge">052</span>
+        <h2 class="section-title">대용량 단상전열 — 전기사업자 협의 시설 (문제 052)</h2>
+      </div>
 
-      <!-- CHECKLIST -->
-      <section id="checklist">
-        <div class="section-header">
-          <span class="step-badge" style="background:#475569;">✓</span>
-          <h2 class="section-title">시험 체크리스트</h2>
-        </div>
-        <ul class="checklist">
-          <li>기본 한도 <strong>30%</strong> (3상 3선·4선)</li>
-          <li>예외 4개: <strong>저전 · 고단 · 차백 · 역V</strong></li>
-          <li><strong>100 kVA</strong>는 ②③④에만 (①에는 없음)</li>
-          <li><strong>④ 역V결선</strong>은 <strong>특고압만</strong></li>
-          <li>② = <strong>전체 작음</strong> / ③ = <strong>차이 작음</strong> (다름!)</li>
-          <li>① = <strong>저압 + 전용변압기</strong> (저압만으론 ❌)</li>
-        </ul>
-      </section>
+      <p>특고압·고압에서 대용량 단상전기로 등으로 30% 지키기 어려울 때, 전기사업자와 협의하여 시설합니다.</p>
 
-      <footer class="footer">
-        마지막 업데이트: 2026-06-26 (초등학생 버전 상세 설명 추가)
-      </footer>
-    </main>
-  </div>
+      <div class="exam-box">
+        <div class="q-num">052-1 단상부하 1개</div>
+        <p><strong>2차 역 V 접속</strong>에 의할 것. 다만 <strong>300 kVA 초과 금지</strong>.</p>
+        <div class="extra"><strong>📌 덧붙인 설명</strong>
+        단상부하가 1개뿐일 때는 변압기 2대로 역V 결선해서 공급. 용량은 300 kVA 이하여야 함.</div>
+      </div>
+
+      <div class="exam-box">
+        <div class="q-num">052-2 단상부하 2개</div>
+        <p><strong>스코트(Scott) 접속</strong>에 의할 것.</p>
+        <p>단, 1개 용량이 <strong>200 kVA 이하</strong>이면 부득이한 경우 보통 변압기 2대로 별개 선간에 접속 가능.</p>
+        <div class="extra"><strong>📌 덧붙인 설명</strong>
+        스코트 결선 = 단상 변압기 2대로 3상→2상 변환하는 결선 (변압기 단원 145번 기출).
+        예외 ④의 역V와 다름 — 052는 "협의 시 시설 방법", ④는 "30% 예외 조건".</div>
+      </div>
+
+      <div class="exam-box">
+        <div class="q-num">052-3 단상부하 3개 이상</div>
+        <p>가급적 <strong>선로전류가 평형</strong>이 되도록 각 선간에 부하를 접속할 것.</p>
+        <div class="extra"><strong>📌 덧붙인 설명</strong>
+        부하를 A-B, B-C, A-C 선간에 최대한 고르게 분산시켜 불평형을 줄이라는 뜻.</div>
+      </div>
+    </section>
+
+    <!-- CHECKLIST -->
+    <section id="checklist">
+      <div class="section-header">
+        <span class="step-badge" style="background:#475569">✓</span>
+        <h2 class="section-title">시험 체크리스트</h2>
+      </div>
+      <ul class="checklist">
+        <li>3상 3선·4선 기본 한도 <strong>30%</strong></li>
+        <li>저압 단상3선 N-상간 불평형 <strong>40%</strong> (별도!)</li>
+        <li>예외 4개: <strong>저전 · 고단 · 차백 · 역V</strong></li>
+        <li><strong>100</strong>은 ②③④에만 (①엔 없음)</li>
+        <li><strong>④ 역V</strong>는 <strong>특고압만</strong></li>
+        <li>② = 전체 작음 / ③ = 차이 작음</li>
+        <li>① = 저압 + <strong>전용</strong>변압기</li>
+        <li>052 협의: 1개→역V(300↓), 2개→스코트, 3개↑→평형</li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      마지막 업데이트: 2026-06-26 · 설비불평형률 상세판 (기출 050~052 반영)
+    </footer>
+  </main>
+</div>
 </body>
 </html>
