@@ -167,6 +167,7 @@ def fix_pages(html: str) -> str:
                 '  <div class="abs" style="left:0;right:0;top:50%;text-align:center;'
                 'font-size:28pt;font-weight:700;">단답비급</div>\n'
                 '  <div class="cover-foot abs">전기치트키</div>\n'
+                '</div>\n\n'
             )
 
         if page_id in REMOVE_ALL_IMG_PAGES:
