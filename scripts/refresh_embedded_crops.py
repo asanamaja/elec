@@ -64,6 +64,8 @@ CROP_ORDER: list[str] = [
     "p159_duct_syms.png",
     "p160_breaker_syms.png",
     "p161_tr_syms.png",
+    "p170_table385.png",
+    "p171_table387.png",
 ]
 
 
@@ -80,7 +82,9 @@ def main() -> None:
 
     page_pat = re.compile(r'id="(page-\d+)"')
     img_pat = re.compile(
-        r'<img\b([^>]*?\bclass="(?:diag|sym)"[^>]*?\bsrc=")(data:image/png;base64,[^"]+)(")([^>]*>)',
+        r'<img\b([^>]*?\bclass="(?:diag|sym)"[^>]*?\bsrc=")'
+        r'((?:data:image/png;base64,[^"]+)|(?:\.\./assets/images/manual/crops/[^"]+))'
+        r'(")([^>]*>)',
         re.DOTALL,
     )
 

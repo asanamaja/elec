@@ -976,7 +976,7 @@ PAGES_121_163 = r"""
     </div>
     <div class="q">
       <div class="q-num">373.</div><hr class="q-hline">
-      <p class="q-text">시운전 완료 후 발주자에게 인계하여야 할 사항(서류 등)을 5가지만 쓰시오.</p>
+      <p class="q-text">감리원은 공사 완료 후 준공검사 전에 사전 시운전 등이 필요한 부분에 대하여는 공사업자에게 시운전을 위한 계획을 수립하여 시운전에 입회할 수 있다. 이에 따른 <strong>시운전 완료 후 성과물</strong>을 공사업자로부터 제출받아 검토한 후 <strong>발주자에게 인계하여야 할 사항(서류 등)을 5가지</strong>만 쓰시오.</p>
             <p class="ans-line">① <span class="ans">운전개시, 가동절차 및 방법</span></p>
             <p class="ans-line">② <span class="ans">점검항목 점검표</span></p>
             <p class="ans-line">③ <span class="ans">운전지침</span></p>
