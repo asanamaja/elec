@@ -1,0 +1,1052 @@
+[
+  {
+    "page": 1,
+    "lines": 2,
+    "crops": 3,
+    "has_table": false
+  },
+  {
+    "page": 2,
+    "lines": 3,
+    "crops": 1,
+    "has_table": false
+  },
+  {
+    "page": 3,
+    "lines": 50,
+    "crops": 3,
+    "has_table": false
+  },
+  {
+    "page": 4,
+    "lines": 5,
+    "crops": 1,
+    "has_table": false
+  },
+  {
+    "page": 5,
+    "lines": 31,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 6,
+    "lines": 34,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 7,
+    "lines": 30,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 8,
+    "lines": 33,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 9,
+    "lines": 26,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 10,
+    "lines": 27,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 11,
+    "lines": 20,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 12,
+    "lines": 35,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 13,
+    "lines": 9,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 14,
+    "lines": 5,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 15,
+    "lines": 26,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 16,
+    "lines": 44,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 17,
+    "lines": 24,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 18,
+    "lines": 34,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 19,
+    "lines": 28,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 20,
+    "lines": 36,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 21,
+    "lines": 26,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 22,
+    "lines": 40,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 23,
+    "lines": 20,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 24,
+    "lines": 28,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 25,
+    "lines": 18,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 26,
+    "lines": 50,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 27,
+    "lines": 3,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 28,
+    "lines": 3,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 29,
+    "lines": 66,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 30,
+    "lines": 42,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 31,
+    "lines": 26,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 32,
+    "lines": 30,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 33,
+    "lines": 37,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 34,
+    "lines": 38,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 35,
+    "lines": 20,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 36,
+    "lines": 2,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 37,
+    "lines": 44,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 38,
+    "lines": 34,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 39,
+    "lines": 43,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 40,
+    "lines": 37,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 41,
+    "lines": 26,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 42,
+    "lines": 14,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 43,
+    "lines": 38,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 44,
+    "lines": 49,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 45,
+    "lines": 43,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 46,
+    "lines": 35,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 47,
+    "lines": 4,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 48,
+    "lines": 7,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 49,
+    "lines": 32,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 50,
+    "lines": 33,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 51,
+    "lines": 35,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 52,
+    "lines": 27,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 53,
+    "lines": 30,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 54,
+    "lines": 41,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 55,
+    "lines": 25,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 56,
+    "lines": 25,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 57,
+    "lines": 4,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 58,
+    "lines": 2,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 59,
+    "lines": 33,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 60,
+    "lines": 27,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 61,
+    "lines": 38,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 62,
+    "lines": 33,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 63,
+    "lines": 28,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 64,
+    "lines": 32,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 65,
+    "lines": 41,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 66,
+    "lines": 35,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 67,
+    "lines": 27,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 68,
+    "lines": 32,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 69,
+    "lines": 34,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 70,
+    "lines": 27,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 71,
+    "lines": 31,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 72,
+    "lines": 34,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 73,
+    "lines": 13,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 74,
+    "lines": 17,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 75,
+    "lines": 4,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 76,
+    "lines": 3,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 77,
+    "lines": 48,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 78,
+    "lines": 33,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 79,
+    "lines": 34,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 80,
+    "lines": 28,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 81,
+    "lines": 32,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 82,
+    "lines": 48,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 83,
+    "lines": 35,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 84,
+    "lines": 36,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 85,
+    "lines": 33,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 86,
+    "lines": 40,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 87,
+    "lines": 34,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 88,
+    "lines": 23,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 89,
+    "lines": 4,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 90,
+    "lines": 3,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 91,
+    "lines": 44,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 92,
+    "lines": 55,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 93,
+    "lines": 25,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 94,
+    "lines": 26,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 95,
+    "lines": 51,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 96,
+    "lines": 16,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 97,
+    "lines": 38,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 98,
+    "lines": 35,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 99,
+    "lines": 6,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 100,
+    "lines": 5,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 101,
+    "lines": 31,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 102,
+    "lines": 29,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 103,
+    "lines": 67,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 104,
+    "lines": 30,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 105,
+    "lines": 27,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 106,
+    "lines": 20,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 107,
+    "lines": 65,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 108,
+    "lines": 20,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 109,
+    "lines": 30,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 110,
+    "lines": 47,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 111,
+    "lines": 11,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 112,
+    "lines": 5,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 113,
+    "lines": 37,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 114,
+    "lines": 30,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 115,
+    "lines": 45,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 116,
+    "lines": 36,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 117,
+    "lines": 35,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 118,
+    "lines": 42,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 119,
+    "lines": 34,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 120,
+    "lines": 45,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 121,
+    "lines": 37,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 122,
+    "lines": 33,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 123,
+    "lines": 4,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 124,
+    "lines": 4,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 125,
+    "lines": 27,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 126,
+    "lines": 42,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 127,
+    "lines": 30,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 128,
+    "lines": 35,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 129,
+    "lines": 67,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 130,
+    "lines": 23,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 131,
+    "lines": 44,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 132,
+    "lines": 30,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 133,
+    "lines": 38,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 134,
+    "lines": 3,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 135,
+    "lines": 31,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 136,
+    "lines": 38,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 137,
+    "lines": 31,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 138,
+    "lines": 34,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 139,
+    "lines": 38,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 140,
+    "lines": 41,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 141,
+    "lines": 25,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 142,
+    "lines": 57,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 143,
+    "lines": 29,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 144,
+    "lines": 2,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 145,
+    "lines": 33,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 146,
+    "lines": 32,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 147,
+    "lines": 34,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 148,
+    "lines": 21,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 149,
+    "lines": 16,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 150,
+    "lines": 19,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 151,
+    "lines": 21,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 152,
+    "lines": 4,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 153,
+    "lines": 46,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 154,
+    "lines": 32,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 155,
+    "lines": 33,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 156,
+    "lines": 45,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 157,
+    "lines": 22,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 158,
+    "lines": 30,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 159,
+    "lines": 42,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 160,
+    "lines": 31,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 161,
+    "lines": 4,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 162,
+    "lines": 1,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 163,
+    "lines": 46,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 164,
+    "lines": 22,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 165,
+    "lines": 35,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 166,
+    "lines": 34,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 167,
+    "lines": 44,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 168,
+    "lines": 26,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 169,
+    "lines": 35,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 170,
+    "lines": 41,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 171,
+    "lines": 65,
+    "crops": 0,
+    "has_table": true
+  },
+  {
+    "page": 172,
+    "lines": 41,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 173,
+    "lines": 1,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 174,
+    "lines": 17,
+    "crops": 0,
+    "has_table": false
+  },
+  {
+    "page": 175,
+    "lines": 13,
+    "crops": 0,
+    "has_table": false
+  }
+]

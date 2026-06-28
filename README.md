@@ -21,3 +21,17 @@ https://asanamaja.github.io/elec/private_study_notes.html
 |------|------|
 | `private_study_notes.md` | 마크다운 원본 |
 | `private_study_notes.html` | 모바일·브라우저용 HTML |
+| `output/dandap_replica.html` | PDF 원본 레이아웃 HTML 복제본 (A4 175p) |
+| `scripts/pdf_to_html_replica.py` | PDF → HTML 변환 스크립트 |
+
+## PDF 복제본 재생성
+
+원본 PDF는 Git에 포함되지 않습니다. Google Drive 등에서 받은 뒤:
+
+```bash
+pip install -r scripts/requirements-replica.txt
+# PDF를 assets/pdf/source.pdf 에 저장
+python3 scripts/pdf_to_html_replica.py
+```
+
+출력: `output/dandap_replica.html` + `assets/images/crops/` (도표·일러스트 크롭)
