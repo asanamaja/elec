@@ -35,7 +35,7 @@ def main() -> None:
                 raise FileNotFoundError(path)
             cache[name] = to_data_uri(path)
             count += 1
-        return f'src="{cache[name]}"'
+        return f'src="{cache[name]}" data-crop="{name}"'
 
     html = pattern.sub(repl, html)
     HTML.write_text(html, encoding="utf-8")
