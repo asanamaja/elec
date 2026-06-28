@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>전기기사 실기 단답비급 — 수동 전사본</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
+  <style>
+    @page { size: 595pt 842pt; margin: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #666; font-family: 'Noto Sans KR', sans-serif; }
+    .toolbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 99;
+      background: #1e293b; color: #fff; padding: .55rem 1rem; font-size: .85rem;
+      display: flex; gap: 1rem; align-items: center;
+    }
+    .toolbar a { color: #93c5fd; }
+    .pages { padding: 2.8rem .5rem 2rem; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    .page {
+      width: 595px; height: 842px; position: relative;
+      background: #fff; overflow: hidden;
+      box-shadow: 0 2px 14px rgba(0,0,0,.22);
+      page-break-after: always;
+      font-size: 10.5pt; line-height: 1.55; color: #1a1a1a;
+    }
+    .page.cover { background: #e5ddd0; }
+    .page.toc { background: #ebe8e1; }
+    .abs { position: absolute; }
+    .brand {
+      top: 38px; right: 52px; font-style: italic; font-weight: 700;
+      font-size: 13.5pt; letter-spacing: -.02em;
+    }
+    .brand-l {
+      bottom: 44px; left: 52px; font-size: 8.5pt;
+    }
+    .foot-r { bottom: 44px; right: 52px; font-size: 8.5pt; }
+    .sec-title {
+      left: 0; right: 0; top: 88px; text-align: center;
+      font-size: 14pt; font-weight: 700;
+    }
+    .day-tag {
+      top: 42px; left: 52px; font-size: 9pt; font-weight: 700;
+    }
+    .content { position: absolute; left: 72px; right: 52px; top: 118px; }
+    .q { margin-bottom: 20px; }
+    .q-num { font-size: 12.5pt; font-weight: 700; margin-bottom: 2px; }
+    .q-hline { border: none; border-top: 0.8px solid #d4a0a8; margin: 3px 0 7px; }
+    .q-text { margin-bottom: 6px; }
+    .q-text b { font-weight: 700; }
+    .ans { color: #c9a0a8; }
+    .ans-line { margin: 2px 0 2px 4px; }
+    .box {
+      border: 0.8px solid #999; padding: 8px 10px; margin-top: 6px;
+      line-height: 1.65; font-size: 10pt;
+    }
+    table.tbl { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 10pt; }
+    table.tbl th, table.tbl td { border: 0.6px solid #bbb; padding: 7px 8px; vertical-align: middle; }
+    table.tbl th { background: #ececec; font-weight: 700; text-align: center; }
+    table.tbl td:first-child { width: 22%; text-align: center; font-weight: 700; }
+    .memo-label { font-weight: 700; font-size: 11pt; margin-top: 80px; }
+    .memo-line { border: none; border-top: 1.2px solid #c44; margin-top: 4px; }
+    /* 표지 */
+    .vtext {
+      writing-mode: vertical-rl; text-orientation: mixed;
+      font-family: 'Nanum Myeongjo', serif; letter-spacing: .12em;
+    }
+    .title-box {
+      right: 68px; top: 175px; width: 108px; height: 248px;
+      background: #fff; border: 1.2px solid #222;
+      box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 4.2px #222;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .title-box .vtext { font-size: 38pt; font-weight: 700; }
+    .sub-v { font-size: 11pt; line-height: 2; }
+    .sub-v1 { right: 198px; top: 210px; }
+    .sub-v2 { right: 228px; top: 210px; }
+    .seal {
+      right: 206px; top: 430px; width: 28px; height: 72px;
+      background: #b33; color: #fff; font-size: 9pt;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 2px;
+    }
+    .cover-foot {
+      bottom: 58px; left: 0; right: 0; text-align: center;
+      font-size: 16pt; font-weight: 700; font-style: italic;
+    }
+    /* 목차 */
+    .toc-panel {
+      left: 175px; top: 72px; width: 360px; height: 700px;
+      background: rgba(255,255,255,.88); padding: 36px 28px 28px 24px;
+    }
+    .toc-row { display: flex; align-items: baseline; margin-bottom: 13px; font-size: 10pt; }
+    .toc-badge {
+      background: #d5d5d5; border-radius: 10px; padding: 2px 10px;
+      font-weight: 700; font-size: 9pt; min-width: 58px; text-align: center; margin-right: 10px;
+    }
+    .toc-title { flex: 1; }
+    .toc-dots { flex: 1; border-bottom: 1px dotted #aaa; margin: 0 6px 3px; min-width: 40px; }
+    .toc-page { font-weight: 700; min-width: 18px; text-align: right; }
+    /* DAY 구분 */
+    .day-banner {
+      top: 72px; left: 50%; transform: translateX(-50%);
+      background: #e8e8e8; padding: 6px 36px; border-radius: 2px;
+      font-size: 18pt; font-weight: 700; letter-spacing: .05em;
+    }
+    .topic-box {
+      top: 200px; left: 50%; transform: translateX(-50%);
+      width: 300px; background: #efefef; border-radius: 18px;
+      padding: 32px 24px; text-align: center; font-size: 13pt; line-height: 2.2;
+    }
+    .formula { margin: 8px 0; font-size: 10pt; }
+    .formula-row { display: flex; gap: 40px; flex-wrap: wrap; margin-top: 6px; }
+    @media print {
+      body { background: #fff; }
+      .toolbar { display: none; }
+      .pages { padding: 0; gap: 0; }
+      .page { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+<div class="toolbar">
+  <strong>단답비급 수동 전사본</strong>
+  <span id="pg-info">p.1–31 (DAY1~3 진행중) · 직접 전사</span>
+  <a href="#" onclick="window.print();return false;">인쇄/PDF</a>
+</div>
+<div class="pages">
+
+<!-- ===== p.1 표지 ===== -->
+<div class="page cover" id="page-001">
+  <img class="abs" src="../assets/images/manual/crops/p001_tree.png" style="left:28px;top:15px;width:245px;height:auto;" alt="">
+  <div class="title-box abs"><span class="vtext">단답비급</span></div>
+  <div class="vtext sub-v sub-v1">기출단답모음집</div>
+  <div class="vtext sub-v sub-v2">전기기사실기</div>
+  <div class="seal abs vtext">이우순</div>
+  <div class="cover-foot abs">전기치트키</div>
+</div>
+
+<!-- ===== p.2 내부 표지 ===== -->
+<div class="page cover" id="page-002">
+  <img class="abs" src="../assets/images/manual/crops/p002_inner_cover.png" style="left:30px;top:40px;width:535px;height:auto;" alt="">
+</div>
+
+<!-- ===== p.3 목차 ===== -->
+<div class="page toc" id="page-003">
+  <img class="abs" src="../assets/images/manual/crops/p003_cloud_top.png" style="left:28px;top:20px;width:145px;" alt="">
+  <img class="abs" src="../assets/images/manual/crops/p003_mokcha_badge.png" style="left:48px;top:100px;width:80px;" alt="">
+  <img class="abs" src="../assets/images/manual/crops/p003_cloud_bot.png" style="left:60px;top:215px;width:80px;" alt="">
+  <div class="abs" style="left:48px;top:130px;width:80px;height:200px;display:flex;align-items:center;justify-content:center;">
+    <span class="vtext" style="font-size:28pt;font-weight:700;font-family:'Nanum Myeongjo',serif;">목차</span>
+  </div>
+  <div class="toc-panel abs">
+    <div class="toc-row"><span class="toc-badge">DAY 1</span><span class="toc-title">가공전선로/지중전선로/송전선로/배전선로</span><span class="toc-dots"></span><span class="toc-page">5</span></div>
+    <div class="toc-row"><span class="toc-badge">DAY 2</span><span class="toc-title">역률/콘덴서/고조파/설비불평형</span><span class="toc-dots"></span><span class="toc-page">15</span></div>
+    <div class="toc-row"><span class="toc-badge">DAY 3</span><span class="toc-title">배선공사</span><span class="toc-dots"></span><span class="toc-page">29</span></div>
+    <div class="toc-row"><span class="toc-badge">DAY 4</span><span class="toc-title">조명/전동기1</span><span class="toc-dots"></span><span class="toc-page">37</span></div>
+    <div class="toc-row"><span class="toc-badge">DAY 5</span><span class="toc-title">전동기2/발전기/태양광/전지</span><span class="toc-dots"></span><span class="toc-page">49</span></div>
+    <div class="toc-row"><span class="toc-badge">DAY 6</span><span class="toc-title">변압기</span><span class="toc-dots"></span><span class="toc-page">59</span></div>
+    <div class="toc-row"><span class="toc-badge">DAY 7</span><span class="toc-title">차단기/퓨즈/개폐기1</span><span class="toc-dots"></span><span class="toc-page">77</span></div>
+    <div class="toc-row"><span class="toc-badge">DAY 8</span><span class="toc-title">개폐기2/피뢰기</span><span class="toc-dots"></span><span class="toc-page">91</span></div>
+    <div class="toc-row"><span class="toc-badge">DAY 9</span><span class="toc-title">부하특성/계전기/수변전설비1</span><span class="toc-dots"></span><span class="toc-page">101</span></div>
+    <div class="toc-row"><span class="toc-badge">DAY 10</span><span class="toc-title">수변전설비2/축전지</span><span class="toc-dots"></span><span class="toc-page">113</span></div>
+    <div class="toc-row"><span class="toc-badge">DAY 11</span><span class="toc-title">UPS/고장 및 사고</span><span class="toc-dots"></span><span class="toc-page">125</span></div>
+    <div class="toc-row"><span class="toc-badge">DAY 12</span><span class="toc-title">접지/절연</span><span class="toc-dots"></span><span class="toc-page">135</span></div>
+    <div class="toc-row"><span class="toc-badge">DAY 13</span><span class="toc-title">측정/시퀀스</span><span class="toc-dots"></span><span class="toc-page">145</span></div>
+    <div class="toc-row"><span class="toc-badge">DAY 14</span><span class="toc-title">정의 및 용어·규정/옥내 기구 기호</span><span class="toc-dots"></span><span class="toc-page">153</span></div>
+    <div class="toc-row"><span class="toc-badge">부록</span><span class="toc-title">감리</span><span class="toc-dots"></span><span class="toc-page">163</span></div>
+  </div>
+</div>
+
+<!-- ===== p.4 DAY1 구분 ===== -->
+<div class="page" id="page-004">
+  <div class="day-banner abs">DAY 1</div>
+  <div class="topic-box abs">
+    가공전선로<br>지중전선로<br>송전선로<br>배전선로
+  </div>
+  <img class="abs" src="../assets/images/manual/crops/p004_day_char.png" style="left:80px;top:500px;width:260px;" alt="">
+</div>
+
+<!-- ===== p.5 가공전선로 001~004 ===== -->
+<div class="page" id="page-005">
+  <div class="brand abs">전기치트키</div>
+  <div class="sec-title abs">가공전선로</div>
+  <div class="content">
+    <div class="q">
+      <div class="q-num">001.</div><hr class="q-hline">
+      <p class="q-text">가공전선로를 통하여 송전하는 경우 이상전압 발생을 방지하기 위한 방법 3가지를 쓰시오.</p>
+      <p class="ans-line">① <span class="ans">피뢰기</span> 설치</p>
+      <p class="ans-line">② <span class="ans">가공지선</span> 설치</p>
+      <p class="ans-line">③ <span class="ans">매설지선</span> 설치</p>
+    </div>
+    <div class="q">
+      <div class="q-num">002.</div><hr class="q-hline">
+      <p class="q-text">가공전선로의 이도가 너무 크거나 너무 작을 시 전선에 미치는 영향 4가지만 쓰시오.</p>
+      <p class="ans-line">① 이도의 대소는 <span class="ans">지지물의 높이</span>를 좌우한다.</p>
+      <p class="ans-line">② 이도가 너무 크면 전선은 그만큼 좌우로 진동해서 <span class="ans">다른 상의 전선에 접촉될 위험</span>이 있다.</p>
+      <p class="ans-line">③ 이도가 너무 크면 <span class="ans">도로, 철도, 통신선</span> 등의 횡단 장소에서는 이들과 <span class="ans">접촉될 위험</span>이 있다.</p>
+      <p class="ans-line">④ 이도가 너무 작으면 전선의 <span class="ans">장력이 증가</span>하여 전선이 <span class="ans">단선</span>될 위험이 있다.</p>
+    </div>
+    <div class="q">
+      <div class="q-num">003.</div><hr class="q-hline">
+      <p class="q-text">ACSR 전선에 댐퍼를 설치하는 이유는 무엇인가?</p>
+      <p class="ans-line"><span class="ans">진동 방지</span></p>
+    </div>
+    <div class="q">
+      <div class="q-num">004.</div><hr class="q-hline">
+      <p class="q-text">빙설이 많은 지방에서 을종풍압하중을 적용하는 전선 기타 가설선 주위 부착되는 빙설의 두께와 비중을 구하시오.</p>
+      <p class="ans-line">1. 두께 <span class="ans">6[mm]</span></p>
+      <p class="ans-line">2. 비중 <span class="ans">0.9</span></p>
+    </div>
+  </div>
+  <div class="foot-r abs">전기기사 실기 단답비급 • 5</div>
+</div>
+
+<!-- ===== p.6 지중전선로 005~008 ===== -->
+<div class="page" id="page-006">
+  <div class="day-tag abs">단답비급 DAY 1</div>
+  <div class="sec-title abs">지중전선로</div>
+  <div class="content">
+    <div class="q">
+      <div class="q-num">005.</div><hr class="q-hline">
+      <p class="q-text">지중전선로는 어떤 방식에 의하여 시설하여야 하는지 3가지만 쓰시오.</p>
+      <p class="ans-line">① <span class="ans">직접매설식</span></p>
+      <p class="ans-line">② <span class="ans">관로식</span></p>
+      <p class="ans-line">③ <span class="ans">암거식</span></p>
+    </div>
+    <div class="q">
+      <div class="q-num">006.</div><hr class="q-hline">
+      <p class="q-text">다음은 지중전선로에 대한 설명이다. ( )에 알맞은 내용을 답란에 작성하시오.</p>
+      <div class="box">
+        지중전선로는 전선에 케이블을 사용하고 또한 ( ① <span class="ans">관로</span> )식·암거식(暗渠式) 또는 ( ② <span class="ans">직접매설</span> )식에 의하여 시설하여야 한다. ( ① <span class="ans">관로</span> )식에 의하여 시설하는 경우에는 매설 깊이를 ( ③ <span class="ans">1</span> )[m] 이상으로 하되, 매설 깊이를 충족하지 못한 장소에는 견고하고 차량 기타 중량물의 압력에 견디는 것을 사용할 것. 다만 중량물의 압력을 받을 우려가 없는 곳은 0.6[m] 이상으로 한다.
+      </div>
+    </div>
+    <div class="q">
+      <div class="q-num">007.</div><hr class="q-hline">
+      <p class="q-text">지중전선로의 전선으로는 어떤 것을 사용하는가?</p>
+      <p class="ans-line"><span class="ans">케이블</span></p>
+    </div>
+    <div class="q">
+      <div class="q-num">008.</div><hr class="q-hline">
+      <p class="q-text">특고압용 지중전선에 사용하는 케이블의 종류 2가지를 쓰시오.</p>
+      <p class="ans-line">① <span class="ans">연피케이블</span></p>
+      <p class="ans-line">② <span class="ans">알루미늄피케이블</span></p>
+    </div>
+  </div>
+  <div class="brand-l abs">6 • 전기치트키</div>
+</div>
+
+<!-- ===== p.7 009~010 ===== -->
+<div class="page" id="page-007">
+  <div class="brand abs">전기치트키</div>
+  <div class="content" style="top:72px;">
+    <div class="q">
+      <div class="q-num">009.</div><hr class="q-hline">
+      <p class="q-text">지중선을 가공선과 비교하여 장단점을 각각 4가지만 쓰시오.</p>
+      <p><b>[장점]</b></p>
+      <p class="ans-line">① <span class="ans">기상 조건</span>에 <span class="ans">영향이 거의 없음</span></p>
+      <p class="ans-line">② <span class="ans">보수 업무</span>가 비교적 <span class="ans">적음</span></p>
+      <p class="ans-line">③ <span class="ans">다회선 설치 가능</span></p>
+      <p class="ans-line">④ <span class="ans">유도장해 경감</span></p>
+      <p style="margin-top:6px;"><b>[단점]</b></p>
+      <p class="ans-line">① <span class="ans">송전용량</span>이 <span class="ans">낮음</span></p>
+      <p class="ans-line">② 건설비가 <span class="ans">비쌈</span></p>
+      <p class="ans-line">③ 건설기간이 <span class="ans">김</span></p>
+      <p class="ans-line">④ 고장점 <span class="ans">발견이 어렵고 유지보수가 어려움</span></p>
+    </div>
+    <div class="q">
+      <div class="q-num">010.</div><hr class="q-hline">
+      <p class="q-text">지중전선을 전력구에 일반케이블로 시설하고자 할 경우, 케이블에 화재 방지대책을 하여야 하는데 케이블과 접속재에 사용하는 방재용 자재 2가지를 쓰시오.</p>
+      <p class="ans-line">① 난연<span class="ans">테이프</span></p>
+      <p class="ans-line">② 난연<span class="ans">도료</span></p>
+    </div>
+  </div>
+  <div class="foot-r abs">전기기사 실기 단답비급 • 7</div>
+</div>
+
+<!-- ===== p.8 송전선로 011~013 ===== -->
+<div class="page" id="page-008">
+  <div class="day-tag abs">단답비급 DAY 1</div>
+  <div class="sec-title abs">송전선로</div>
+  <div class="content">
+    <div class="q">
+      <div class="q-num">011.</div><hr class="q-hline">
+      <p class="q-text">전력계통의 단락용량 경감 대책을 3가지만 쓰시오.</p>
+      <p class="ans-line">① <span class="ans">고임피던스</span> 기기의 채용</p>
+      <p class="ans-line">② <span class="ans">한류리액터</span>의 사용</p>
+      <p class="ans-line">③ <span class="ans">계통분할</span> 방식</p>
+    </div>
+    <div class="q">
+      <div class="q-num">012.</div><hr class="q-hline">
+      <p class="q-text">부하전력 및 역률을 일정하게 유지하고 전압을 2배로 승압하면 전압강하, 전압강하율, 선로손실 및 선로손실률은 승압 전에 비교하여 각각 어떻게 되는가?</p>
+      <p class="ans-line">(1) 전압강하 &nbsp;&nbsp;&nbsp; <span class="ans">1/2배</span></p>
+      <p class="ans-line">(2) 전압강하율 &nbsp; <span class="ans">1/4배</span></p>
+      <p class="ans-line">(3) 선로손실 &nbsp;&nbsp;&nbsp; <span class="ans">1/4배</span></p>
+      <p class="ans-line">(4) 선로손실률 &nbsp; <span class="ans">1/4배</span></p>
+      <div class="formula-row formula">
+        <span>(1) e = P/V (R + X tanθ)</span>
+        <span>(2) ε = P/V² (R + X tanθ)</span>
+      </div>
+      <div class="formula-row formula">
+        <span>(3) P<sub>l</sub> = P²R / (V² cos²θ)</span>
+        <span>(4) K = PR / (V² cos²θ)</span>
+      </div>
+    </div>
+    <div class="q">
+      <div class="q-num">013.</div><hr class="q-hline">
+      <p class="q-text">변압기 모선방식을 3가지만 쓰시오.</p>
+      <p class="ans-line">① <span class="ans">단일</span>모선</p>
+      <p class="ans-line">② <span class="ans">이중</span>모선</p>
+      <p class="ans-line">③ <span class="ans">환상</span>모선</p>
+    </div>
+  </div>
+  <div class="brand-l abs">8 • 전기치트키</div>
+</div>
+
+<!-- ===== p.9 014~017 ===== -->
+<div class="page" id="page-009">
+  <div class="brand abs">전기치트키</div>
+  <div class="content" style="top:72px;">
+    <div class="q">
+      <div class="q-num">014.</div><hr class="q-hline">
+      <p class="q-text"><b>발·변전소에는 전력의 집합, 융통, 분배 등을 위하여 모선을 설치한다. 무한대 모선(Infinite Bus)이란 무엇인지 설명하시오.</b></p>
+      <p class="q-text" style="margin-top:6px;">무한대 모선이란 <span class="ans">내부 임피던스가</span> 0이고, 부하의 증감과 관계없이 <span class="ans">전압의 크기와 위상이 변화하지 않으며,</span> 극히 큰 <span class="ans">관성정수를</span> 가지고 있다고 생각되는 <span class="ans">용량 무한대의</span> 전원</p>
+    </div>
+    <div class="q">
+      <div class="q-num">015.</div><hr class="q-hline">
+      <p class="q-text"><b>2중 모선의 장점은?</b></p>
+      <p class="ans-line"><span class="ans">무정전</span> 상태에서 <span class="ans">모선을 점검</span>할 수 있다.</p>
+    </div>
+    <div class="q">
+      <div class="q-num">016.</div><hr class="q-hline">
+      <p class="q-text"><b>모선절체용 차단기의 설치 목적은?</b></p>
+      <p class="ans-line"><span class="ans">무정전으로 점검</span>하기 위해</p>
+    </div>
+    <div class="q">
+      <div class="q-num">017.</div><hr class="q-hline">
+      <p class="q-text"><b>복도체(또는 다도체) 방식을 단도체 방식과 비교할 때 그 장점 4가지와 단점 3가지를 쓰시오.</b></p>
+      <p><b>[장점]</b> ① <span class="ans">송전용량</span> 증대 &nbsp; ② <span class="ans">코로나 손실</span>감소</p>
+      <p class="ans-line" style="margin-left:52px;">③ <span class="ans">안정도</span> 증대 &nbsp; ④ 선로의 <span class="ans">인덕턴스</span> 감소</p>
+      <p style="margin-top:4px;"><b>[단점]</b> ① <span class="ans">건설비</span> 증가 &nbsp; ② <span class="ans">꼬임현상</span></p>
+      <p class="ans-line" style="margin-left:52px;">③ 소도체 사이 <span class="ans">흡인력</span> 발생</p>
+    </div>
+  </div>
+  <div class="foot-r abs">전기기사 실기 단답비급 • 9</div>
+</div>
+
+<!-- ===== p.10 018~021 ===== -->
+<div class="page" id="page-010">
+  <div class="day-tag abs">단답비급 DAY 1</div>
+  <div class="content" style="top:68px;">
+    <div class="q">
+      <div class="q-num">018.</div><hr class="q-hline">
+      <p class="q-text"><b>코로나 현상이란?</b></p>
+      <p class="q-text">임계전압 이상의 전압이 전선로 및 애자 부근에 가해졌을 때 <span class="ans">주위 공기 절연이 부분적으로 파괴</span>되는 현상</p>
+    </div>
+    <div class="q">
+      <div class="q-num">019.</div><hr class="q-hline">
+      <p class="q-text"><b>코로나 현상이 미치는 영향에 대하여 4가지만 쓰시오.</b></p>
+      <p class="ans-line">① 코로나 <span class="ans">손실</span></p>
+      <p class="ans-line">② 전선의 <span class="ans">부식</span> 촉진</p>
+      <p class="ans-line">③ 통신선 <span class="ans">유도장해</span></p>
+      <p class="ans-line">④ 코로나 <span class="ans">잡음</span></p>
+    </div>
+    <div class="q">
+      <div class="q-num">020.</div><hr class="q-hline">
+      <p class="q-text"><b>코로나 방지 대책 중 2가지만 쓰시오.</b></p>
+      <p class="ans-line">① <span class="ans">복도체(다도체)</span> 방식 채용</p>
+      <p class="ans-line">② <span class="ans">굵은 도체</span> 사용</p>
+    </div>
+    <div class="q">
+      <div class="q-num">021.</div><hr class="q-hline">
+      <p class="q-text">다음은 가공 송전선로의 코로나 임계전압을 나타낸 식이다.</p>
+      <p class="formula" style="text-align:center;margin:10px 0;">E₀ = 24.3 m₀ m₁ δ d log₁₀ D/r [kV]</p>
+      <p class="q-text">1. 기온 t[℃]에서의 기압을 b[mmHg]라고 할 때 δ = 0.386b/(273+t)로 나타내는데 이 δ는 무엇을 의미하는지 쓰시오. <span class="ans">상대 공기 밀도</span></p>
+      <p class="q-text" style="margin-top:6px;">2. m₁이 날씨에 의한 계수라면, m₀는 무엇에 의한 계수인지 쓰시오. <span class="ans">전선표면의 상태계수</span></p>
+    </div>
+  </div>
+  <div class="brand-l abs">10 • 전기치트키</div>
+</div>
+
+<!-- ===== p.11 022 표 ===== -->
+<div class="page" id="page-011">
+  <div class="brand abs">전기치트키</div>
+  <div class="content" style="top:68px;">
+    <div class="q" style="margin-bottom:10px;">
+      <div class="q-num">022.</div>
+      <p class="q-text" style="margin-top:6px;">전선이 정삼각형의 정점에 배치된 3상 선로에서 전선의 굵기, 선간거리, 표고, 기온에 의하여 코로나 임계전압이 받는 영향을 쓰시오.</p>
+    </div>
+    <table class="tbl">
+      <tr><th>구 분</th><th>임계전압이 받는 영향</th></tr>
+      <tr><td>전선의 굵기</td><td>전선의 굵기가 커지면 코로나 임계전압이 <span class="ans">높아진다.</span></td></tr>
+      <tr><td>선간거리</td><td>전선의 등가선간거리가 커지면 코로나 임계전압이 <span class="ans">높아진다.</span></td></tr>
+      <tr><td>표고[m]</td><td>표고가 높아지면 기압이 낮아지므로 코로나 임계전압이 <span class="ans">낮아진다.</span></td></tr>
+      <tr><td>기온[℃]</td><td>기온이 상승하면 상대공기밀도가 낮아지므로 코로나 임계전압이 <span class="ans">낮아진다.</span></td></tr>
+    </table>
+  </div>
+  <div class="foot-r abs">전기기사 실기 단답비급 • 11</div>
+</div>
+
+<!-- ===== p.12 배전선로 023~025 ===== -->
+<div class="page" id="page-012">
+  <div class="day-tag abs">단답비급 DAY 1</div>
+  <div class="sec-title abs">배전선로</div>
+  <div class="content">
+    <div class="q">
+      <div class="q-num">023.</div><hr class="q-hline">
+      <p class="q-text">배전선 전압을 조정하는 방법을 3가지만 쓰시오.</p>
+      <p class="ans-line">① <span class="ans">자동 전압 조정기 (SVR)</span></p>
+      <p class="ans-line">② <span class="ans">승압기</span></p>
+      <p class="ans-line">③ <span class="ans">전력용 콘덴서</span></p>
+    </div>
+    <div class="q">
+      <div class="q-num">024.</div><hr class="q-hline">
+      <p class="q-text">Spot Network 수전방식에 대해 설명하고 장점 4가지를 쓰시오.</p>
+      <p class="q-text">배전용 변전소로부터 <span class="ans">2회선</span> 이상의 배전선으로 <span class="ans">수전</span>하여, <span class="ans">수전용 네트워크 변압기 2차측</span>을 <span class="ans">상시 병렬 운전</span>하는 배전방식</p>
+      <p style="margin-top:4px;"><b>[장점]</b></p>
+      <p class="ans-line">① <span class="ans">무정전</span> 전력공급 가능</p>
+      <p class="ans-line">② <span class="ans">공급신뢰도</span> 높음</p>
+      <p class="ans-line">③ <span class="ans">전압변동률</span> 낮음</p>
+      <p class="ans-line">④ 부하증가에 대한 <span class="ans">적응성</span>이 좋음</p>
+    </div>
+    <div class="q">
+      <div class="q-num">025.</div><hr class="q-hline">
+      <p class="q-text">TV나 형광등과 같은 전기제품에서의 깜빡거림 현상을 플리커 현상이라 하는데 이 플리커 현상을 경감시키기 위한 전원측과 수용가측에서의 대책을 각각 3가지씩 쓰시오.</p>
+      <p><b>1. 전원측</b></p>
+      <p class="ans-line">① 공급전압 <span class="ans">승압</span></p>
+      <p class="ans-line">② <span class="ans">단락용량이 큰 계통</span>에서 공급</p>
+      <p class="ans-line">③ <span class="ans">전용 변압기</span>로 공급</p>
+      <p style="margin-top:4px;"><b>2. 수용가측</b></p>
+      <p class="ans-line">① 전원계통에 <span class="ans">리액터분 보상</span></p>
+      <p class="ans-line">② <span class="ans">전압강하 보상</span></p>
+      <p class="ans-line">③ 부하 무효전력 <span class="ans">변동분 흡수</span></p>
+    </div>
+  </div>
+  <div class="brand-l abs">12 • 전기치트키</div>
+</div>
+
+<!-- ===== p.13 026 + memo ===== -->
+<div class="page" id="page-013">
+  <div class="brand abs">전기치트키</div>
+  <div class="content" style="top:68px;">
+    <div class="q">
+      <div class="q-num">026.</div>
+      <p class="q-text" style="margin-top:6px;">부하의 특성에 기인하는 전압의 동요에 의하여 조명등이 깜빡거리거나 텔레비전 영상이 일그러지는 등의 현상을 플리커라고 한다. 배전계통에서 플리커 발생 부하가 증설될 경우에 이를 미리 예측하고 경감을 위하여 수용가측에서 행하는 방법 중 전원계통에 리액터분을 보상하는 방법 2가지를 쓰시오.</p>
+      <p class="ans-line" style="margin-top:8px;">① <span class="ans">직렬 콘덴서</span> 방식</p>
+      <p class="ans-line">② <span class="ans">3권선 보상 변압기</span> 방식</p>
+    </div>
+    <p class="memo-label">memo</p>
+    <hr class="memo-line">
+  </div>
+  <div class="foot-r abs">전기기사 실기 단답비급 • 13</div>
+</div>
+
+<!-- ===== p.14 DAY2 구분 ===== -->
+<div class="page" id="page-014">
+  <div class="day-banner abs">DAY 2</div>
+  <div class="topic-box abs" style="line-height:2.4;">
+    역률/콘덴서<br>고조파<br>설비불평형
+  </div>
+  <img class="abs" src="../assets/images/manual/crops/p014_day2_char.png" style="left:80px;top:500px;width:260px;" alt="">
+</div>
+
+<!-- ===== p.15 역률/콘덴서 027~030 ===== -->
+<div class="page" id="page-015">
+  <div class="brand abs">전기치트키</div>
+  <div class="sec-title abs">역률/콘덴서</div>
+  <div class="content">
+    <div class="q">
+      <div class="q-num">027.</div><hr class="q-hline">
+      <p class="q-text">역률을 개선하는 원리를 간단히 설명하시오.</p>
+      <p class="q-text"><span class="ans">부하에 병렬로 전력용 콘덴서를 설치하여 진상 무효분 전류를 공급받음으로써 유도성 부하의 지상 무효전류를 감소시켜 역률을 개선</span></p>
+    </div>
+    <div class="q">
+      <div class="q-num">028.</div><hr class="q-hline">
+      <p class="q-text">부하설비의 역률이 저하되는 경우 수용가가 볼 수 있는 손해 3가지를 쓰시오.</p>
+      <p class="ans-line">① <span class="ans">전력손실 증가</span></p>
+      <p class="ans-line">② <span class="ans">전기요금 증가</span></p>
+      <p class="ans-line">③ <span class="ans">전압강하 증가</span></p>
+    </div>
+    <div class="q">
+      <div class="q-num">029.</div><hr class="q-hline">
+      <p class="q-text">전력용 콘덴서의 설치목적 4가지를 쓰시오. (역률개선 효과)</p>
+      <p class="ans-line">① <span class="ans">전력손실 경감</span></p>
+      <p class="ans-line">② <span class="ans">전압강하의 감소</span></p>
+      <p class="ans-line">③ <span class="ans">설비용량의 여유증가</span></p>
+      <p class="ans-line">④ <span class="ans">전기요금의 감소</span></p>
+    </div>
+    <div class="q">
+      <div class="q-num">030.</div><hr class="q-hline">
+      <p class="q-text">역률을 개선하기 위한 전력용 콘덴서 용량은 최대 무슨 전력 이하로 설정하여야 하는지 쓰시오.</p>
+      <p class="ans-line"><span class="ans">부하의 지상 무효전력</span></p>
+    </div>
+  </div>
+  <div class="foot-r abs">전기기사 실기 단답비급 • 15</div>
+</div>
+
+<!-- ===== p.16 031~034 ===== -->
+<div class="page" id="page-016">
+  <div class="day-tag abs">단답비급 DAY 2</div>
+  <div class="content" style="top:68px;">
+    <div class="q">
+      <div class="q-num">031.</div><hr class="q-hline">
+      <p class="q-text">경부하 시에 콘덴서가 과대 삽입되는 경우(과보상)의 결점을 4가지 쓰시오.</p>
+      <p class="ans-line">① <span class="ans">모선전압 상승</span></p>
+      <p class="ans-line">② <span class="ans">전력손실 증가</span></p>
+      <p class="ans-line">③ <span class="ans">계전기 오동작</span></p>
+      <p class="ans-line">④ <span class="ans">역률 저하</span></p>
+    </div>
+    <div class="q">
+      <div class="q-num">032.</div><hr class="q-hline">
+      <p class="q-text">콘덴서 설치 시 발생하는 제5고조파를 제거하고자 한다. 그 대책에 대해 설명하시오.</p>
+      <p class="q-text">콘덴서 용량의 <span class="ans">6[%]</span> 정도의 <span class="ans">직렬리액터</span>를 설치한다.</p>
+    </div>
+    <div class="q">
+      <div class="q-num">033.</div><hr class="q-hline">
+      <p class="q-text">전력용 콘덴서에 설치하는 직렬리액터의 용량산정에 대하여 설명하시오.</p>
+      <p><b>직렬 리액터의 용량</b></p>
+      <p class="formula">5ωL &gt; 1/(5ωC) → ωL &gt; 1/(5²ωC) = 0.04 × 1/(ωC)</p>
+      <p class="ans-line">① 이론상 콘덴서 용량의 <span class="ans">4[%] 이상</span></p>
+      <p class="ans-line">② 실제는 주파수 변동 등의 여유를 봐서 약 <span class="ans">5~6[%]</span>인 것을 사용</p>
+    </div>
+    <div class="q">
+      <div class="q-num">034.</div><hr class="q-hline">
+      <p class="q-text">제3고조파를 감소시키기 위한 리액터의 용량은 콘덴서의 몇 [%] 이상이어야 하는지 쓰시오.</p>
+      <p class="ans-line"><span class="ans">11[%]</span></p>
+      <p class="q-text" style="margin-top:6px;">제3고조파를 감소시키기 위한 리액터의 용량은 콘덴서의 몇 [%] 이상이어야 하는지 쓰시오. (단, 주파수 변동 등을 고려하여 2[%] 여유를 둔다.)</p>
+      <p class="ans-line"><span class="ans">콘덴서 용량 11[%] + 여유 2[%] = 13[%]</span></p>
+    </div>
+  </div>
+  <div class="brand-l abs">16 • 전기치트키</div>
+</div>
+
+<!-- ===== p.17 035 ===== -->
+<div class="page" id="page-017">
+  <div class="brand abs">전기치트키</div>
+  <div class="content" style="top:68px;">
+    <div class="q">
+      <div class="q-num">035.</div><hr class="q-hline">
+      <p class="q-text">콘덴서의 용량, 접속방법 등은 어떻게 시설하는 것을 원칙으로 하는지와 고조파전류의 증대 등에 대한 다음 각 물음에 답하시오.</p>
+      <p class="q-text" style="margin-top:8px;">1. 콘덴서의 <b>용량</b>은 부하의 ( <span class="ans">무효분</span> ) 보다 크게 하지 말 것.</p>
+      <p class="q-text">2. 콘덴서는 <b>본선에 직접 접속</b>하고 특히 전용의 ( <span class="ans">개폐기</span> ), ( <span class="ans">퓨즈</span> ), ( <span class="ans">유입차단기</span> ) 등을 설치하지 말 것</p>
+      <p class="q-text">3. 고압 및 특고압 진상용 콘덴서의 설치로 공급회로의 <b>고조파전류</b>가 현저하게 증대할 경우는 콘덴서 회로에 유효한 ( <span class="ans">직렬리액터</span> )를 설치하여야 한다.</p>
+      <p class="q-text">4. 가연성유봉입(可燃性油封入)의 고압진상용 콘덴서를 설치하는 경우는 <b>가연성</b>의 벽, 천장 등과 ( <span class="ans">1</span> )[m] 이상 이격하는 것이 바람직하다.</p>
+    </div>
+  </div>
+  <div class="foot-r abs">전기기사 실기 단답비급 • 17</div>
+</div>
+
+<!-- ===== p.18 036 + 도표 ===== -->
+<div class="page" id="page-018">
+  <div class="day-tag abs">단답비급 DAY 2</div>
+  <div class="content" style="top:58px;">
+    <div class="q">
+      <div class="q-num">036.</div><hr class="q-hline">
+      <p class="q-text">그림과 같은 계통도에서 (1), (2), (3), (4)의 명칭을 쓰고 그 역할을 간단히 설명하시오.</p>
+      <img src="../assets/images/manual/crops/p018_diag036.png" style="width:100%;max-height:300px;object-fit:contain;margin:8px 0;" alt="고압 진상용 콘덴서 계통도">
+      <p class="ans-line">(1) <span class="ans">차단기(CB)</span> : 과전류로부터 회로 보호 및 부하전류 개폐</p>
+      <p class="ans-line">(2) <span class="ans">방전코일(DC)</span> : 콘덴서에 축적된 잔류전하 방전</p>
+      <p class="ans-line">(3) <span class="ans">직렬리액터(SR)</span> : 제5고조파 제거</p>
+      <p class="ans-line">(4) <span class="ans">전력용 콘덴서(SC)</span> : 역률 개선</p>
+    </div>
+  </div>
+  <div class="brand-l abs">18 • 전기치트키</div>
+</div>
+
+<!-- ===== p.19 037~038 ===== -->
+<div class="page" id="page-019">
+  <div class="brand abs">전기치트키</div>
+  <div class="content" style="top:58px;">
+    <div class="q">
+      <div class="q-num">037.</div>
+      <p class="q-text" style="margin-top:4px;">그림은 고압 진상용 콘덴서 설치도이다. ①, ②, ③의 회로를 완성하시오.</p>
+      <img src="../assets/images/manual/crops/p019_diag037.png" style="width:100%;max-height:340px;object-fit:contain;margin:6px 0;" alt="콘덴서 설치도">
+    </div>
+    <div class="q">
+      <div class="q-num">038.</div>
+      <p class="q-text" style="margin-top:4px;">괄호안에 알맞은 내용을 쓰시오.</p>
+      <div class="box" style="border-radius:12px;">
+        고압 및 특고압 <b>진상용 콘덴서</b> 회로에 설치하는 <b>방전장치</b>는 콘덴서 회로에 직접 접속하거나 또는 콘덴서 회로를 개방하였을 경우 자동적으로 접속되도록 장치하고 또한 개로 후 ( <span class="ans">5</span> )초 이내에 콘덴서의 잔류전하를 ( <span class="ans">50</span> )[V] 이하로 저하시킬 능력이 있는 것을 설치하는 것을 원칙으로 한다.
+      </div>
+    </div>
+  </div>
+  <div class="foot-r abs">전기기사 실기 단답비급 • 19</div>
+</div>
+
+<!-- ===== p.20 039~042 ===== -->
+<div class="page" id="page-020">
+  <div class="day-tag abs">단답비급 DAY 2</div>
+  <div class="content" style="top:58px;">
+    <div class="q">
+      <div class="q-num">039.</div><hr class="q-hline">
+      <p class="q-text">콘덴서(condenser)설비의 주요 사고 원인 3가지를 예로 들어 설명하시오.</p>
+      <p class="ans-line">① 콘덴서 설비의 <span class="ans">모선 단락 및 지락</span></p>
+      <p class="ans-line">② 콘덴서 <span class="ans">소체 파괴 및 층간 절연 파괴</span></p>
+      <p class="ans-line">③ 콘덴서 설비 내의 <span class="ans">배선 단락</span></p>
+    </div>
+    <div class="q">
+      <div class="q-num">040.</div><hr class="q-hline">
+      <p class="q-text">고압 회로용 진상콘덴서 설비의 보호장치에 사용되는 계전기를 3가지 쓰시오.</p>
+      <p class="ans-line">① <span class="ans">과전류 계전기</span></p>
+      <p class="ans-line">② <span class="ans">과전압 계전기</span></p>
+      <p class="ans-line">③ <span class="ans">저전압 계전기</span></p>
+    </div>
+    <div class="q">
+      <div class="q-num">041.</div><hr class="q-hline">
+      <p class="q-text">전력용 진상콘덴서의 정기점검(육안검사) 항목 3가지를 쓰시오.</p>
+      <p class="ans-line">① <span class="ans">단자부</span> 이완 및 과열 여부 점검</p>
+      <p class="ans-line">② <span class="ans">기름</span> 누설 여부</p>
+      <p class="ans-line">③ <span class="ans">애자</span> 손상 여부</p>
+    </div>
+    <div class="q">
+      <div class="q-num">042.</div><hr class="q-hline">
+      <p class="q-text">역률 개선을 위한 전력용 콘덴서의 개폐 제어 중 자동조작 방식을 제어요소에 따라 분류할 때 그 제어요소에는 어떤 것이 있는지 4가지를 쓰시오.</p>
+      <p class="ans-line">① <span class="ans">역률에 의한 제어</span></p>
+      <p class="ans-line">② <span class="ans">전류에 의한 제어</span></p>
+      <p class="ans-line">③ <span class="ans">전압에 의한 제어</span></p>
+      <p class="ans-line">④ <span class="ans">무효전력에 의한 제어</span></p>
+    </div>
+  </div>
+  <div class="brand-l abs">20 • 전기치트키</div>
+</div>
+
+<!-- ===== p.21 043 (1) ===== -->
+<div class="page" id="page-021">
+  <div class="brand abs">전기치트키</div>
+  <div class="content" style="top:58px;">
+    <div class="q">
+      <div class="q-num">043.</div>
+      <p class="q-text" style="margin-top:4px;">고압 진상용 콘덴서의 내부고장 보호방식으로 NCS 방식과 NVS 방식이 있다. 다음 각 물음에 답하시오.</p>
+      <p class="q-text" style="margin-top:6px;">(1) NCS와 NVS의 기능을 설명하시오.</p>
+      <p class="ans-line">① NCS : 콘덴서 고장 시 <span class="ans">중성점 간에</span> 흐르는 <span class="ans">전류</span>를 검출</p>
+      <p class="ans-line">② NVS : 콘덴서 고장 시 <span class="ans">중성점 간의 불평형 전압</span>을 검출</p>
+      <p class="q-text" style="margin-top:8px;">(2) [그림1] ①, [그림2] ②에 누락된 부분을 완성하시오.</p>
+      <div style="display:flex;gap:8px;justify-content:center;margin:8px 0;">
+        <div style="text-align:center;"><img src="../assets/images/manual/crops/p021_fig1.png" style="height:200px;" alt="그림1"><div style="font-size:9pt;">[그림1]</div></div>
+        <div style="text-align:center;"><img src="../assets/images/manual/crops/p021_fig2.png" style="height:200px;" alt="그림2"><div style="font-size:9pt;">[그림2]</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot-r abs">전기기사 실기 단답비급 • 21</div>
+</div>
+
+<!-- ===== p.22 043(2) + 044 ===== -->
+<div class="page" id="page-022">
+  <div class="day-tag abs">단답비급 DAY 2</div>
+  <div class="content" style="top:58px;">
+    <p class="q-text">(2)</p>
+    <div style="display:flex;gap:8px;justify-content:center;margin:4px 0 10px;">
+      <div style="text-align:center;"><img src="../assets/images/manual/crops/p022_fig1b.png" style="height:170px;" alt="그림1 답"><div style="font-size:9pt;">[그림1] ① <span class="ans">NCS(변류기)</span></div></div>
+      <div style="text-align:center;"><img src="../assets/images/manual/crops/p022_fig2b.png" style="height:170px;" alt="그림2 답"><div style="font-size:9pt;">[그림2] ② <span class="ans">계전기</span></div></div>
+    </div>
+    <div class="q">
+      <div class="q-num">044.</div><hr class="q-hline">
+      <p class="q-text">전동기에 개별로 콘덴서를 설치할 경우 발생할 수 있는 <b>자기여자</b> 현상의 발생 <b>이유</b>와 <b>현상</b>을 설명하시오.</p>
+      <p class="ans-line">• 이유 : <span class="ans">콘덴서 전류</span>가 전동기의 <span class="ans">무부하 전류</span>보다 큰 경우 발생</p>
+      <p class="ans-line">• 현상 : 전동기 <span class="ans">단자전압</span>이 일시적으로 정격전압을 <span class="ans">초과</span>하는 현상</p>
+    </div>
+  </div>
+  <div class="brand-l abs">22 • 전기치트키</div>
+</div>
+
+<!-- ===== p.23 045 ===== -->
+<div class="page" id="page-023">
+  <div class="brand abs">전기치트키</div>
+  <div class="content" style="top:72px;">
+    <div class="q">
+      <div class="q-num">045.</div><hr class="q-hline">
+      <p class="q-text">정지형 무효전력 보상장치(SVC)에 대하여 간단히 설명하시오.</p>
+      <p class="q-text"><span class="ans">정지형 무효전력 보상장치는 사이리스터를 이용하여 병렬 콘덴서와 분로리액터를 신속하게 접속제어하여 무효전력 및 전압을 제어하는 장치이다.</span></p>
+    </div>
+  </div>
+  <div class="foot-r abs">전기기사 실기 단답비급 • 23</div>
+</div>
+
+<!-- ===== p.24 고조파 046~048 ===== -->
+<div class="page" id="page-024">
+  <div class="day-tag abs">단답비급 DAY 2</div>
+  <div class="sec-title abs">고조파</div>
+  <div class="content">
+    <div class="q">
+      <div class="q-num">046.</div><hr class="q-hline">
+      <p class="q-text">고조파 <b>전류</b>가 <b>발생</b>하는 <b>주 원인</b> 3가지를 설명하시오.</p>
+      <p class="ans-line">① 변압기, 전동기 등의 <span class="ans">여자전류</span></p>
+      <p class="ans-line">② 컨버터, 인버터, 초퍼 등의 <span class="ans">전력 변환 장치</span></p>
+      <p class="ans-line">③ <span class="ans">전기로, 아크로 등</span></p>
+    </div>
+    <div class="q">
+      <div class="q-num">047.</div><hr class="q-hline">
+      <p class="q-text">선로에서 발생하는 <b>고조파</b>가 <b>전기설비</b>에 <b>미치는 장해</b>를 4가지만 설명하시오.</p>
+      <p class="ans-line">① 전력기기의 <span class="ans">소손</span></p>
+      <p class="ans-line">② 보호계전기의 <span class="ans">오동작</span></p>
+      <p class="ans-line">③ 통신선의 <span class="ans">유도장해</span></p>
+      <p class="ans-line">④ 3상 4선식 회로의 <span class="ans">중성선 과열</span></p>
+    </div>
+    <div class="q">
+      <div class="q-num">048.</div><hr class="q-hline">
+      <p class="q-text">선로나 간선에 고조파 전류를 발생시키는 발생기기가 있을 경우 그 대책을 적절히 세워야 한다. 이 <b>고조파 억제 대책</b>을 5가지 쓰시오.</p>
+      <p class="ans-line">① <span class="ans">전력변환장치</span>의 <span class="ans">펄스수</span>를 크게 함</p>
+      <p class="ans-line">② <span class="ans">고조파 필터</span>를 사용</p>
+      <p class="ans-line">③ 전력용 콘덴서에 <span class="ans">직렬리액터</span> 설치</p>
+      <p class="ans-line">④ <span class="ans">복도체, 다도체</span> 사용</p>
+      <p class="ans-line">⑤ 변압기 <span class="ans">델타결선</span> 사용</p>
+    </div>
+  </div>
+  <div class="brand-l abs">24 • 전기치트키</div>
+</div>
+
+<!-- ===== p.25 049 ===== -->
+<div class="page" id="page-025">
+  <div class="brand abs">전기치트키</div>
+  <div class="content" style="top:72px;">
+    <div class="q">
+      <div class="q-num">049.</div><hr class="q-hline">
+      <p class="q-text">배전선의 기본파 전압 실효값이 V₁[V], 고조파 전압의 실효값이 V₃[V], V₅[V], Vₙ[V] 이다. <span class="ans">THD</span>(Total Harmonics Distortion)의 정의와 계산식을 쓰시오.</p>
+      <p style="margin-top:8px;"><b>[정의]</b> 기본파의 <span class="ans">실효값에</span> 대한 <span class="ans">전고조파의</span> <span class="ans">실효값의</span> 비</p>
+      <p style="margin-top:6px;"><b>[계산식]</b> 전고조파왜율 THD = √(V₃² + V₅² + Vₙ²) / V₁</p>
+    </div>
+  </div>
+  <div class="foot-r abs">전기기사 실기 단답비급 • 25</div>
+</div>
+
+<!-- ===== p.26 설비불평형 050~052 ===== -->
+<div class="page" id="page-026">
+  <div class="day-tag abs">단답비급 DAY 2</div>
+  <div class="sec-title abs" style="text-decoration:underline;">설비불평형</div>
+  <div class="content">
+    <div class="q">
+      <div class="q-num">050.</div><hr class="q-hline">
+      <p class="q-text">저압 수전의 단상 3선식에서 중성선과 각 전압측 전선 간의 부하는 불평형 부하를 제한할 때 몇 [%]를 초과하지 않아야 하는가?</p>
+      <p class="ans-line"><span class="ans">40[%]</span></p>
+    </div>
+    <div class="q">
+      <div class="q-num">051.</div><hr class="q-hline">
+      <p class="q-text">1. 저압, 고압 및 특고압 수전의 3상 3선식 또는 3상 4선식에서 불평형 부하의 한도는 단상 접속 부하로 계산하여 설비불평형률을 몇 [%] 이하로 하는 것을 원칙으로 하는가? <span class="ans">30[%]</span></p>
+      <p class="q-text" style="margin-top:4px;">2. "1"항 제한 원칙에 따르지 않아도 되는 경우를 4가지만 쓰시오.</p>
+      <p class="ans-line">① 저압 수전에서 <span class="ans">전용 변압기</span> 등으로 수전하는 경우</p>
+      <p class="ans-line">② 고압 및 특고압 수전에서 100[kVA(kW)] 이하의 <span class="ans">단상 부하</span>인 경우</p>
+      <p class="ans-line">③ 특고압 및 고압 수전에서 단상부하 용량의 <span class="ans">최대와 최소의 차</span>가 100[kVA(kW)] 이하인 경우</p>
+      <p class="ans-line">④ 특고압 수전에서는 100[kVA(kW)] 이하의 단상 변압기 2대로 <span class="ans">역 V결선</span>하는 경우</p>
+    </div>
+    <div class="q">
+      <div class="q-num">052.</div><hr class="q-hline">
+      <p class="q-text">특고압 및 고압수전에서 대용량의 단상전기로 등의 사용으로 설비 부하평형의 제한에 따르기가 어려운 경우는 전기사업자와 협의하여 다음 각호에 의하여 시설하는 것을 원칙으로 한다. 빈칸에 들어갈 말은?</p>
+      <p class="q-text" style="margin-top:4px;">1. 단상부하 1개의 경우는 ( <span class="ans">2차 역V</span> ) 접속에 의할 것. 다만 300[kVA]를 초과하지 말 것.</p>
+      <p class="q-text">2. 단상부하 2개의 경우는 ( <span class="ans">스코트</span> ) 접속에 의할 것. 다만, 1개의 용량이 200[kVA] 이하인 경우는 부득이한 경우에 한하여 보통의 변압기 2대를 사용하여 별개의 선간에 부하를 접속할 수 있다.</p>
+      <p class="q-text">3. 단상부하 3개 이상인 경우는 가급적 선로전류가 ( <span class="ans">평형</span> )이 되도록 각 선간에 부하를 접속할 것.</p>
+    </div>
+  </div>
+  <div class="brand-l abs">26 • 전기치트키</div>
+</div>
+
+<!-- ===== p.27 memo ===== -->
+<div class="page" id="page-027">
+  <div class="brand abs">전기치트키</div>
+  <div class="content" style="top:72px;">
+    <p class="memo-label">memo</p>
+    <hr class="memo-line">
+    <p class="abs" style="left:50%;top:45%;transform:translate(-50%,-50%);font-size:48pt;color:#eee;font-weight:700;">DAY 3</p>
+  </div>
+  <div class="foot-r abs">전기기사 실기 단답비급 • 27</div>
+</div>
+
+<!-- ===== p.28 DAY3 구분 ===== -->
+<div class="page" id="page-028">
+  <div class="day-banner abs">DAY 3</div>
+  <div class="topic-box abs">배선공사</div>
+  <img class="abs" src="../assets/images/manual/crops/p004_day_char.png" style="left:80px;top:500px;width:260px;" alt="">
+</div>
+
+<!-- ===== p.29 배선공사 053~054 (표 크롭) ===== -->
+<div class="page" id="page-029">
+  <div class="brand abs">전기치트키</div>
+  <div class="sec-title abs">배선공사</div>
+  <div class="content">
+    <div class="q">
+      <div class="q-num">053.</div>
+      <p class="q-text" style="margin-top:4px;">저압배선 방법 중 캡타이어 케이블의 사용 구분에 따라 답안지의 표를 ○, △, ×로 구분하여 표시하시오.</p>
+      <p class="q-text" style="font-size:9pt;">○ : 사용할 수 있다. &nbsp; △ : 노출장소 또는 점검할 수 있는 은폐장소에서만 사용할 수 있다. &nbsp; × : 사용할 수 없다.</p>
+      <img src="../assets/images/manual/crops/p029_tbl053.png" style="width:100%;margin:6px 0;" alt="표 053">
+    </div>
+    <div class="q">
+      <div class="q-num">054.</div>
+      <p class="q-text" style="margin-top:4px;">옥내 저압 배선을 케이블 공사에 의해 시설하고자 한다. 아래 표의 빈칸에 시설이 가능하면 ○, 불가능하면 ×를 표기하시오.</p>
+      <img src="../assets/images/manual/crops/p029_tbl054.png" style="width:100%;margin:4px 0;" alt="표 054">
+    </div>
+  </div>
+  <div class="foot-r abs">전기기사 실기 단답비급 • 29</div>
+</div>
+
+<!-- ===== p.30 055~057 ===== -->
+<div class="page" id="page-030">
+  <div class="day-tag abs">단답비급 DAY 3</div>
+  <div class="content" style="top:58px;">
+    <div class="q">
+      <div class="q-num">055.</div><hr class="q-hline">
+      <p class="q-text">옥내 저압 배선을 시설 장소의 조건에 관계없이 한 가지 배선방법으로 배선하고자 할 때 옥내에는 건조한 장소, 습기진 장소, 노출배선장소, 은폐배선을 하여야 할 장소, 점검이 불가능한 장소 등으로 되어 있다고 한다면 적용 가능한 배선 방법은 어떤 방법이 있는지 그 방법을 4가지만 쓰시오. (단, 사용전압이 400[V] 이하인 경우이다.)</p>
+      <p class="ans-line">① 금속관 공사</p>
+      <p class="ans-line">② <span class="ans">비닐피복 2종 가요전선관</span> 공사</p>
+      <p class="ans-line">③ <span class="ans">케이블</span> 공사</p>
+      <p class="ans-line">④ <span class="ans">케이블트레이</span> 공사</p>
+    </div>
+    <div class="q">
+      <div class="q-num">056.</div><hr class="q-hline">
+      <p class="q-text">전동기, 가열장치 또는 전력장치의 배선에는 이것에 공급하는 부하회로의 배선에서 기계기구 또는 장치를 분리할 수 있도록 단로용 기구로 각각에 개폐기 또는 콘센트를 시설하여야 한다. 그렇지 않아도 되는 경우 2가지를 쓰시오.</p>
+      <p class="ans-line">① 배선 중에 시설하는 <span class="ans">현장조작개폐기</span>가 전로의 <span class="ans">각 극을 개폐할</span> 수 있는 경우</p>
+      <p class="ans-line">② <span class="ans">전용분기회로</span>에서 공급될 경우</p>
+    </div>
+    <div class="q">
+      <div class="q-num">057.</div><hr class="q-hline">
+      <p class="q-text">간선 설계 시 고려할 사항 5가지를 쓰시오.</p>
+      <p class="ans-line">① <span class="ans">전기방식</span></p>
+      <p class="ans-line">② 부하의 사용 상태나 <span class="ans">수용률</span></p>
+      <p class="ans-line">③ 장래 <span class="ans">증설의 유무</span>와 이것에 대한 배려의 필요성</p>
+      <p class="ans-line">④ 간선 <span class="ans">경로</span>에 대한 <span class="ans">위치</span>와 <span class="ans">넓이</span></p>
+      <p class="ans-line">⑤ <span class="ans">점검구</span>에 대한 사항</p>
+    </div>
+  </div>
+  <div class="brand-l abs">30 • 전기치트키</div>
+</div>
+
+<!-- ===== p.31 058 ===== -->
+<div class="page" id="page-031">
+  <div class="brand abs">전기치트키</div>
+  <div class="content" style="top:68px;">
+    <div class="q">
+      <div class="q-num">058.</div>
+      <p class="q-text" style="margin-top:4px;">다음은 <b>분전반 설치</b>에 관한 내용이다. ( )안에 알맞은 내용을 쓰시오.</p>
+      <p class="q-text" style="margin-top:8px;">(1) 분전반은 각 층마다 설치한다.</p>
+      <p class="q-text">(2) 분전반은 <b>분기회로의 길이</b>가 ( <span class="ans">30</span> )[m] 이하가 되도록 설계하며, 사무실 용도인 경우 하나의 분전반에 담당하는 면적은 일반적으로 1,000 [m²] 내외로 한다.</p>
+      <p class="q-text">(3) 1개 분전반 또는 개폐기함 내에 설치할 수 있는 과전류장치는 예비회로(10~20 [%])를 포함하여 42개 이하(주개폐기 제외)로 하고, 이 회로 수를 넘는 경우는 2개 분전반으로 분리하거나 ( <span class="ans">자립형</span> )으로 한다. 다만, 2극, 3극 배선용 차단기는 과전류장치 소자 수량의 합계로 계산한다.</p>
+      <p class="q-text">(4) <b>분전반의 설치높이</b>는 긴급 시 도구를 사용하거나 바닥에 앉지 않고 조작할 수 있어야 하며, <b>일반적으로는 분전반 상단을 기준하여</b> 바닥 위 ( <span class="ans">1.8</span> )[m]로 하고, 크기가 작은 경우는 <b>분전반의 중간을 기준하여</b> 바닥 위 ( <span class="ans">1.4</span> )[m]로 하거나 <b>하단을 기준하여</b> 바닥 위 ( <span class="ans">1.0</span> )[m] 정도로 한다.</p>
+      <p class="q-text">(5) 분전반과 분전반은 도어의 열림 반경 이상으로 이격하여 안전성을 확보하고, 2개 이상의 전원이 하나의 분전반에 수용되는 경우에는 각각의 전원 사이에는 해당하는 분전반과 동일한 재질로 ( <span class="ans">격벽</span> )을 설치해야 한다.</p>
+    </div>
+  </div>
+  <div class="foot-r abs">전기기사 실기 단답비급 • 31</div>
+</div>
+
+</div>
+</body>
+</html>

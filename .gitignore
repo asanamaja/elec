@@ -1,5 +1,6 @@
 assets/pdf/
 assets/images/page_*.jpg
+assets/images/manual/p*.jpg
 assets/images/sample_*.jpg
 output/convert.log
 __pycache__/
