@@ -15,7 +15,8 @@ from pages_121_163 import PAGES_121_163
 from pages_164_175 import PAGES_164_175
 
 HTML = ROOT / "output/dandap_manual.html"
-USER = ROOT / "assets/images/manual/user"
+MANUAL = ROOT / "assets/images/manual"
+USER = MANUAL / "user"
 
 SYM_IMG: dict[str, tuple[str, str, str]] = {
     "sym_sw": ("sym_sw.png", "sym", "height:14px;width:auto;display:inline-block;vertical-align:middle"),
@@ -135,8 +136,11 @@ def embed_user_images(html: str) -> str:
 
 
 def main() -> None:
-    shots = list(USER.glob("Screenshot_*.jpg"))
-    if not shots:
+    shots = list(MANUAL.glob("Screenshot_*.jpg"))
+    sym_pngs = list(USER.glob("sym_*.png"))
+    if sym_pngs:
+        print(f"Using {len(sym_pngs)} sym_*.png from user/ (skip PDF symbol crop)")
+    elif not shots:
         subprocess.run([sys.executable, str(ROOT / "scripts/crop_user_symbols.py")], check=True)
     else:
         print(f"Using {len(shots)} user screenshots (skip PDF symbol crop)")
@@ -161,10 +165,13 @@ def main() -> None:
     cache: dict[str, str] = {}
     for name in {v[0] for v in SYM_IMG.values()}:
         rel = f'../assets/images/manual/user/{name}'
-        if rel in html:
-            data = base64.b64encode((USER / name).read_bytes()).decode("ascii")
+        path = USER / name
+        if rel in html and path.exists():
+            data = base64.b64encode(path.read_bytes()).decode("ascii")
             cache[name] = f"data:image/png;base64,{data}"
             html = html.replace(f'src="{rel}"', f'src="{cache[name]}" data-sym="{name}"')
+        elif rel in html and not path.exists():
+            print(f"skip missing symbol {name}")
 
     HTML.write_text(html, encoding="utf-8")
 

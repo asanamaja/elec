@@ -1,0 +1,624 @@
+{
+  "symbols": [
+    {
+      "file": "sym_2p.png",
+      "source": "Screenshot_20260628_230306_Samsung Notes.jpg",
+      "page": "p.158",
+      "note": "2P left half"
+    },
+    {
+      "file": "sym_sw.png",
+      "source": "Screenshot_20260628_230306_Samsung Notes.jpg",
+      "page": "p.158",
+      "note": "점멸기=2P좌측"
+    },
+    {
+      "file": "sym_4w.png",
+      "source": "Screenshot_20260628_230306_Samsung Notes (1).jpg",
+      "page": "p.158",
+      "note": "4로 스위치"
+    },
+    {
+      "file": "sym_outlet.png",
+      "source": "Screenshot_20260628_230306_Samsung Notes (2).jpg",
+      "page": "p.158",
+      "note": "콘센트 기호"
+    },
+    {
+      "file": "sym_2gang.png",
+      "source": "Screenshot_20260628_230306_Samsung Notes (3).jpg",
+      "page": "p.158",
+      "note": "2구 콘센트"
+    },
+    {
+      "file": "sym_3p_out.png",
+      "source": "Screenshot_20260628_230306_Samsung Notes (2) (2).jpg",
+      "page": "p.158",
+      "note": "3극 콘센트"
+    },
+    {
+      "file": "sym_outdoor.png",
+      "source": "Screenshot_20260628_230042_Samsung Notes.jpg",
+      "page": "p.158",
+      "note": "옥외등"
+    },
+    {
+      "file": "sym_ceiling.png",
+      "source": "Screenshot_20260628_230051_Samsung Notes.jpg",
+      "page": "p.158",
+      "note": "천장 콘센트"
+    },
+    {
+      "file": "sym_floor.png",
+      "source": "Screenshot_20260628_230306_Samsung Notes (2) (1).jpg",
+      "page": "p.158",
+      "note": "바닥 콘센트 하단행"
+    },
+    {
+      "file": "sym_h400.png",
+      "source": "Screenshot_20260628_230306_Samsung Notes (4).jpg",
+      "page": "p.158",
+      "note": "HID row1"
+    },
+    {
+      "file": "sym_m400.png",
+      "source": "Screenshot_20260628_230306_Samsung Notes (4).jpg",
+      "page": "p.158",
+      "note": "HID row2"
+    },
+    {
+      "file": "sym_n400.png",
+      "source": "Screenshot_20260628_230306_Samsung Notes (4).jpg",
+      "page": "p.158",
+      "note": "HID row3"
+    },
+    {
+      "file": "sym_lk.png",
+      "source": "Screenshot_20260628_230310_Samsung Notes.jpg",
+      "page": "p.160 Q367",
+      "note": "표 (1)(3)(5)(7)"
+    },
+    {
+      "file": "sym_el.png",
+      "source": "Screenshot_20260628_230310_Samsung Notes.jpg",
+      "page": "p.160 Q367",
+      "note": "표 (1)(3)(5)(7)"
+    },
+    {
+      "file": "sym_t_outlet.png",
+      "source": "Screenshot_20260628_230310_Samsung Notes.jpg",
+      "page": "p.160 Q367",
+      "note": "표 (1)(3)(5)(7)"
+    },
+    {
+      "file": "sym_h_outlet.png",
+      "source": "Screenshot_20260628_230310_Samsung Notes.jpg",
+      "page": "p.160 Q367",
+      "note": "표 (1)(3)(5)(7)"
+    },
+    {
+      "file": "sym_et.png",
+      "source": "Screenshot_20260628_230153_Samsung Notes.jpg",
+      "page": "p.160 Q367",
+      "note": "표 (2)(4)(6)"
+    },
+    {
+      "file": "sym_e_outlet.png",
+      "source": "Screenshot_20260628_230153_Samsung Notes.jpg",
+      "page": "p.160 Q367",
+      "note": "표 (2)(4)(6)"
+    },
+    {
+      "file": "sym_wp.png",
+      "source": "Screenshot_20260628_230153_Samsung Notes.jpg",
+      "page": "p.160 Q367",
+      "note": "표 (2)(4)(6)"
+    },
+    {
+      "file": "sym_switch_368.png",
+      "source": "Screenshot_20260628_230310_Samsung Notes (1).jpg",
+      "page": "p.160 Q368",
+      "note": "S심볼만, 글자는 HTML"
+    },
+    {
+      "file": "sym_md.png",
+      "source": "Screenshot_20260628_230310_Samsung Notes (2).jpg",
+      "page": "p.160 Q369",
+      "note": "덕트 3열"
+    },
+    {
+      "file": "sym_ld.png",
+      "source": "Screenshot_20260628_230310_Samsung Notes (2).jpg",
+      "page": "p.160 Q369",
+      "note": "덕트 3열"
+    },
+    {
+      "file": "sym_f7.png",
+      "source": "Screenshot_20260628_230310_Samsung Notes (2).jpg",
+      "page": "p.160 Q369",
+      "note": "덕트 3열"
+    },
+    {
+      "file": "sym_breaker_e.png",
+      "source": "Screenshot_20260628_230313_Samsung Notes.jpg",
+      "page": "p.161 Q370",
+      "note": "(1)~(5) 헤더 제거"
+    },
+    {
+      "file": "sym_breaker_b.png",
+      "source": "Screenshot_20260628_230313_Samsung Notes.jpg",
+      "page": "p.161 Q370",
+      "note": "(1)~(5) 헤더 제거"
+    },
+    {
+      "file": "sym_breaker_ec.png",
+      "source": "Screenshot_20260628_230313_Samsung Notes.jpg",
+      "page": "p.161 Q370",
+      "note": "(1)~(5) 헤더 제거"
+    },
+    {
+      "file": "sym_breaker_s.png",
+      "source": "Screenshot_20260628_230313_Samsung Notes.jpg",
+      "page": "p.161 Q370",
+      "note": "(1)~(5) 헤더 제거"
+    },
+    {
+      "file": "sym_breaker_g.png",
+      "source": "Screenshot_20260628_230313_Samsung Notes.jpg",
+      "page": "p.161 Q370",
+      "note": "(1)~(5) 헤더 제거"
+    },
+    {
+      "file": "sym_tr_tr.png",
+      "source": "Screenshot_20260628_230313_Samsung Notes (1).jpg",
+      "page": "p.161 Q371",
+      "note": "TR"
+    },
+    {
+      "file": "sym_tr_tf.png",
+      "source": "Screenshot_20260628_230313_Samsung Notes (1).jpg",
+      "page": "p.161 Q371",
+      "note": "TF"
+    }
+  ],
+  "crops": [
+    {
+      "file": "p019_diag037.png",
+      "source": "Screenshot_20260628_225916_Samsung Notes.jpg",
+      "page": "p.19",
+      "note": "도면"
+    },
+    {
+      "file": "p018_diag036.png",
+      "source": "Screenshot_20260628_225919_Samsung Notes.jpg",
+      "page": "p.18",
+      "note": "도면"
+    },
+    {
+      "file": "p032_diag059.png",
+      "source": "Screenshot_20260628_225940_Samsung Notes.jpg",
+      "page": "p.32",
+      "note": "도면"
+    },
+    {
+      "file": "p035_diag065.png",
+      "source": "Screenshot_20260628_225945_Samsung Notes.jpg",
+      "page": "p.35",
+      "note": "도면"
+    },
+    {
+      "file": "p128_diag303.png",
+      "source": "Screenshot_20260628_225926_Samsung Notes.jpg",
+      "page": "p.128",
+      "note": "도면"
+    },
+    {
+      "file": "p125_diag299.png",
+      "source": "Screenshot_20260628_230211_Samsung Notes.jpg",
+      "page": "p.125",
+      "note": "도면"
+    },
+    {
+      "file": "p126_diag300.png",
+      "source": "Screenshot_20260628_230218_Samsung Notes.jpg",
+      "page": "p.126",
+      "note": "도면"
+    },
+    {
+      "file": "p080_diag182.png",
+      "source": "Screenshot_20260628_230025_Samsung Notes.jpg",
+      "page": "p.80",
+      "note": "도면"
+    },
+    {
+      "file": "p114_diag268.png",
+      "source": "Screenshot_20260628_230045_Samsung Notes.jpg",
+      "page": "p.114",
+      "note": "도면"
+    },
+    {
+      "file": "p118_diag282.png",
+      "source": "Screenshot_20260628_230156_Samsung Notes.jpg",
+      "page": "p.118",
+      "note": "도면"
+    },
+    {
+      "file": "p140_diag331.png",
+      "source": "Screenshot_20260628_230238_Samsung Notes.jpg",
+      "page": "p.140",
+      "note": "도면"
+    },
+    {
+      "file": "p147_wenner.png",
+      "source": "Screenshot_20260628_230247_Samsung Notes.jpg",
+      "page": "p.147",
+      "note": "도면"
+    },
+    {
+      "file": "p148_earth_tester.png",
+      "source": "Screenshot_20260628_230249_Samsung Notes.jpg",
+      "page": "p.148",
+      "note": "도면"
+    },
+    {
+      "file": "p149_timed_contact.png",
+      "source": "Screenshot_20260628_230254_Samsung Notes.jpg",
+      "page": "p.149",
+      "note": "도면"
+    },
+    {
+      "file": "p153_relay8.png",
+      "source": "Screenshot_20260628_230102_Samsung Notes.jpg",
+      "page": "p.153",
+      "note": "도면"
+    },
+    {
+      "file": "p109_q258_diag.png",
+      "source": "Screenshot_20260628_230159_Samsung Notes.jpg",
+      "page": "p.109",
+      "note": "도면"
+    },
+    {
+      "file": "p108_cubicle_r.png",
+      "source": "Screenshot_20260628_230138_Samsung Notes.jpg",
+      "page": "p.108",
+      "note": "도면"
+    },
+    {
+      "file": "p096_diag224.png",
+      "source": "Screenshot_20260628_230015_Samsung Notes.jpg",
+      "page": "p.96",
+      "note": "도면"
+    },
+    {
+      "file": "p097_diag228.png",
+      "source": "Screenshot_20260628_230113_Samsung Notes.jpg",
+      "page": "p.97",
+      "note": "도면"
+    },
+    {
+      "file": "p115_diag270.png",
+      "source": "Screenshot_20260628_230204_Samsung Notes.jpg",
+      "page": "p.115",
+      "note": "도면"
+    },
+    {
+      "file": "p088_diag208_2.png",
+      "source": "Screenshot_20260628_230220_Samsung Notes.jpg",
+      "page": "p.88",
+      "note": "도면"
+    },
+    {
+      "file": "p088_diag208_1.png",
+      "source": "Screenshot_20260628_230244_Samsung Notes.jpg",
+      "page": "p.88",
+      "note": "도면"
+    },
+    {
+      "file": "p096_diag224_alt.png",
+      "source": "Screenshot_20260628_230028_Samsung Notes.jpg",
+      "page": "p.96",
+      "note": "도면 alt"
+    },
+    {
+      "file": "p135_sys_gnd.png",
+      "source": "Screenshot_20260628_230228_Samsung Notes.jpg",
+      "page": "p.135",
+      "note": "좌"
+    },
+    {
+      "file": "p135_eq_gnd.png",
+      "source": "Screenshot_20260628_230228_Samsung Notes.jpg",
+      "page": "p.135",
+      "note": "우"
+    },
+    {
+      "file": "p139_line_gnd.png",
+      "source": "Screenshot_20260628_230235_Samsung Notes.jpg",
+      "page": "p.139",
+      "note": "좌"
+    },
+    {
+      "file": "p139_portable_gnd.png",
+      "source": "Screenshot_20260628_230235_Samsung Notes.jpg",
+      "page": "p.139",
+      "note": "우"
+    },
+    {
+      "file": "p146_fig1.png",
+      "source": "Screenshot_20260628_230110_Samsung Notes.jpg",
+      "page": "p.146",
+      "note": "상"
+    },
+    {
+      "file": "p146_fig2.png",
+      "source": "Screenshot_20260628_230110_Samsung Notes.jpg",
+      "page": "p.146",
+      "note": "하"
+    },
+    {
+      "file": "p108_cubicle_l.png",
+      "source": "Screenshot_20260628_230147_Samsung Notes.jpg",
+      "page": "p.108",
+      "note": "좌"
+    },
+    {
+      "file": "p071_diag162.png",
+      "source": "Screenshot_20260628_230038_Samsung Notes.jpg",
+      "page": "p.71 Q162",
+      "note": "CT 결선도"
+    },
+    {
+      "file": "p043_ncs_fig1.png",
+      "source": "Screenshot_20260628_225930_Samsung Notes.jpg",
+      "page": "p.21 Q043",
+      "note": "[그림1]"
+    },
+    {
+      "file": "p043_ncs_fig2.png",
+      "source": "Screenshot_20260628_225930_Samsung Notes.jpg",
+      "page": "p.21 Q043",
+      "note": "[그림2]"
+    },
+    {
+      "file": "p126_diag300.png",
+      "source": "Screenshot_20260628_230215_Samsung Notes.jpg",
+      "page": "p.126 Q300",
+      "note": "UPS 블록"
+    }
+  ],
+  "missing": [
+    {
+      "file": "p060_diag126.png",
+      "page": "diagram",
+      "reason": "manual에 매칭 스크린샷 없음"
+    },
+    {
+      "file": "p061_diag128.png",
+      "page": "diagram",
+      "reason": "manual에 매칭 스크린샷 없음"
+    },
+    {
+      "file": "p073_sym168.png",
+      "page": "diagram",
+      "reason": "manual에 매칭 스크린샷 없음"
+    },
+    {
+      "file": "p074_diag170.png",
+      "page": "diagram",
+      "reason": "manual에 매칭 스크린샷 없음"
+    },
+    {
+      "file": "sym_tr_tb.png",
+      "page": "p.161 Q371",
+      "reason": "manual에 매칭 스크린샷 없음"
+    },
+    {
+      "file": "sym_tr_tn.png",
+      "page": "p.161 Q371",
+      "reason": "manual에 매칭 스크린샷 없음"
+    },
+    {
+      "file": "sym_tr_th.png",
+      "page": "p.161 Q371",
+      "reason": "manual에 매칭 스크린샷 없음"
+    }
+  ],
+  "source_files": [
+    {
+      "file": "Screenshot_20260628_225916_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_225919_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_225926_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_225930_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_225940_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_225945_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_225952_Samsung Notes.jpg",
+      "used": false,
+      "note": "분류 보류 — 도면/기타 또는 중복"
+    },
+    {
+      "file": "Screenshot_20260628_230015_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230025_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230028_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230038_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230042_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230045_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230051_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230102_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230110_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230113_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230138_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230147_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230153_Samsung Notes (1).jpg",
+      "used": false,
+      "note": "분류 보류 — 도면/기타 또는 중복"
+    },
+    {
+      "file": "Screenshot_20260628_230153_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230156_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230159_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230204_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230211_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230215_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230218_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230220_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230228_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230235_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230238_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230244_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230247_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230249_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230254_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230306_Samsung Notes (1) (1).jpg",
+      "used": false,
+      "note": "분류 보류 — 도면/기타 또는 중복"
+    },
+    {
+      "file": "Screenshot_20260628_230306_Samsung Notes (1).jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230306_Samsung Notes (2) (1).jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230306_Samsung Notes (2) (2).jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230306_Samsung Notes (2).jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230306_Samsung Notes (3).jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230306_Samsung Notes (4).jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230306_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230310_Samsung Notes (1).jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230310_Samsung Notes (2).jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230310_Samsung Notes.jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230313_Samsung Notes (1).jpg",
+      "used": true
+    },
+    {
+      "file": "Screenshot_20260628_230313_Samsung Notes.jpg",
+      "used": true
+    }
+  ]
+}
