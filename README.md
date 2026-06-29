@@ -6,7 +6,7 @@
 https://asanamaja.github.io/elec/output/symbols_view.html
 
 **전체 175페이지 PDF 전사본:**  
-https://asanamaja.github.io/elec/output/dandap_manual.html?v=20260629-fidelity
+https://asanamaja.github.io/elec/output/dandap_manual.html?v=20260629-audit
 
 **학습 노트 (텍스트만, 사진 없음):**  
 https://asanamaja.github.io/elec/private_study_notes.html
