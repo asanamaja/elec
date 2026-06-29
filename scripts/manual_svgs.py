@@ -28,24 +28,21 @@ def svg_p029_tbl053() -> str:
 
 
 def svg_p029_tbl054() -> str:
-    moist = "습기가 많은 장소 또는 물기가 있는 장소"
     return f"""<table class="tbl manual-table" style="{TABLE_STYLE}">
 <thead>
 <tr><th style="{TH}" rowspan="4">공사 종류</th>
 <th style="{TH}" colspan="6">옥내</th><th style="{TH}" colspan="2">옥측·옥외</th></tr>
 <tr><th style="{TH}" colspan="2">노출 장소</th><th style="{TH}" colspan="4">은폐 장소</th>
 <th style="{TH}" rowspan="3">우선 내</th><th style="{TH}" rowspan="3">우선 외</th></tr>
-<tr><th style="{TH}" rowspan="2">건조한 장소</th><th style="{TH}" rowspan="2">{moist}</th>
-<th style="{TH}" colspan="2">점검 가능한 장소</th><th style="{TH}" colspan="2">점검 불가능한 장소</th></tr>
-<tr><th style="{TH}">건조한 장소</th><th style="{TH}">{moist}</th>
-<th style="{TH}">건조한 장소</th><th style="{TH}">{moist}</th></tr>
+<tr><th style="{TH}">건조</th><th style="{TH}">습기</th><th style="{TH}" colspan="2">점검 가능</th>
+<th style="{TH}" colspan="2">점검 불가</th></tr>
+<tr><th style="{TH}">건조</th><th style="{TH}">습기</th><th style="{TH}">건조</th><th style="{TH}">습기</th>
+<th style="{TH}">건조</th><th style="{TH}">습기</th></tr>
 </thead>
 <tbody>
-<tr><td style="{CELL}"><span class="ans">케이블 공사</span></td>
-<td style="{CELL}"><span class="ans">○</span></td><td style="{CELL}"><span class="ans">○</span></td>
-<td style="{CELL}"><span class="ans">○</span></td><td style="{CELL}"><span class="ans">○</span></td>
-<td style="{CELL}"><span class="ans">○</span></td><td style="{CELL}"><span class="ans">○</span></td>
-<td style="{CELL}"><span class="ans">○</span></td><td style="{CELL}"><span class="ans">○</span></td></tr>
+<tr><td style="{CELL}">케이블 공사</td>
+<td style="{CELL}">○</td><td style="{CELL}">○</td><td style="{CELL}">○</td><td style="{CELL}">○</td>
+<td style="{CELL}">○</td><td style="{CELL}">○</td><td style="{CELL}">○</td><td style="{CELL}">○</td></tr>
 </tbody></table>"""
 
 
