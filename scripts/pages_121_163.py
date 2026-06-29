@@ -887,18 +887,18 @@ PAGES_121_163 = r"""
   <div class="content compact" style="top:108px;">
     <div class="q">
       <div class="q-num">365.</div><hr class="q-hline">
-      <p class="q-text">[참고] 점멸기의 그림기호 : <!--IMG:p158_sym_sw--></p>
+      <p class="q-text">[참고] 점멸기의 그림기호 : <!--IMG:sym_sw--></p>
             <p class="ans-line">(1) 용량 몇 [A] 이상은 전류치를 병기하는가? <span class="ans">15[A]</span></p>
-            <p class="ans-line">(2) ① <!--IMG:p158_sym_2p--> 과 ② <!--IMG:p158_sym_4w--> : ① <span class="ans">2극 스위치</span> &nbsp; ② <span class="ans">4로 스위치</span></p>
+            <p class="ans-line">(2) ① <!--IMG:sym_2p--> 과 ② <!--IMG:sym_4w--> : ① <span class="ans">2극 스위치</span> &nbsp; ② <span class="ans">4로 스위치</span></p>
             <p class="ans-line">(3) ① 방수형 <span class="ans">WP</span> &nbsp; ② 방폭형 <span class="ans">EX</span></p>
     </div>
     <div class="q">
       <div class="q-num">366.</div><hr class="q-hline">
       <p class="q-text">등·HID·콘센트 기호</p>
-            <p class="ans-line">(1) <!--IMG:p158_sym_outdoor--> : <span class="ans">옥외등</span></p>
-            <p class="ans-line">(2) HID등 : ① <!--IMG:p158_sym_h400-->400 <span class="ans">400[W] 수은등</span> &nbsp; ② <!--IMG:p158_sym_m400-->400 <span class="ans">400[W] 메탈 헬라이드등</span> &nbsp; ③ <!--IMG:p158_sym_n400-->400 <span class="ans">400[W] 나트륨등</span></p>
-            <p class="ans-line">(3) 콘센트 기호 <!--IMG:p158_sym_outlet--> : ① 천장 <!--IMG:p158_sym_ceiling--> &nbsp; ② 바닥 <!--IMG:p158_sym_floor--></p>
-            <p class="ans-line">(4) ① <!--IMG:p158_sym_2gang--> <span class="ans">2구 콘센트</span> &nbsp; ② <!--IMG:p158_sym_3p_out--> <span class="ans">3극 콘센트</span></p>
+            <p class="ans-line">(1) <!--IMG:sym_outdoor--> : <span class="ans">옥외등</span></p>
+            <p class="ans-line">(2) HID등 : ① <!--IMG:sym_h400-->400 <span class="ans">400[W] 수은등</span> &nbsp; ② <!--IMG:sym_m400-->400 <span class="ans">400[W] 메탈 헬라이드등</span> &nbsp; ③ <!--IMG:sym_n400-->400 <span class="ans">400[W] 나트륨등</span></p>
+            <p class="ans-line">(3) 콘센트 기호 <!--IMG:sym_outlet--> : ① 천장 <!--IMG:sym_ceiling--> &nbsp; ② 바닥 <!--IMG:sym_floor--></p>
+            <p class="ans-line">(4) ① <!--IMG:sym_2gang--> <span class="ans">2구 콘센트</span> &nbsp; ② <!--IMG:sym_3p_out--> <span class="ans">3극 콘센트</span></p>
     </div>
   </div>
   <div class="foot-r abs">전기기사 실기 단답비급 • 159</div>
@@ -911,14 +911,19 @@ PAGES_121_163 = r"""
     <div class="q">
       <div class="q-num">367.</div><hr class="q-hline">
       <p class="q-text">옥내배선 콘센트 기호</p>
-            <!--IMG:p159_outlet_table-->
+            <table class="tbl sym-table outlet-syms">
+              <tr><td>(1) <!--IMG:sym_lk--></td><td>(2) <!--IMG:sym_et--></td></tr>
+              <tr><td>(3) <!--IMG:sym_el--></td><td>(4) <!--IMG:sym_e_outlet--></td></tr>
+              <tr><td>(5) <!--IMG:sym_t_outlet--></td><td>(6) <!--IMG:sym_wp--></td></tr>
+              <tr><td>(7) <!--IMG:sym_h_outlet--></td><td></td></tr>
+            </table>
             <p class="ans-line">(1) LK <span class="ans">빠짐방지형</span> &nbsp; (2) ET <span class="ans">접지 단자붙이</span> &nbsp; (3) EL <span class="ans">누전차단기 붙이</span></p>
             <p class="ans-line">(4) E <span class="ans">접지극 붙이</span> &nbsp; (5) T <span class="ans">걸림형</span> &nbsp; (6) WP <span class="ans">방수형 콘센트</span> &nbsp; (7) H <span class="ans">의료용 콘센트</span></p>
     </div>
     <div class="q">
       <div class="q-num">368.</div><hr class="q-hline">
       <p class="q-text">개폐기 중에서 다음 기호(심벌)가 의미하는 것은 무엇인지 모두 쓰시오.</p>
-            <!--IMG:p159_switch_sym-->
+            <!--IMG:sym_switch_368-->
             <p class="ans-line">① 3P 50[A] : <span class="ans">3극 50[A] 개폐기</span></p>
             <p class="ans-line">② f20[A] : <span class="ans">퓨즈 정격 20[A]</span></p>
             <p class="ans-line">③ A5 : <span class="ans">정격전류 5[A]인 전류계 붙이</span></p>
@@ -926,7 +931,13 @@ PAGES_121_163 = r"""
     <div class="q">
       <div class="q-num">369.</div><hr class="q-hline">
       <p class="q-text">다음 심벌의 명칭을 쓰시오.</p>
-            <!--IMG:p159_duct_syms-->
+            <table class="tbl sym-table duct-row">
+              <tr>
+                <td><!--IMG:sym_md--></td>
+                <td><!--IMG:sym_ld--></td>
+                <td><!--IMG:sym_f7--></td>
+              </tr>
+            </table>
             <p class="ans-line">MD <span class="ans">금속덕트</span> &nbsp; LD <span class="ans">라이팅 덕트</span> &nbsp; (F7) <span class="ans">플로어 덕트</span></p>
     </div>
   </div>
@@ -940,13 +951,26 @@ PAGES_121_163 = r"""
     <div class="q">
       <div class="q-num">370.</div><hr class="q-hline">
       <p class="q-text">각 그림 기호의 명칭을 쓰시오.</p>
-            <!--IMG:p160_breaker_syms-->
+            <table class="tbl sym-table breaker-syms">
+              <tr><th>(1)</th><th>(2)</th><th>(3)</th><th>(4)</th><th>(5)</th></tr>
+              <tr>
+                <td><!--IMG:sym_breaker_e--></td>
+                <td><!--IMG:sym_breaker_b--></td>
+                <td><!--IMG:sym_breaker_ec--></td>
+                <td><!--IMG:sym_breaker_s--></td>
+                <td><!--IMG:sym_breaker_g--></td>
+              </tr>
+            </table>
             <p class="ans-line">(1) E <span class="ans">누전차단기</span> &nbsp; (2) B <span class="ans">배선차단기</span> &nbsp; (3) EC <span class="ans">접지센터</span> &nbsp; (4) S <span class="ans">개폐기</span> &nbsp; (5) G <span class="ans">누전경보기</span></p>
     </div>
     <div class="q">
       <div class="q-num">371.</div><hr class="q-hline">
       <p class="q-text">다음과 같은 소형 변압기 심벌의 명칭을 쓰시오.</p>
-            <!--IMG:p161_tr_syms-->
+            <div class="sym-grid tr-syms">
+              <!--IMG:sym_tr_tb--> <!--IMG:sym_tr_tr-->
+              <!--IMG:sym_tr_tn--> <!--IMG:sym_tr_tf-->
+              <!--IMG:sym_tr_th-->
+            </div>
             <p class="ans-line">TB <span class="ans">벨 변압기</span> &nbsp; TR <span class="ans">리모컨 변압기</span> &nbsp; TN <span class="ans">네온 변압기</span></p>
             <p class="ans-line">TF <span class="ans">형광등용 안정기</span> &nbsp; TH <span class="ans">HID램프용(고휘도 방전등용) 안정기</span></p>
     </div>

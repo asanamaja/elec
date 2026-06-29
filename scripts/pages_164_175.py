@@ -162,7 +162,14 @@ PAGES_164_175 = r"""
     <div class="q">
       <div class="q-num">385.</div><hr class="q-hline">
       <p class="q-text">전기안전관리자는 전기설비의 유지·운용 업무를 위해 국가표준기본법 제14조 및 교정대상 및 주기설정을 위한 지침 제4조에 따라 다음의 계측장비를 주기적으로 교정하고 또한 안전장구의 성능을 적정하게 유지할 수 있도록 시험을 하여야 한다. 다음 표의 빈칸에 각 계측장비들의 권장 교정 및 시험주기를 알맞게 작성하시오.</p>
-      <!--IMG:p170_table385-->
+      <table class="tbl compact-table">
+        <tr><th>구분</th><th>권장 교정 및 시험주기(년)</th></tr>
+        <tr><td>계전기 시험기</td><td><span class="ans">1</span></td></tr>
+        <tr><td>절연 내력 시험기</td><td><span class="ans">1</span></td></tr>
+        <tr><td>절연유 내압 시험기</td><td><span class="ans">1</span></td></tr>
+        <tr><td>적외선 열화상 카메라</td><td><span class="ans">1</span></td></tr>
+        <tr><td>전원 품질 분석기</td><td><span class="ans">1</span></td></tr>
+      </table>
       <p class="ans-line" style="margin-top:6px;">(모든 항목 권장 주기 <span class="ans">1</span>년)</p>
     </div>
     <div class="q">
@@ -182,7 +189,38 @@ PAGES_164_175 = r"""
     <div class="q">
       <div class="q-num">387.</div><hr class="q-hline">
       <p class="q-text">전기안전관리자의 직무에 관한 고시에 따라 안전관리업무를 대행하는 전기안전관리자가 점검해야하는 <strong>전기설비의 용량별 점검 횟수와 간격</strong>에 대한 표이다. 각 ( ) 안에 알맞은 내용을 쓰시오.</p>
-      <!--IMG:p171_table387-->
+      <p class="q-text" style="text-align:center;font-weight:700;margin:6px 0 4px;">용량별 점검횟수 및 간격</p>
+      <table class="tbl compact-table inspect-table">
+        <tr>
+          <th>구분</th><th>용량별</th><th>점검 횟수</th><th>점검간격</th>
+        </tr>
+        <tr>
+          <td rowspan="2">저압</td>
+          <td>1~300[kW]이하</td><td>월 1회</td><td>20일 이상</td>
+        </tr>
+        <tr>
+          <td>300[kW] 초과</td><td>월 2회</td><td>10일 이상</td>
+        </tr>
+        <tr>
+          <td rowspan="6">고압</td>
+          <td>1~300[kW] 이하</td><td>월 1회</td><td>20일 이상</td>
+        </tr>
+        <tr>
+          <td>300[kW] 초과 ~ 500[kW] 이하</td><td>월 <span class="ans">2</span>회</td><td><span class="ans">10</span>일 이상</td>
+        </tr>
+        <tr>
+          <td>500[kW] 초과 ~ 700[kW] 이하</td><td>월 <span class="ans">3</span>회</td><td><span class="ans">7</span>일 이상</td>
+        </tr>
+        <tr>
+          <td>700[kW] 초과 ~ 1,500[kW] 이하</td><td>월 <span class="ans">4</span>회</td><td><span class="ans">5</span>일 이상</td>
+        </tr>
+        <tr>
+          <td>1,500[kW] 초과 ~ 2,000[kW] 이하</td><td>월 <span class="ans">5</span>회</td><td><span class="ans">4</span>일 이상</td>
+        </tr>
+        <tr>
+          <td>2000[kW] 초과 ~</td><td>월 <span class="ans">6</span>회</td><td><span class="ans">3</span>일 이상</td>
+        </tr>
+      </table>
     </div>
     <div class="q">
       <div class="q-num">388.</div><hr class="q-hline">
