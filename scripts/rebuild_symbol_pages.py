@@ -135,7 +135,11 @@ def embed_user_images(html: str) -> str:
 
 
 def main() -> None:
-    subprocess.run([sys.executable, str(ROOT / "scripts/crop_user_symbols.py")], check=True)
+    shots = list(USER.glob("Screenshot_*.jpg"))
+    if not shots:
+        subprocess.run([sys.executable, str(ROOT / "scripts/crop_user_symbols.py")], check=True)
+    else:
+        print(f"Using {len(shots)} user screenshots (skip PDF symbol crop)")
 
     pages_158_161 = {
         "page-159": extract_page(PAGES_121_163, "page-159"),
