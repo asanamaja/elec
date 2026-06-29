@@ -14,7 +14,7 @@ CONTENT_TOP = 118
 FOOT_SAFE = 72  # keep clear of footer
 MAX_H = 842 - CONTENT_TOP - FOOT_SAFE
 
-DENSITY_ORDER = ["", "compact", "dense", "ultra"]
+DENSITY_ORDER = ["", "compact", "dense", "ultra", "mega"]
 
 
 def patch_css(html: str) -> str:
@@ -88,13 +88,13 @@ def patch_css(html: str) -> str:
 
 def apply_density(html: str, page_id: str, level: str) -> str:
   pat = re.compile(
-    rf'(<div class="page" id="{re.escape(page_id)}">.*?<div class=")([^"]*)(")',
+    rf'(<div class="page" id="{re.escape(page_id)}">.*?<div class=")(content(?:\s[^"]*)?)(")',
     re.DOTALL,
   )
 
   def repl(m: re.Match[str]) -> str:
     parts = m.group(2).split()
-    kept = [p for p in parts if p not in ("compact", "dense", "ultra")]
+    kept = [p for p in parts if p not in ("compact", "dense", "ultra", "mega")]
     if not kept or kept[0] != "content":
       kept = ["content"] + [p for p in kept if p != "content"]
     if level:
@@ -160,7 +160,7 @@ def measure_and_fit(html_path: Path) -> dict[str, str]:
             if (!pg) return;
             const c = pg.querySelector('.content');
             if (!c) return;
-            for (const d of ['compact','dense','ultra']) c.classList.remove(d);
+            for (const d of ['compact','dense','ultra','mega']) c.classList.remove(d);
             if (level) c.classList.add(level);
           }""",
           [pid, level],
@@ -173,13 +173,15 @@ def measure_and_fit(html_path: Path) -> dict[str, str]:
             if (!c) return false;
             const pgRect = pg.getBoundingClientRect();
             const kids = [...c.querySelectorAll('.q, .memo-label, .box, table, img.diag, p.q-text, p.formula')];
-            let bottom = c.getBoundingClientRect().top;
+            let bottom = c.getBoundingClientRect().top - pgRect.top;
             if (kids.length) {
-              for (const k of kids) bottom = Math.max(bottom, k.getBoundingClientRect().bottom);
+              for (const k of kids) {
+                bottom = Math.max(bottom, k.getBoundingClientRect().bottom - pgRect.top);
+              }
             } else {
-              bottom = c.getBoundingClientRect().bottom;
+              bottom = c.getBoundingClientRect().bottom - pgRect.top;
             }
-            const limit = pgRect.bottom - 50;
+            const limit = pgRect.height - 50;
             return bottom > limit + 0.5;
           }""",
           pid,
@@ -199,10 +201,29 @@ def measure_and_fit(html_path: Path) -> dict[str, str]:
 
 def main() -> None:
   from apply_page_fit_patch import patch
+  from audit_page_overlap import repair_headers, page_layout, set_content_top, TOP_RULES, measure_overlaps, parse_content_top
 
   html = HTML.read_text(encoding="utf-8")
+  html, _ = repair_headers(html)
   html = patch(html)
   html = patch_css(html)
+
+  page_ids = re.findall(r'id="(page-\d+)"', html)
+  for pid in page_ids:
+    num = int(pid.split("-")[1])
+    if num <= 4:
+      continue
+    min_top = TOP_RULES[page_layout(html, pid)]
+    html = set_content_top(html, pid, min_top)
+
+  HTML.write_text(html, encoding="utf-8")
+
+  rows = measure_overlaps(HTML)
+  html = HTML.read_text(encoding="utf-8")
+  for row in rows:
+    if row["headerOverlap"] > 1:
+      cur = parse_content_top(row["style"]) or TOP_RULES[page_layout(html, row["id"])]
+      html = set_content_top(html, row["id"], cur + int(row["headerOverlap"]) + 4)
   HTML.write_text(html, encoding="utf-8")
 
   print("Measuring page overflow...")
@@ -217,7 +238,7 @@ def main() -> None:
   for lv in levels.values():
     counts[lv or "normal"] = counts.get(lv or "normal", 0) + 1
   print("Density applied:", counts)
-  still = [pid for pid, lv in levels.items() if lv == "ultra"]
+  still = [pid for pid, lv in levels.items() if lv in ("ultra", "mega")]
   if still:
     print("Still ultra-dense (may need content split):", len(still), still[:10])
 

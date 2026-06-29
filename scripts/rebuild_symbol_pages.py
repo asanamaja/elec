@@ -54,9 +54,6 @@ SYM_IMG: dict[str, tuple[str, str, str]] = {
 }
 
 EXTRA_CSS = """
-    .content { overflow: hidden; max-height: calc(842px - 172px); }
-    .content.compact { font-size: 9.2pt; line-height: 1.42; }
-    .content.compact .q { margin-bottom: 10px; }
     table.tbl.sym-table { font-size: 9pt; margin-top: 6px; }
     table.tbl.sym-table td, table.tbl.sym-table th { padding: 4px 5px; text-align: center; }
     table.tbl.compact-table { font-size: 8.8pt; margin-top: 6px; }
@@ -108,11 +105,6 @@ def replace_page(html: str, page_id: str, new_block: str) -> str:
 def patch_css(html: str) -> str:
     if ".sym-grid" not in html:
         html = html.replace("    @media print {", EXTRA_CSS + "\n    @media print {")
-    if "overflow: hidden; max-height" not in html:
-        html = html.replace(
-            ".content { position: absolute; left: 72px; right: 52px; top: 118px; padding-bottom: 54px; }",
-            ".content { position: absolute; left: 72px; right: 52px; top: 118px; padding-bottom: 54px; overflow: hidden; max-height: calc(842px - 172px); }",
-        )
     return html
 
 

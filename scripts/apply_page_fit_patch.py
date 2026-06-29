@@ -52,6 +52,17 @@ DENSITY_CSS = """
     .content.ultra table.tbl { font-size: 8.3pt; margin-top: 3px; }
     .content.ultra table.tbl th, .content.ultra table.tbl td { padding: 2px 4px; }
 
+    .content.mega { font-size: 8.0pt; line-height: 1.24; }
+    .content.mega .q { margin-bottom: 2px; }
+    .content.mega .q-num { font-size: 10.5pt; }
+    .content.mega .q-hline { margin: 0 0 1px; }
+    .content.mega .q-text { margin-bottom: 0; }
+    .content.mega .ans-line { margin: 0; }
+    .content.mega .formula { margin: 0; font-size: 7.8pt; }
+    .content.mega .box { font-size: 7.6pt; padding: 2px 4px; line-height: 1.28; }
+    .content.mega table.tbl { font-size: 7.8pt; margin-top: 2px; }
+    .content.mega table.tbl th, .content.mega table.tbl td { padding: 1px 3px; }
+
     /* Cover — keep vertical title on one line */
     .title-box { width: 92px; height: 228px; }
     .title-box .vtext { font-size: 30pt; letter-spacing: .06em; }
@@ -69,7 +80,7 @@ def repair_density_classes(html: str) -> str:
     html = html.replace('class="contentdense"', 'class="content dense"')
     html = html.replace('class="contentultra"', 'class="content ultra"')
     html = re.sub(
-        r'class="content(compact|dense|ultra)(\s[^"]*)?"',
+        r'class="content(compact|dense|ultra|mega)(\s[^"]*)?"',
         r'class="content \1\2"',
         html,
     )
@@ -105,6 +116,21 @@ def patch(html: str) -> str:
         '<p class="q-text" style="margin-top:6px;">제3고조파를 감소시키기 위한',
         '<p class="q-text" style="margin-top:2px;">제3고조파를 감소시키기 위한',
     )
+
+    if ".content.mega" not in html:
+        mega = """
+    .content.mega { font-size: 8.0pt; line-height: 1.24; }
+    .content.mega .q { margin-bottom: 2px; }
+    .content.mega .q-num { font-size: 10.5pt; }
+    .content.mega .q-hline { margin: 0 0 1px; }
+    .content.mega .q-text { margin-bottom: 0; }
+    .content.mega .ans-line { margin: 0; }
+    .content.mega .formula { margin: 0; font-size: 7.8pt; }
+    .content.mega .box { font-size: 7.6pt; padding: 2px 4px; line-height: 1.28; }
+    .content.mega table.tbl { font-size: 7.8pt; margin-top: 2px; }
+    .content.mega table.tbl th, .content.mega table.tbl td { padding: 1px 3px; }
+"""
+        html = html.replace("    @media print {", mega + "\n    @media print {")
 
     return html
 
