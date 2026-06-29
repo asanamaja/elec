@@ -8,9 +8,10 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-from PIL import Image, ImageEnhance, ImageFilter, ImageOps
-
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+from table_styles import CELL, TABLE_STYLE, TH  # noqa: E402
+
 MANUAL = ROOT / "assets/images/manual"
 HTML = ROOT / "output/dandap_manual.html"
 
@@ -46,32 +47,24 @@ def load_groups() -> dict[int, list[Path]]:
     return {k: [path for _, path in sorted(v)] for k, v in groups.items()}
 
 
-def enhance_image(src: Path) -> None:
-    """Light cleanup so symbols/diagrams read clearly on white paper."""
-    im = Image.open(src).convert("RGB")
-    w, h = im.size
-    if max(w, h) < 220:
-        im = im.resize((w * 2, h * 2), Image.Resampling.LANCZOS)
-    im = ImageOps.autocontrast(im, cutoff=1)
-    im = ImageEnhance.Contrast(im).enhance(1.12)
-    im = ImageEnhance.Sharpness(im).enhance(1.15)
-    im.save(src, format="JPEG", quality=92, optimize=True)
-
-
-def img_tag(filename: str, kind: str = "diag", extra_style: str = "") -> str:
-    base = "max-height:28px;width:auto;display:inline-block;vertical-align:middle;object-fit:contain;background:#fff;padding:1px 2px"
-    if kind == "diag":
-        base = "max-height:320px;width:100%;object-fit:contain;margin:8px 0;display:block"
-    if extra_style:
-        base = extra_style
+def sym_inline(filename: str) -> str:
     return (
-        f'<img class="{kind}" src="../assets/images/manual/{filename}" '
-        f'style="{base};" alt="" data-file="{filename}">'
+        f'<img class="sym" src="../assets/images/manual/{filename}" '
+        f'style="max-height:32px;width:auto;display:inline-block;vertical-align:middle;'
+        f'object-fit:contain;" alt="" data-file="{filename}">'
     )
 
 
-def sym_inline(filename: str) -> str:
-    return img_tag(filename, "sym")
+def img_tag(filename: str, kind: str = "diag", extra_style: str = "") -> str:
+    if kind == "sym":
+        return sym_inline(filename)
+    base = "max-height:320px;width:100%;object-fit:contain;margin:8px 0;display:block"
+    if extra_style:
+        base = extra_style
+    return (
+        f'<img class="diag" src="../assets/images/manual/{filename}" '
+        f'style="{base};" alt="" data-file="{filename}">'
+    )
 
 
 def replace_imgs_in_body(body: str, files: list[Path]) -> str:
@@ -101,30 +94,76 @@ def replace_imgs_in_body(body: str, files: list[Path]) -> str:
 
 
 def insert_page_041(body: str, files: list[Path]) -> str:
-    grid = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0;justify-items:center;">'
-    for f in files:
-        grid += img_tag(f.name, "diag", "max-height:120px;width:auto;object-fit:contain")
-    grid += "</div>"
-    return re.sub(
-        r'<table class="tbl manual-table"[^>]*>.*?</table>',
-        grid,
+    names = ["400[W] 수은등", "F40×2", "F32×2", "비상용 형광등"]
+    rows = ""
+    for name, f in zip(names, files):
+        rows += (
+            f'<tr><td style="{CELL}">{name}</td>'
+            f'<td style="{CELL}">{sym_inline(f.name)}</td></tr>'
+        )
+    table = (
+        f'<table class="tbl manual-table" style="{TABLE_STYLE}">'
+        f'<thead><tr><th style="{TH}">명칭</th><th style="{TH}">기호</th></tr></thead>'
+        f"<tbody>{rows}</tbody></table>"
+    )
+    body = re.sub(
+        r'<div style="display:grid[^"]*"[^>]*>.*?</div>',
+        table,
         body,
         count=1,
         flags=re.DOTALL,
     )
+    body = re.sub(
+        r'<table class="tbl manual-table"[^>]*>.*?</table>',
+        table,
+        body,
+        count=1,
+        flags=re.DOTALL,
+    )
+    if table not in body:
+        body = body.replace(
+            "<p class=\"q-text\">아래 조명의 명칭에 따른 기호를 그리시오.</p>",
+            "<p class=\"q-text\">아래 조명의 명칭에 따른 기호를 그리시오.</p>\n      " + table,
+            1,
+        )
+    return body
 
 
 def insert_page_103(body: str, files: list[Path]) -> str:
     labels = ["(1) OCR", "(2) OVR", "(3) UVR", "(4) GR", "(5) DGR", "(6) PWR"]
-    lines = []
-    for i, f in enumerate(files):
-        lab = labels[i] if i < len(labels) else f"({i+1})"
-        lines.append(f'<p class="ans-line">{lab} : {sym_inline(f.name)}</p>')
-    block = "\n      ".join(lines)
-    return body.replace(
-        '<p class="q-text">다음 각 계전기의 이름을 작성하시오.</p>',
-        '<p class="q-text">다음 각 계전기의 이름을 작성하시오.</p>\n      ' + block,
-        1,
+    answers = [
+        "과전류 계전기",
+        "과전압 계전기",
+        "부족전압 계전기",
+        "지락 계전기",
+        "방향 지락 계전기",
+        "전력 계전기",
+    ]
+    sym_rows = ""
+    for i in range(0, 6, 2):
+        sym_rows += (
+            f"<tr><td style=\"{CELL}\">{labels[i]}<br>{sym_inline(files[i].name)}</td>"
+            f"<td style=\"{CELL}\">{labels[i + 1]}<br>{sym_inline(files[i + 1].name)}</td></tr>"
+        )
+    sym_table = (
+        f'<table class="tbl manual-table" style="{TABLE_STYLE}">'
+        f"<tbody>{sym_rows}</tbody></table>"
+    )
+    ans_lines = [
+        f'<p class="ans-line">{labels[0]} : <span class="ans">{answers[0]}</span>'
+        f" &nbsp; {labels[1]} : <span class=\"ans\">{answers[1]}</span></p>",
+        f'<p class="ans-line">{labels[2]} : <span class="ans">{answers[2]}</span>'
+        f" &nbsp; {labels[3]} : <span class=\"ans\">{answers[3]}</span></p>",
+        f'<p class="ans-line">{labels[4]} : <span class="ans">{answers[4]}</span>'
+        f" &nbsp; {labels[5]} : <span class=\"ans\">{answers[5]}</span></p>",
+    ]
+    block = sym_table + "\n      " + "\n      ".join(ans_lines)
+    return re.sub(
+        r'(<p class="q-text">다음 각 계전기의 이름을 작성하시오.</p>).*?(?=\s*<div class="q">\s*<div class="q-num">244)',
+        r"\1\n      " + block + "\n    </div>\n    ",
+        body,
+        count=1,
+        flags=re.DOTALL,
     )
 
 
@@ -169,6 +208,8 @@ def insert_page_127(body: str, files: list[Path]) -> str:
     if not files:
         return body
     pic = img_tag(files[0].name, "diag", "max-height:220px;width:100%;object-fit:contain;margin:8px 0")
+    if IMG_TAG.search(body):
+        return replace_imgs_in_body(body, files[:1])
     return body.replace(
         "<p class=\"q-text\">UPS 장치 시스템의 중심부분을 구성하는 CVCF의 기본 회로를 보고 다음 각 물음에 답하시오.</p>",
         "<p class=\"q-text\">UPS 장치 시스템의 중심부분을 구성하는 CVCF의 기본 회로를 보고 다음 각 물음에 답하시오.</p>\n            " + pic,
@@ -203,14 +244,15 @@ def patch_colors(html: str) -> str:
         "border-top: 0.8px solid #d4a0a8;",
         "border-top: 0.8px solid #e8a8a8;",
     )
-    if "img.sym" in html and "background:#fff" not in html:
-        html = html.replace(
-            "    img.sym { max-height: 28px; width: auto; display: inline-block; vertical-align: middle; object-fit: contain; }",
-            "    img.sym { max-height: 28px; width: auto; display: inline-block; vertical-align: middle; object-fit: contain; background: #fff; padding: 1px 2px; }",
-        )
     html = re.sub(
         r"사진반영 [^<\"]+",
-        "사진반영 20260629-named",
+        "사진반영 20260629-fidelity",
+        html,
+        count=1,
+    )
+    html = re.sub(
+        r'<meta name="build" content="[^"]*">',
+        '<meta name="build" content="20260629-fidelity">',
         html,
         count=1,
     )
@@ -224,24 +266,19 @@ def apply_html(groups: dict[int, list[Path]]) -> str:
         opener, page_s, body, closer = m.group(1), m.group(2), m.group(3), m.group(4)
         page_num = int(page_s)
 
-        file_page = None
         files: list[Path] = []
         for fp, flist in groups.items():
             if HTML_PAGE.get(fp, fp) == page_num:
-                file_page = fp
                 files = flist
                 break
 
         if not files:
             return m.group(0)
 
-        if page_num in INSERTERS and not IMG_TAG.search(body):
+        if page_num in INSERTERS:
             body = INSERTERS[page_num](body, files)
-        else:
+        elif IMG_TAG.search(body):
             body = replace_imgs_in_body(body, files)
-            # single photo for multi-slot pages: drop empty leftover imgs
-            if len(files) == 1 and len(IMG_TAG.findall(body)) == 0:
-                pass
             body = re.sub(r"<img\b[^>]*src=\"\"[^>]*>", "", body)
 
         return opener + body + closer
@@ -249,24 +286,20 @@ def apply_html(groups: dict[int, list[Path]]) -> str:
     html = PAGE_BLOCK.sub(repl_page, html)
     html = re.sub(r'src="data:image[^"]*"', 'src=""', html)
     html = re.sub(r"<img\b[^>]*Screenshot[^>]*>", "", html)
-    html = patch_colors(html)
-    return html
+    return patch_colors(html)
 
 
 def main() -> None:
     groups = load_groups()
     print(f"Found {sum(len(v) for v in groups.values())} images on {len(groups)} pages")
-    for flist in groups.values():
-        for f in flist:
-            enhance_image(f)
     html = apply_html(groups)
     HTML.write_text(html, encoding="utf-8")
 
     n_img = len(re.findall(r"<img\b", html))
     n_named = len(re.findall(r'data-file="', html))
-    n_b64 = html.count("data:image")
-    print(f"HTML: {n_img} images, {n_named} from manual/, base64={n_b64}")
+    print(f"HTML: {n_img} images, {n_named} from manual/, base64={html.count('data:image')}")
 
+    subprocess.run([sys.executable, str(ROOT / "scripts/sync_pdf_fidelity.py")], check=True)
     subprocess.run([sys.executable, str(ROOT / "scripts/build_symbols_view.py")], check=True)
     subprocess.run([sys.executable, str(ROOT / "scripts/fit_page_layout.py")], check=True)
     subprocess.run([sys.executable, str(ROOT / "scripts/export_manual_pdf.py")], check=True)
