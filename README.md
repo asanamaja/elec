@@ -2,7 +2,13 @@
 
 ## 모바일에서 보기
 
-**GitHub Pages (브라우저):**  
+**심벌·도면 사진 반영 (가볍게, 추천):**  
+https://asanamaja.github.io/elec/output/symbols_view.html
+
+**전체 175페이지 PDF 전사본:**  
+https://asanamaja.github.io/elec/output/dandap_manual.html?v=20260629-photo
+
+**학습 노트 (텍스트만, 사진 없음):**  
 https://asanamaja.github.io/elec/private_study_notes.html
 
 **Cursor 모바일 (에이전트):**
