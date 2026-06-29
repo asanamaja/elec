@@ -11,8 +11,9 @@ from pathlib import Path
 from PIL import Image, ImageOps
 
 ROOT = Path(__file__).resolve().parents[1]
-USER = ROOT / "assets/images/manual/user"
-CROPS = ROOT / "assets/images/manual/crops"
+MANUAL = ROOT / "assets/images/manual"
+USER = MANUAL / "user"
+CROPS = MANUAL / "crops"
 SYM = USER
 
 # Extra top trim for images that still show page/header bleed
@@ -24,7 +25,7 @@ TOP_TRIM = {
 # Skip question-text band below top trim (duct row only)
 DUCT_BAND_SKIP = 0.42
 
-SHOT = USER / "Screenshot_20260628_{name}_Samsung Notes{suffix}.jpg"
+SHOT = MANUAL / "Screenshot_20260628_{name}_Samsung Notes{suffix}.jpg"
 
 
 def path_for(name: str, suffix: str = "") -> Path:
