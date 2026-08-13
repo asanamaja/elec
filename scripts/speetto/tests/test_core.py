@@ -10,7 +10,7 @@ SPEETTO_DIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(SPEETTO_DIR))
 
 from core import calculate_round_metrics, net_prize, probability_at_least_one  # noqa: E402
-from update import parse_probability_percent  # noqa: E402
+from update import calculate_winner_stats, parse_probability_percent  # noqa: E402
 
 
 def make_record(product: str, price: int, issued: int, shipment: float, tiers: list[tuple[int, int, int]]) -> dict:
@@ -128,6 +128,53 @@ class MetricTests(unittest.TestCase):
         )
         metrics = calculate_round_metrics(record)
         self.assertEqual(metrics["decision"]["code"], "first-zero")
+
+    def test_paid_pair_rows_remain_distinct(self) -> None:
+        winners = [
+            {
+                "product": "SP2000",
+                "product_name": "스피또2000",
+                "round": 68,
+                "rank": 1,
+                "prize": 1_000_000_000,
+                "paid_at": "20260807",
+                "store_id": "pair-store",
+                "store_name": "행운복권",
+            },
+            {
+                "product": "SP2000",
+                "product_name": "스피또2000",
+                "round": 68,
+                "rank": 1,
+                "prize": 1_000_000_000,
+                "paid_at": "20260807",
+                "store_id": "pair-store",
+                "store_name": "행운복권",
+            },
+            {
+                "product": "SP2000",
+                "product_name": "스피또2000",
+                "round": 68,
+                "rank": 1,
+                "prize": 1_000_000_000,
+                "paid_at": "20260528",
+                "store_id": "single-store",
+                "store_name": "금강복권",
+            },
+        ]
+        current_rounds = [
+            {
+                "product": "SP2000",
+                "round": 68,
+                "status": "판매중",
+                "tiers": [{"remaining": 3}],
+            }
+        ]
+        stats = calculate_winner_stats(winners, current_rounds)
+        self.assertEqual(stats["official_rows"], 3)
+        self.assertEqual(stats["pair_claims"]["completed_pair_groups"], 1)
+        self.assertEqual(stats["pair_claims"]["same_day_groups"], 1)
+        self.assertEqual(len(stats["odd_signals"][0]["singleton_paid_stores"]), 1)
 
 
 if __name__ == "__main__":
