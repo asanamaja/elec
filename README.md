@@ -1,4 +1,29 @@
-# elec — 전기기사 암기 노트
+# elec — 개인 도구와 전기기사 암기 노트
+
+## 스피또 스코프
+
+동행복권 공식 발행·지급 데이터를 하루 4회 확인하고, 상품·회차별로 다음 정보를 분리해 보여주는 정적 PWA입니다.
+
+- 판매점 입고율과 등위별 미지급수량
+- 발행구조 기준 세전·세후 기대값
+- 1등만, 1~3등, 전체 등위 기대값
+- 청구진행 프록시와 사용자 지정 미해결 매수 시나리오
+- 손익분기 미해결 매수, 예산별 기대손익·한 번 이상 당첨 확률
+- 역대 관측 최고값, 변경 로그, 홀수 1등 신호, 고액 지급 패턴
+- 브라우저 알림, Atom 알림 피드, 설치형 PWA
+
+**대시보드:**  
+https://asanamaja.github.io/elec/output/speetto/
+
+공식 `잔여수량`은 미판매 재고가 아니라 미지급 당첨권 수입니다. 앱의 청구진행 값은 실제 구매 가능 확률이 아닌 민감도 분석이며, 자세한 계산식과 전략 등급은 [`docs/SPEETTO_ANALYTICS.md`](docs/SPEETTO_ANALYTICS.md)를 참고하세요.
+
+수동 갱신:
+
+```bash
+python3 scripts/speetto/update.py
+python3 scripts/speetto/build_dashboard.py
+python3 -m unittest discover -s scripts/speetto/tests -v
+```
 
 ## 모바일에서 보기
 
