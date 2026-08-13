@@ -84,6 +84,22 @@ def parse_korean_money(value: str | None, fallback: int) -> int:
     return fallback
 
 
+def parse_probability_percent(value: Any) -> float:
+    if value in (None, ""):
+        return 0.0
+    text = str(value).strip().replace("%", "")
+    if "/" in text:
+        numerator, denominator = text.split("/", 1)
+        try:
+            return 100.0 * float(numerator) / float(denominator)
+        except (ValueError, ZeroDivisionError):
+            return 0.0
+    try:
+        return float(text)
+    except ValueError:
+        return 0.0
+
+
 def fetch_publications() -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     params = [
         ("gdsType", ""),
@@ -124,7 +140,7 @@ def normalize_round(summary: dict[str, Any], detail: dict[str, Any]) -> dict[str
         "price": int(detail["stNtslAmt"]),
         "issued": int(detail["pblcnQty"]),
         "shipment_rate": float(detail["stSpmtRt"]),
-        "overall_win_probability_percent": float(detail.get("stSumWnPbltNm") or 0),
+        "overall_win_probability_percent": parse_probability_percent(detail.get("stSumWnPbltNm")),
         "official_payout_rate_percent": float(detail.get("stSumWnGiveRt") or 0),
         "sales_start": detail.get("stNtslBgngDt"),
         "sales_end": detail.get("stNtslEndDt"),
@@ -155,7 +171,7 @@ def _product_code(name: str) -> str | None:
 
 
 def fetch_winners() -> list[dict[str, Any]]:
-    records: dict[tuple[Any, ...], dict[str, Any]] = {}
+    records: list[dict[str, Any]] = []
     for product_name in ("스피또500", "스피또1000", "스피또2000"):
         payload = _request_json(
             WINNER_URL,
@@ -169,7 +185,8 @@ def fetch_winners() -> list[dict[str, Any]]:
             product = _product_code(item.get("ltGdsNm", ""))
             if not product:
                 continue
-            record = {
+            records.append({
+                "row_id": item.get("rowId"),
                 "product": product,
                 "product_name": item["ltGdsNm"],
                 "round": int(item["ltEpsd"]),
@@ -178,17 +195,8 @@ def fetch_winners() -> list[dict[str, Any]]:
                 "paid_at": item["giveDt"],
                 "store_id": item.get("ltShpId"),
                 "store_name": item.get("ltShpNm") or "미확인",
-            }
-            key = (
-                record["product"],
-                record["round"],
-                record["rank"],
-                record["paid_at"],
-                record["store_id"],
-                record["store_name"],
-            )
-            records[key] = record
-    return sorted(records.values(), key=lambda item: item["paid_at"], reverse=True)
+            })
+    return sorted(records, key=lambda item: item["paid_at"], reverse=True)
 
 
 def calculate_winner_stats(winners: list[dict[str, Any]], current_rounds: list[dict[str, Any]]) -> dict[str, Any]:

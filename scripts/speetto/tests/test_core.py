@@ -10,6 +10,7 @@ SPEETTO_DIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(SPEETTO_DIR))
 
 from core import calculate_round_metrics, net_prize, probability_at_least_one  # noqa: E402
+from update import parse_probability_percent  # noqa: E402
 
 
 def make_record(product: str, price: int, issued: int, shipment: float, tiers: list[tuple[int, int, int]]) -> dict:
@@ -52,6 +53,10 @@ class ProbabilityTests(unittest.TestCase):
         p = probability_at_least_one(1 / 5_000_000, 2)
         self.assertAlmostEqual(p, 1 - (1 - 1 / 5_000_000) ** 2)
         self.assertEqual(probability_at_least_one(0, 100), 0)
+
+    def test_official_probability_formats(self) -> None:
+        self.assertAlmostEqual(parse_probability_percent("35.3"), 35.3)
+        self.assertAlmostEqual(parse_probability_percent("1/2.83"), 100 / 2.83)
 
 
 class MetricTests(unittest.TestCase):
