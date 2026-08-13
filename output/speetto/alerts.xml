@@ -2,42 +2,42 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>tag:asanamaja.github.io,2026:speetto</id>
   <title>스피또 스코프 변경 알림</title>
-  <updated>2026-08-13T00:41:37+00:00</updated>
+  <updated>2026-08-13T00:42:29+00:00</updated>
   <link href="https://asanamaja.github.io/elec/output/speetto/"/>
   <link rel="self" href="https://asanamaja.github.io/elec/output/speetto/alerts.xml"/>
   
   <entry>
     <id>tag:asanamaja.github.io,2026:speetto:8081be8b9c51c395ce34-0</id>
     <title>홀수 잔여 감지</title>
-    <updated>2026-08-13T00:41:37+00:00</updated>
+    <updated>2026-08-13T00:42:29+00:00</updated>
     <link href="https://asanamaja.github.io/elec/output/speetto/"/>
     <summary>SP2000-68 짝 중 한 장만 지급된 상태일 수 있습니다. 판매·재고 신호는 아닙니다.</summary>
   </entry>
   <entry>
     <id>tag:asanamaja.github.io,2026:speetto:8081be8b9c51c395ce34-1</id>
     <title>입고 필요조건 통과</title>
-    <updated>2026-08-13T00:41:37+00:00</updated>
+    <updated>2026-08-13T00:42:29+00:00</updated>
     <link href="https://asanamaja.github.io/elec/output/speetto/"/>
     <summary>SP2000-68 손익분기 미해결 매수에 대한 입고율 필요조건만 충족했습니다.</summary>
   </entry>
   <entry>
     <id>tag:asanamaja.github.io,2026:speetto:8081be8b9c51c395ce34-2</id>
     <title>1등 제외 회차</title>
-    <updated>2026-08-13T00:41:37+00:00</updated>
+    <updated>2026-08-13T00:42:29+00:00</updated>
     <link href="https://asanamaja.github.io/elec/output/speetto/"/>
     <summary>SP2000-67 공식 미지급 1등이 0매입니다.</summary>
   </entry>
   <entry>
     <id>tag:asanamaja.github.io,2026:speetto:8081be8b9c51c395ce34-3</id>
     <title>입고 필요조건 통과</title>
-    <updated>2026-08-13T00:41:37+00:00</updated>
+    <updated>2026-08-13T00:42:29+00:00</updated>
     <link href="https://asanamaja.github.io/elec/output/speetto/"/>
     <summary>SP1000-108 손익분기 미해결 매수에 대한 입고율 필요조건만 충족했습니다.</summary>
   </entry>
   <entry>
     <id>tag:asanamaja.github.io,2026:speetto:8081be8b9c51c395ce34-4</id>
     <title>입고 필요조건 통과</title>
-    <updated>2026-08-13T00:41:37+00:00</updated>
+    <updated>2026-08-13T00:42:29+00:00</updated>
     <link href="https://asanamaja.github.io/elec/output/speetto/"/>
     <summary>SP1000-107 손익분기 미해결 매수에 대한 입고율 필요조건만 충족했습니다.</summary>
   </entry>

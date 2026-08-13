@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "observed_at": "2026-08-13T00:41:37+00:00",
+  "observed_at": "2026-08-13T00:42:29+00:00",
   "state_hash": "8081be8b9c51c395ce34",
   "source": {
     "name": "동행복권",
@@ -8629,12 +8629,7 @@
       "wnShpCnt": 2
     }
   ],
-  "changes": [
-    {
-      "type": "initial",
-      "message": "첫 공식 데이터 스냅숏을 저장했습니다."
-    }
-  ],
+  "changes": [],
   "alerts": [
     {
       "level": "watch",
@@ -8673,168 +8668,168 @@
     }
   ],
   "history_summary": {
-    "snapshots": 0,
-    "points": 0,
+    "snapshots": 1,
+    "points": 31,
     "comparison": {
       "SP2000-69": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.5682384184008276
       },
       "SP2000-68": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.7308931915741246
       },
       "SP2000-67": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.49178805974242806
       },
       "SP1000-108": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.5617001633746069
       },
       "SP1000-107": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.5887145010374097
       },
       "SP500-48": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.5337718420929349
       },
       "SP2000-66": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.47894834615933213
       },
       "SP2000-65": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.47715179402850916
       },
       "SP2000-64": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.6233106712863284
       },
       "SP2000-63": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.623758715478484
       },
       "SP2000-62": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.49685658624327184
       },
       "SP2000-61": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.5304046300406314
       },
       "SP2000-60": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.4790814870595691
       },
       "SP2000-59": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.49666165427373843
       },
       "SP1000-106": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.6849966072055521
       },
       "SP1000-105": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.5373366934825444
       },
       "SP1000-104": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.8026036418044618
       },
       "SP1000-103": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.5669445076423498
       },
       "SP1000-102": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.5874823043365207
       },
       "SP1000-101": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.5236351584923012
       },
       "SP1000-100": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.572704154117178
       },
       "SP1000-99": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.5689282575697057
       },
       "SP1000-98": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.6341260638065737
       },
       "SP1000-97": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.6172473303404091
       },
       "SP1000-96": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.6518978492168608
       },
       "SP1000-95": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.6113028364033051
       },
       "SP1000-94": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.5897319341871562
       },
       "SP1000-93": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.6423007850275914
       },
       "SP1000-92": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.5662649938800488
       },
       "SP1000-91": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.6672345906947703
       },
       "SP500-47": {
-        "observations": 1,
+        "observations": 2,
         "current_percentile": 100.0,
         "best_net_roi": 0.6634304620111071
       }
     },
     "best_all_roi": {
       "round_id": "SP1000-104",
-      "observed_at": "26-08-07",
+      "observed_at": "2026-08-13T00:41:37+00:00",
       "net_roi": 0.8026036418044618,
       "first_roi": 0.2176331996782817,
       "shipment_rate": 100.0,
@@ -8842,7 +8837,7 @@
     },
     "best_first_roi": {
       "round_id": "SP2000-68",
-      "observed_at": "26-08-07",
+      "observed_at": "2026-08-13T00:41:37+00:00",
       "net_roi": 0.7308931915741246,
       "first_roi": 0.2450577471241471,
       "shipment_rate": 100.0,
