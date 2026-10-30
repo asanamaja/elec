@@ -1,14 +1,28 @@
 <!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Maritime Threat Hub — 연구 데모</title><style>
 :root{--n:#173149;--b:#196d96;--teal:#0e8a83;--bg:#f0f5f7;--line:#d9e3e8}*{box-sizing:border-box}body{margin:0;font-family:"Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;background:var(--bg);color:#183248;line-height:1.65}header{background:linear-gradient(110deg,#153044,#246078);color:#fff;padding:45px max(22px,calc((100vw - 1060px)/2)) 34px}.ey{font-size:11px;letter-spacing:2px;color:#a7d6e3;font-weight:800}h1{font-size:clamp(28px,4vw,42px);letter-spacing:-1px;line-height:1.2;margin:7px 0 10px}header p{color:#d6e9ef;max-width:800px;margin:0}.wrap{max-width:1060px;margin:auto;padding:24px 16px 70px}nav{background:#fff;position:sticky;top:0;z-index:2;border-bottom:1px solid var(--line)}nav>div{max-width:1060px;margin:auto;display:flex;gap:6px;padding:9px 16px;overflow:auto}nav button{border:0;background:none;border-radius:8px;padding:10px 13px;white-space:nowrap;cursor:pointer;color:#49677b;font-weight:700}nav button.on{background:#e7f2f8;color:#115f8f}section{display:none}section.on{display:block}.sub{color:#667988;margin:0 0 18px;font-size:14px}h2{font-size:24px;margin:7px 0}h3{font-size:16px;margin:0 0 13px}.tag{display:inline-block;border:1px solid #d6c59c;background:#fff7df;color:#956418;border-radius:20px;padding:3px 9px;font-size:11px;font-weight:800}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.two{display:grid;grid-template-columns:1.15fr 1fr;gap:14px;margin-top:15px}.card{padding:23px;background:#fff;border-radius:14px;border:1px solid var(--line)}.num{font-size:33px;font-weight:800;line-height:1.4;letter-spacing:-1px}.lab{color:#647988;font-weight:700;font-size:12px}.small{font-size:12px;color:#657e8a}.row{display:grid;grid-template-columns:108px 1fr 46px;align-items:center;gap:10px;margin:14px 0;font-size:13px}.track{height:13px;background:#e7eef1;border-radius:10px;overflow:hidden}.track>i{display:block;background:linear-gradient(90deg,#20688e,#3aa1a5);height:100%;border-radius:10px}.note{padding:13px;border-left:3px solid #70afc6;background:#f0f7fa;color:#466375;font-size:13px;margin-top:17px}.item{padding:12px 0;border-bottom:1px solid #ebeff2;font-size:13px;display:flex;justify-content:space-between;gap:16px}.item:last-child{border:0}.ok{color:#07816c;font-weight:800}.wait{color:#a06316;font-weight:800}.no{color:#b44752;font-weight:800}.pills{display:flex;gap:7px;flex-wrap:wrap;margin:15px 0}.pills button{border:1px solid #b4cbd6;background:white;color:#2e5873;border-radius:24px;padding:8px 13px;cursor:pointer;font-weight:700}.pills button.on{background:#1c6c95;color:white}.option{display:block;width:100%;text-align:left;padding:13px;border:1px solid #cfdae0;border-radius:9px;background:#fff;margin:8px 0;cursor:pointer;font:inherit;font-size:14px}.option.sel{background:#eaf5f8;border-color:#1184a1}.answer{display:none;background:#eef8f7;padding:14px;border-radius:8px;font-size:13px;margin-top:12px}.answer.show{display:block}footer{border-top:1px solid #d4dfe5;text-align:center;font-size:12px;padding:19px;color:#657a8a}a{color:#166f9d}ul{padding-left:18px}li{margin:8px 0}@media(max-width:780px){.grid{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}}@media(max-width:480px){.card{padding:15px}.row{grid-template-columns:80px 1fr 31px}.num{font-size:29px}}
+.presentation-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:14px 0 18px}
+.presentation-actions a,.presentation-actions button{display:inline-flex;align-items:center;justify-content:center;padding:10px 15px;background:#176d93;color:#fff;text-decoration:none;border:0;border-radius:8px;font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+.presentation-actions a.secondary,.presentation-actions button.secondary{background:#e4eef3;color:#205775}
+.presentation-frame{display:block;width:100%;height:76vh;min-height:440px;max-height:920px;border:1px solid var(--line);border-radius:10px;background:#fff}
+@media(max-width:600px){.presentation-frame{height:70vh;min-height:400px}}
 </style></head><body><header><div class="ey">KMOU · CAPSTONE DESIGN · RESEARCH PREVIEW</div><h1>Maritime Threat Hub</h1><p>공개 해양 사이버사고 데이터 기반 자산유형별 위협 가시화 및 규제 연계 대응 지원 시스템</p></header>
-<nav><div><button class="on" data-tab="home">연구 개요</button><button data-tab="select">데이터 선별</button><button data-tab="risk">위협 가시화</button><button data-tab="verify">검증 현황</button><button data-tab="exercise">교육 시나리오</button></div></nav>
+<nav><div><button class="on" data-tab="home">연구 개요</button><button data-tab="select">데이터 선별</button><button data-tab="risk">위협 가시화</button><button data-tab="verify">검증 현황</button><button data-tab="exercise">교육 시나리오</button><button data-tab="presentation">발표자료 · PPT</button></div></nav>
 <main class="wrap"><section class="on" id="home"><span class="tag">AI 보조 연구 · 사람 검수 전</span><h2>프로젝트 진행 현황</h2><p class="sub">검수 전 연구용 결과를 소개하는 공개 범위 최소화 데모입니다. <span id="sync-status" aria-live="polite">최신 데이터 확인 중…</span></p><div class="grid">
 <div class="card"><div class="lab">분석 데이터 스냅샷</div><div class="num">—</div><div class="small">원자료 행 수이며 고유 사고 수가 아님</div></div><div class="card"><div class="lab">핵심 분석 기록</div><div class="num">—</div><div class="small">사람 최종 검수 전</div></div><div class="card"><div class="lab">원문 AI 대조 일치</div><div class="num">—</div><div class="small">집계 확인 중</div></div><div class="card"><div class="lab">자체 자동점검</div><div class="num">—</div><div class="small">집계 확인 중</div></div></div>
 <div class="two"><div class="card"><h3>분석 과정</h3><p>집계 확인 중…</p><p class="small">공개용 데이터 파일에서 자동으로 갱신됩니다.</p><div class="note">원본 사건별 세부 내용은 이 공개 데모에 포함하지 않았습니다. 전체 프로그램은 Private 연구 저장소에서 계속 개발 중입니다.</div></div><div class="card"><h3>연구 목표</h3><ul><li>자료 선별 및 제외 근거의 투명성</li><li>위협 유형별 핵심 기록의 분포 파악</li><li>사고의 출처와 검증 상태 추적</li><li>규제 참고 및 해기사 대응 교육 연계</li></ul></div></div></section>
 <section id="select"><h2>데이터 선별 과정</h2><p class="sub">연구상 적용된 필터링 현황입니다. 각 단계의 건수가 곧 사건의 진위·대표성을 뜻하지는 않습니다.</p><div class="two"><div class="card"><h3>선별 진행</h3><div id="funnel"></div></div><div class="card"><h3>전체 데이터 최종 구분</h3><div id="parts"></div><div class="note">제외된 기록의 누락 가능성 및 선별 편향에 대한 추가 사람 검수가 필요합니다.</div></div></div></section>
 <section id="risk"><h2>위협 유형별 분포</h2><p class="sub">아래 수치는 현재 선별된 핵심 기록의 내부 분류 결과입니다. 선박 전체의 사고 발생률이 아닙니다.</p><div class="two"><div class="card"><h3>핵심 행 분류</h3><div id="risks"></div></div><div class="card"><h3>분류 설명</h3><div class="pills"><button class="on" data-type="RF">RF</button><button data-type="AIS">AIS</button><button data-type="IT">IT</button><button data-type="OT">OT</button></div><p id="detail"></p></div></div></section>
 <section id="verify"><h2>검증 현황과 한계</h2><p class="sub">코드 및 수치 점검과 연구 결과의 사실 정확도는 구별해야 합니다.</p><div class="two"><div class="card"><h3>완료·부분 완료</h3><div class="item"><span>코드와 산출물 자동 점검</span><span class="ok">확인 중</span></div><div class="item"><span>자동 점검 부분 확인</span><span class="wait">확인 중</span></div><div class="item"><span>핵심 기록 AI 원문 대조</span><span class="wait">확인 중</span></div></div><div class="card"><h3>추가 검증 필요</h3><div class="item"><span>독립적인 2인 사람 검수</span><span class="no">확인 중</span></div><div class="item"><span>ATT&amp;CK 기법 적용 전문가 판정</span><span class="no">확인 중</span></div><div class="item"><span>규제 대응 항목 전문가 판정</span><span class="no">확인 중</span></div></div></div><div class="note">자동 점검 통과 비율은 사고 분류 정확도를 의미하지 않습니다. 발표 시 테스트 통과 건수로만 제시합니다.</div></section>
-<section id="exercise"><span class="tag">가상 교육용 예시 · 실제 사건 아님</span><h2>해기사 의사결정 연습</h2><div class="two"><div class="card"><h3>상황: 항법정보 불일치 발견</h3><p>서로 다른 위치·속력 정보원에서 불일치가 발생했습니다. 사이버 공격인지 장비 이상인지는 아직 알 수 없습니다.</p><strong>초기 대응으로 가장 적절한 것은?</strong><button class="option" data-answer="a">A. 화면 한 곳의 표시를 그대로 믿고 운항한다</button><button class="option" data-answer="b">B. 독립 수단으로 교차확인하고 선박 절차에 따라 보고한다</button><button class="option" data-answer="c">C. 원인을 공격으로 단정하고 장비를 모두 종료한다</button><div id="answer" class="answer"></div></div><div class="card"><h3>연구에서 다루는 방식</h3><p>사고 기록과 대응 참고자료를 연결해 해기사의 상황 판단을 돕는 교육용 구성을 연구합니다.</p><div class="note">실제 선박 운영·안전 판단에는 선사 SMS 및 공식 절차를 우선 적용해야 합니다. 본 문항의 교육효과는 검증되지 않았습니다.</div></div></div></section></main>
+<section id="exercise"><span class="tag">가상 교육용 예시 · 실제 사건 아님</span><h2>해기사 의사결정 연습</h2><div class="two"><div class="card"><h3>상황: 항법정보 불일치 발견</h3><p>서로 다른 위치·속력 정보원에서 불일치가 발생했습니다. 사이버 공격인지 장비 이상인지는 아직 알 수 없습니다.</p><strong>초기 대응으로 가장 적절한 것은?</strong><button class="option" data-answer="a">A. 화면 한 곳의 표시를 그대로 믿고 운항한다</button><button class="option" data-answer="b">B. 독립 수단으로 교차확인하고 선박 절차에 따라 보고한다</button><button class="option" data-answer="c">C. 원인을 공격으로 단정하고 장비를 모두 종료한다</button><div id="answer" class="answer"></div></div><div class="card"><h3>연구에서 다루는 방식</h3><p>사고 기록과 대응 참고자료를 연결해 해기사의 상황 판단을 돕는 교육용 구성을 연구합니다.</p><div class="note">실제 선박 운영·안전 판단에는 선사 SMS 및 공식 절차를 우선 적용해야 합니다. 본 문항의 교육효과는 검증되지 않았습니다.</div></div></div></section>
+<section id="presentation"><span class="tag">2026-10-30 연구보강 초안 · 최종 심사 전</span>
+<h2>졸업논문 발표자료</h2><p class="sub">발표자료를 이 페이지에서 직접 볼 수 있습니다. PDF는 PPTX를 기준으로 자동 변환되며, 새 버전 게시 후 열려 있는 페이지도 60초 간격으로 확인합니다.</p>
+<div class="card">
+<h3>연구 발표 슬라이드 <span id="presentation-count" class="small"></span></h3>
+<p id="presentation-status" class="small" aria-live="polite">공개된 발표자료 확인 중…</p>
+<div class="presentation-actions"><a id="presentation-pdf" href="./presentation.pdf" target="_blank" rel="noopener">PDF 새 창에서 열기</a><a id="presentation-pptx" class="secondary" href="./presentation.pptx" download="Maritime_Threat_Hub.pptx">PPTX 다운로드</a><button id="presentation-refresh" class="secondary" type="button">새 버전 확인</button></div>
+<iframe id="presentation-frame" class="presentation-frame" title="Maritime Threat Hub 졸업논문 발표자료 PDF" loading="lazy" src="about:blank"></iframe>
+<p class="small">일부 모바일 브라우저에서 내부 PDF 미리보기가 제한될 수 있습니다. 그때는 위의 PDF 열기 버튼을 사용하세요. 공개 발표자료에는 초안과 검증 전 연구 내용이 포함되어 있습니다.</p>
+</div></section></main>
 <footer>Maritime Threat Hub · 자동 동기화 연구 상태 기반 공개용 요약 데모 · 전체 사건 데이터 및 저작권 있는 원문 미포함<br>본 사이트는 검수 전 연구 자료를 설명하기 위한 것으로 원래 v2 전체 프로그램과 다른 축약본입니다.</footer>
 <script>
 const $=s=>document.querySelector(s);document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{document.querySelectorAll("nav button").forEach(x=>x.classList.toggle("on",x===b));document.querySelectorAll("main section").forEach(x=>x.classList.toggle("on",x.id===b.dataset.tab));window.scrollTo(0,0)});const makeRows=(id,arr,max)=>{$(id).innerHTML=arr.map(([label,v])=>'<div class="row"><b>'+label+'</b><div class="track"><i style="width:'+Math.max(1,v/max*100)+'%"></i></div><strong>'+v+'</strong></div>').join('')};// Charts are populated only after the public summary JSON is validated.
@@ -105,5 +119,55 @@ const details={RF:"집계 확인 중",AIS:"집계 확인 중",IT:"집계 확인 
     status.style.color = '#a34224';
     console.warn('Public preview data unavailable', error);
   }
+})();
+</script>
+<script>
+(() => {
+  const status = document.getElementById('presentation-status');
+  const frame = document.getElementById('presentation-frame');
+  const pdfLink = document.getElementById('presentation-pdf');
+  const pptxLink = document.getElementById('presentation-pptx');
+  const count = document.getElementById('presentation-count');
+  let activeVersion = null;
+  let checking = false;
+  async function checkPresentation() {
+    if (checking) return;
+    checking = true;
+    try {
+      const response = await fetch('./presentation.json?check=' + Date.now(), {cache: 'no-store'});
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      const m = await response.json();
+      if (m.schema_version !== 1 || !/^[a-f0-9]{64}$/.test(m.version) ||
+          m.pdf !== 'presentation.pdf' || m.pptx !== 'presentation.pptx' ||
+          !Number.isSafeInteger(m.slide_count) || m.slide_count < 1 || m.slide_count > 40) {
+        throw new Error('Invalid presentation manifest');
+      }
+      const v = '?v=' + m.version.slice(0, 16);
+      const changed = activeVersion !== m.version;
+      if (changed) {
+        // Set metadata before swapping the PDF to avoid a stale browser cache.
+        pdfLink.href = './' + m.pdf + v;
+        pptxLink.href = './' + m.pptx + v;
+        frame.src = './' + m.pdf + v;
+        activeVersion = m.version;
+      }
+      count.textContent = '· ' + m.slide_count + '장';
+      const d = new Date(m.generated_at_utc);
+      const date = Number.isNaN(d.getTime()) ? '최신' :
+        d.toLocaleString('ko-KR', {timeZone:'Asia/Seoul'});
+      status.textContent = (changed ? '최신 발표자료 표시 중' : '발표자료 최신 버전 확인됨') +
+          ' · 게시 동기화 ' + date + ' · 자동 확인 간격 60초';
+      status.style.color = '#087e67';
+    } catch (error) {
+      status.textContent = activeVersion
+        ? '최신 버전 확인 실패 · 마지막으로 확인한 발표자료 유지'
+        : '발표자료를 불러올 수 없습니다 · 아래 PDF 링크로 확인하세요';
+      status.style.color = '#a34224';
+      console.warn('Public presentation unavailable', error);
+    } finally { checking = false; }
+  }
+  document.getElementById('presentation-refresh').addEventListener('click', checkPresentation);
+  checkPresentation();
+  setInterval(checkPresentation, 60000);
 })();
 </script></body></html>
