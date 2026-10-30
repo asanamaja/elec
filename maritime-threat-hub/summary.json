@@ -31,5 +31,10 @@
     "partial": 1,
     "not_run": 3,
     "total": 27
+  },
+  "manual_review": {
+    "independent_review": "미실시",
+    "attack_expert_review": "미실시",
+    "regulation_expert_review": "미실시"
   }
 }
