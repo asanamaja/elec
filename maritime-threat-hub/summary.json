@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at_utc": "2026-10-30T05:20:06.478Z",
+  "generated_at_utc": "2026-10-30T06:36:49+00:00",
   "funnel": {
     "all": 897,
     "candidates": 177,
@@ -26,15 +26,15 @@
     "unchecked": 0,
     "inaccessible": 0
   },
+  "manual_review": {
+    "independent_review": "미실시",
+    "attack_expert_review": "미실시",
+    "regulation_expert_review": "미실시"
+  },
   "automatic_checks": {
     "pass": 23,
     "partial": 1,
     "not_run": 3,
     "total": 27
-  },
-  "manual_review": {
-    "independent_review": "미실시",
-    "attack_expert_review": "미실시",
-    "regulation_expert_review": "미실시"
   }
 }
