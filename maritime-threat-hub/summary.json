@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-10-30T05:20:06.478Z",
+  "funnel": {
+    "all": 897,
+    "candidates": 177,
+    "stage2": 52,
+    "reviewed": 40,
+    "core": 20,
+    "events_provisional": 19,
+    "reference": 14,
+    "separate_ais": 6,
+    "excluded_stage1": 720,
+    "excluded_stage2": 125,
+    "excluded_stage3": 12
+  },
+  "categories": {
+    "RF": 12,
+    "AIS": 7,
+    "OB_IT": 1,
+    "OB_OT": 0
+  },
+  "ai_evidence_rows": {
+    "match": 18,
+    "partial": 2,
+    "unchecked": 0,
+    "inaccessible": 0
+  },
+  "automatic_checks": {
+    "pass": 23,
+    "partial": 1,
+    "not_run": 3,
+    "total": 27
+  }
+}
