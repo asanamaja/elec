@@ -38,12 +38,41 @@
 .ex-result{margin-top:14px}.ex-result-score{font-size:22px;font-weight:800;margin:4px 0 10px}
 .ex-result .item button{border:0;background:none;color:#166f9d;text-decoration:underline;cursor:pointer;font:inherit;padding:0;text-align:left}
 @media(max-width:820px){.ex-wrap{grid-template-columns:1fr}.ex-figure{position:static}}
+
+.method-step{display:grid;grid-template-columns:45px minmax(0,1fr);gap:12px;padding:16px 0;border-bottom:1px solid var(--line)}
+.method-step:last-child{border-bottom:0}.method-no{width:36px;height:36px;border-radius:10px;background:#e4f1f3;color:#126a78;display:flex;align-items:center;justify-content:center;font-weight:900}
+.method-step b{display:block;font-size:15px}.method-step p{font-size:13px;color:#476b7e;margin:5px 0}
+.method-disclaimer{font-size:13px;padding:14px 16px;border-left:4px solid #bd8a47;background:#fff8ea;margin-top:20px}
 </style></head><body><header><div class="ey">KMOU · CAPSTONE DESIGN · RESEARCH PREVIEW</div><h1>Maritime Threat Hub</h1><p>공개 해양 사이버사고 데이터 기반 자산유형별 위협 가시화 및 규제 연계 대응 지원 시스템</p></header>
-<nav><div><button class="on" data-tab="home">연구 개요</button><button data-tab="select">데이터 선별</button><button data-tab="risk">위협 가시화</button><button data-tab="verify">검증 현황</button><button data-tab="exercise">교육 시나리오</button><button data-tab="presentation">발표자료 · PPT</button></div></nav>
+<nav><div><button class="on" data-tab="home">연구 개요</button><button data-tab="method">연구 처리 알고리즘</button><button data-tab="select">데이터 선별</button><button data-tab="risk">위협 가시화</button><button data-tab="verify">검증 현황</button><button data-tab="exercise">교육 시나리오</button><button data-tab="presentation">발표자료 · PPT</button></div></nav>
 <main class="wrap"><section class="on" id="home"><span class="tag">AI 보조 연구 · 사람 검수 전</span><h2>프로젝트 진행 현황</h2><p class="sub">검수 전 연구용 결과를 소개하는 공개 범위 최소화 데모입니다. <span id="sync-status" aria-live="polite">최신 데이터 확인 중…</span></p><div class="grid">
 <div class="card"><div class="lab">분석 데이터 스냅샷</div><div class="num">—</div><div class="small">원자료 행 수이며 고유 사고 수가 아님</div></div><div class="card"><div class="lab">핵심 분석 기록</div><div class="num">—</div><div class="small">사람 최종 검수 전</div></div><div class="card"><div class="lab">원문 AI 대조 일치</div><div class="num">—</div><div class="small">집계 확인 중</div></div><div class="card"><div class="lab">자체 자동점검</div><div class="num">—</div><div class="small">집계 확인 중</div></div></div>
 <div class="two"><div class="card"><h3>분석 과정</h3><p>집계 확인 중…</p><p class="small">공개용 데이터 파일에서 자동으로 갱신됩니다.</p><div class="note">원본 사건별 세부 내용은 이 공개 데모에 포함하지 않았습니다. 전체 프로그램은 Private 연구 저장소에서 계속 개발 중입니다.</div></div><div class="card"><h3>연구 목표</h3><ul><li>자료 선별 및 제외 근거의 투명성</li><li>위협 유형별 핵심 기록의 분포 파악</li><li>사고의 출처와 검증 상태 추적</li><li>규제 참고 및 해기사 대응 교육 연계</li></ul></div></div></section>
-<section id="select"><h2>데이터 선별 과정</h2><p class="sub">연구상 적용된 필터링 현황입니다. 각 단계의 건수가 곧 사건의 진위·대표성을 뜻하지는 않습니다.</p><div class="card"><h3>수집 입력부터 교육 화면까지</h3><ol><li><strong>수집 입력 보존:</strong> MCAD·ADMIRAL 기존 Excel 스냅샷과 해시를 보존합니다. 이번 실행에서 새로 수집한 API 자료는 없습니다.</li><li><strong>가공:</strong> 원본 ID를 유지하며 날짜·국가·기존 분류 필드를 정규화합니다.</li><li><strong>후보·분류:</strong> 선박 관련성 규칙, 출처 유형 등급, 기록별 AI 검토 판정으로 핵심·참고·별도를 구분합니다.</li><li><strong>근거와 시나리오:</strong> 저장된 원문 대조 상태를 연결하고 사실(F)·참고(R)·훈련 가정(H)·미확인(U)을 표시합니다.</li><li><strong>검증·출력:</strong> 기록 수·판정·참조 ID와 웹 생성을 점검하고, 실행 기록과 파일 해시를 보관합니다.</li></ol><p class="small">2026-11-02 정립한 재처리 절차입니다. 출처 연결·자동 구조검사는 사람의 사실 검증이나 교육 효과 검증과 별개입니다. 발표자료 탭에서 상세 방법을 확인할 수 있습니다.</p></div><div class="two"><div class="card"><h3>선별 진행</h3><div id="funnel"></div></div><div class="card"><h3>전체 데이터 최종 구분</h3><div id="parts"></div><div class="note">제외된 기록의 누락 가능성 및 선별 편향에 대한 추가 사람 검수가 필요합니다.</div></div></div></section>
+
+<section id="method"><span class="tag">재현 절차 코드화 · 과거 개별 판정표와 구별</span>
+<h2>수집부터 발표까지: 실제 실행 경로</h2>
+<p class="sub">기존 사고별 판정 자료를 숨기지 않고, 동일한 입력·버전에서 어떤 행이 왜 포함·제외됐는지 다시 계산합니다.</p>
+<div class="two">
+<div class="card">
+<h3>전처리·선별·출력 8단계</h3>
+<div class="method-step"><div class="method-no">01</div><div><b>데이터 수집 스냅샷</b><p>MCAD + ADMIRAL 통합 엑셀, 출처·UID·원본 URL 보존. 수집 당시 고정 데이터이며 실시간 API 수집으로 주장하지 않습니다.</p></div></div>
+<div class="method-step"><div class="method-no">02</div><div><b>데이터 정규화</b><p>날짜·원본 사건 유형·피해 자산·IT/OT·근거 URL을 공통 필드로 읽습니다. 기존 가공 필드를 그대로 사용하며 신규 NLP 자동 판정은 아닙니다.</p></div></div>
+<div class="method-step"><div class="method-no">03</div><div><b>선박 관련성 필터 R1~R6</b><p>오작동 제외 → spoofing/전자전 → 피해 설명 vessel → 선박 자산 → 선박 OT → 나머지 제외. 순서가 결과에 영향을 줍니다.</p></div></div>
+<div class="method-step"><div class="method-no">04</div><div><b>근거 출처 등급 평가</b><p>도메인 정규식·URL별 예외로 1~6등급을 분류하고 최상위 출처 등급을 계산합니다. 낮은 등급의 기존 참고 사례는 별도 유지합니다.</p></div></div>
+<div class="method-step"><div class="method-no">05</div><div><b>사고별 판정 및 중복</b><p>사전 작성된 포함·제외·자발적 AIS 목록과 중복 상태(same/campaign/different/unknown)를 적용합니다. 독립 검수된 정답셋은 아닙니다.</p></div></div>
+<div class="method-step"><div class="method-no">06</div><div><b>원문 근거·시나리오 연결</b><p>사고 ID·URL 대조 상태를 유지하고 F(사실)·R(참고)·H(가정)·U(미확인)를 구별합니다. 14문항의 실제 생성 계보는 모두 복구되지 않았습니다.</p></div></div>
+<div class="method-step"><div class="method-no">07</div><div><b>897행 재현성 검사</b><p>고정 엑셀 SHA-256·UID·행별 단계·출처 등급·최종 상태를 기존 결과와 전수 비교합니다. 이는 정확도·재현율 검증이 아닙니다.</p></div></div>
+<div class="method-step"><div class="method-no">08</div><div><b>집계·PPTX/PDF·공개 웹 출력</b><p>검사된 집계로 발표자료를 생성하고 원문을 제외한 승인 자료 6종만 공개 페이지로 동기화합니다.</p></div></div>
+</div>
+<div class="card"><h3>실제 코드 기준 선별 수치</h3><p id="method-flow" class="num" style="font-size:23px;line-height:1.75">공개 집계 확인 중…</p><p class="small" id="method-sub">집계가 검증되면 각 단계 수치가 표시됩니다.</p>
+<h3>검증 범위를 구분합니다</h3><div class="item"><span>같은 입력으로 같은 판정 출력</span><span class="ok">코드 검증 대상</span></div>
+<div class="item"><span>기존 사고별 분류가 사실상 옳은가?</span><span class="no">독립 검수 전</span></div>
+<div class="item"><span>새 사고에도 일반화되는가?</span><span class="no">성능 미측정</span></div>
+<div class="item"><span>훈련 효과가 향상되는가?</span><span class="no">사용자 평가 전</span></div>
+<div class="method-disclaimer"><b>연구 수행 이력 주의:</b> 2026-11-02에 새로 작성한 실행형 재현·감사 코드와 과거에 이미 기록된 사고 ID별 판단을 구분합니다. 과거에 자동 NLP 분류나 독립 전문가 평가가 이루어진 것처럼 표시하지 않습니다.</div>
+<p class="small">상세 사건별 자료, 판정 로그, 근거 링크는 비공개 연구 저장소에서 관리합니다.</p>
+</div></div></section>
+<section id="select"><h2>데이터 선별 과정</h2><p class="sub">연구상 적용된 필터링 현황입니다. 각 단계의 건수가 곧 사건의 진위·대표성을 뜻하지는 않습니다.</p><div class="two"><div class="card"><h3>선별 진행</h3><div id="funnel"></div></div><div class="card"><h3>전체 데이터 최종 구분</h3><div id="parts"></div><div class="note">제외된 기록의 누락 가능성 및 선별 편향에 대한 추가 사람 검수가 필요합니다.</div></div></div></section>
 <section id="risk"><h2>위협 유형별 분포</h2><p class="sub">아래 수치는 현재 선별된 핵심 기록의 내부 분류 결과입니다. 선박 전체의 사고 발생률이 아닙니다.</p><div class="two"><div class="card"><h3>핵심 행 분류</h3><div id="risks"></div></div><div class="card"><h3>분류 설명</h3><div class="pills"><button class="on" data-type="RF">RF</button><button data-type="AIS">AIS</button><button data-type="IT">IT</button><button data-type="OT">OT</button></div><p id="detail"></p></div></div></section>
 <section id="verify"><h2>검증 현황과 한계</h2><p class="sub">코드 및 수치 점검과 연구 결과의 사실 정확도는 구별해야 합니다.</p><div class="two"><div class="card"><h3>완료·부분 완료</h3><div class="item"><span>코드와 산출물 자동 점검</span><span class="ok">확인 중</span></div><div class="item"><span>자동 점검 부분 확인</span><span class="wait">확인 중</span></div><div class="item"><span>핵심 기록 AI 원문 대조</span><span class="wait">확인 중</span></div></div><div class="card"><h3>추가 검증 필요</h3><div class="item"><span>독립적인 2인 사람 검수</span><span class="no">확인 중</span></div><div class="item"><span>ATT&amp;CK 기법 적용 전문가 판정</span><span class="no">확인 중</span></div><div class="item"><span>규제 대응 항목 전문가 판정</span><span class="no">확인 중</span></div></div></div><div class="note">자동 점검 통과 비율은 사고 분류 정확도를 의미하지 않습니다. 발표 시 테스트 통과 건수로만 제시합니다.</div></section>
 <section id="exercise"><span class="tag">가상 교육용 예시 · 실제 사건 아님</span> <span class="tag">AI 작성 정답 기준 · 전문가 검토 전</span><h2>해기사 의사결정 연습</h2><p class="sub">공개 사고 기록에서 자주 보이는 위협 유형을 가상 상황으로 바꾼 연습 문제입니다. 답을 고르면 정답·오답과 각 선택지의 이유가 나옵니다. 실제 선박에서는 선사 SMS와 공식 절차가 항상 우선합니다.</p>
@@ -54,7 +83,7 @@
 </div>
 <div class="card ex-result" id="ex-result" hidden><h3>연습 결과</h3><p id="ex-result-score" class="ex-result-score"></p><div id="ex-result-list"></div><div class="ex-nav"><button type="button" id="ex-restart" class="ex-btn">처음부터 다시 풀기</button></div></div>
 <div class="note">정답 기준은 공개 지침(COLREG, IMO·IACS 문서, BIMCO 등 업계 지침, UKMTO·USCG 공개 안내)의 일반 원칙에 맞춰 AI가 작성한 초안이며, 해기사·전문가 검토 전입니다. 표시된 참고 문서는 문서 단위 안내이고 조항 단위 대조는 비공개 v2에서 관리합니다. 본 문항의 교육효과는 검증되지 않았습니다.</div></section>
-<section id="presentation"><span class="tag">2026-11-02 재현 가능한 연구 방법 · 검수 전</span>
+<section id="presentation"><span class="tag">2026-11-02 재현 절차 개정 · 전문가 검토 전</span>
 <h2>졸업논문 발표자료</h2><p class="sub">발표자료를 이 페이지에서 직접 볼 수 있습니다. PDF는 PPTX를 기준으로 자동 변환되며, 새 버전 게시 후 열려 있는 페이지도 60초 간격으로 확인합니다.</p>
 <div class="card">
 <h3>연구 발표 슬라이드 <span id="presentation-count" class="small"></span></h3>
@@ -94,6 +123,14 @@ const details={RF:"집계 확인 중",AIS:"집계 확인 중",IT:"집계 확인 
     }
     const n = v => String(v);
     const f = d.funnel, c = d.categories, v = d.automatic_checks, e = d.ai_evidence_rows;
+    const method = document.getElementById('method-flow');
+    const methodSub = document.getElementById('method-sub');
+    if (method && methodSub) {
+      method.textContent = [f.all, f.candidates, f.stage2, f.reviewed].join(' → ') + '행';
+      methodSub.textContent = '핵심 ' + f.core + '행 · 참고 ' + f.reference +
+        '행 · 별도 AIS ' + f.separate_ais + '행 / 제외 ' +
+        (f.excluded_stage1 + f.excluded_stage2 + f.excluded_stage3) + '행';
+    }
     const numEls = document.querySelectorAll('#home .grid .num');
     const values = [n(f.all) + '행', n(f.core) + '행', n(e.match) + '/' + n(f.core), n(v.pass) + '/' + n(v.total)];
     numEls.forEach((el,i) => {if (values[i]) el.textContent = values[i];});
@@ -155,6 +192,10 @@ const details={RF:"집계 확인 중",AIS:"집계 확인 중",IT:"집계 확인 
       ? '공개용 집계 동기화됨' : '공개용 집계 동기화: ' + date.toLocaleString('ko-KR', {timeZone:'Asia/Seoul'});
     status.style.color = '#087e67';
   } catch (error) {
+    const method = document.getElementById('method-flow');
+    const methodSub = document.getElementById('method-sub');
+    if (method) method.textContent = '집계 확인 불가';
+    if (methodSub) methodSub.textContent = '실제 수치를 표시하려면 공개 집계 파일을 확인해야 합니다.';
     status.textContent = '최신 집계 확인 불가 · 검증된 집계 값을 표시하지 않습니다';
     status.style.color = '#a34224';
     console.warn('Public preview data unavailable', error);
