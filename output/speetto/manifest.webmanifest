@@ -1,0 +1,19 @@
+{
+  "name": "스피또 스코프",
+  "short_name": "스피또 스코프",
+  "description": "공식 스피또 잔여·입고·세후 기대값 관측 대시보드",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#edf1f5",
+  "theme_color": "#101b2d",
+  "lang": "ko",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

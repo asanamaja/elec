@@ -1,0 +1,56 @@
+name: Update Speetto analytics
+
+on:
+  schedule:
+    # Official lower-tier figures are usually weekly, while first-prize
+    # payments can change between updates. Four checks per day balances
+    # freshness with respectful use of the public endpoints.
+    - cron: "17 0,6,12,18 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/speetto/**"
+      - ".github/workflows/speetto-update.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: speetto-data-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run calculation tests
+        run: python -m unittest discover -s scripts/speetto/tests -v
+
+      - name: Fetch official data and rebuild app
+        env:
+          SPEETTO_ALERT_WEBHOOK_URL: ${{ secrets.SPEETTO_ALERT_WEBHOOK_URL }}
+        run: |
+          python scripts/speetto/update.py
+          python scripts/speetto/build_dashboard.py
+
+      - name: Commit changed observations
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/speetto output/speetto/index.html output/speetto/alerts.xml
+          if git diff --cached --quiet; then
+            echo "No observable data changes"
+            exit 0
+          fi
+          git commit -m "data: update Speetto observations"
+          git push
